@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>nomad.uk.net</title>
+
+		<meta name="author" content="Gary Willoughby">
+		<meta name="description" content="This blog is where i can rant and rave about all the different aspects of software development, save code and ideas for later and somewhere where readers and i can both learn from each other. What better way is there to reach other like minded developers than to keep a journal of ideas and thoughts that hopefully will help our community as a whole. Plus, it’s also a storage facility for me, so i don’t forget this stuff!">
+		<meta name="keywords"  content="blog" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/css/gist.css">
+		<link rel="stylesheet" type="text/css" href="/css/disqus.css">
+	</head>
+	<body>
+		<header>
+			<div class="content">
+				<table>
+					<tr>
+						<td class="logo">
+							<a href="/"><h1>nomad<span class="highlight">software</span></h1></a>
+						</td>
+						<td class="links">
+							<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+							<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+							<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="nav-bar">
+								<ul>
+									<li><a href="/"><img src="/images/header/home.png" /></a></li>
+									<li><a href="/pages/about.html">About</a></li>
+									<li><a href="/pages/tools.html">Tools</a></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</header>
+
+		<div class="body">
+			<div class="content">
+				<div class="figure">
+<img src="/articles/images/generics-in-go2-Its-a-no-brainer-banner.jpg" />
+
+</div>
+<h1 id="generics-in-go-v2.0-its-a-no-brainer">Generics in Go v2.0 It’s a no-brainer!</h1>
+<p><time>Posted on 25th July 2017 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
+<p>Recently there has been a lot of talk about adding <a href="https://en.wikipedia.org/wiki/Generic_programming">Generics</a> to the popular programming language <a href="https://golang.org/">Go</a>. Not only do I think this is a good idea, I actually think it’s a complete no-brainer! Go has been maturing at a rapid rate over the last few years and the Go team have recently <a href="https://github.com/golang/go/wiki/ExperienceReports">started asking for user experiences</a> to influence Go’s future. In my humble opinion, they only need to focus on one thing. Can you guess what it is?</p>
+<h2 id="gos-hype-is-real">Go’s hype is real</h2>
+<p><a href="#">I’ve written before about Go</a> and how I was initially pretty unimpressed with the over simplicity and parenting that is forced upon you. However, over time I’ve come to enjoy using Go to the point that every new project I tackle, Go is the first language I consider. In my opinion, it’s unsurpassed for cross-platform support, tooling and libraries. The language itself is simple and straightforward and the concurrency support is second to none. It really is an absolute joy to create <a href="https://en.wikipedia.org/wiki/Concurrent_computing">concurrent programs</a> in such a simple, robust way. I, like many people, just enjoy using Go. So what’s the problem?</p>
+<h2 id="its-problem-is-a-lack-of-reusability">Its problem is a lack of reusability</h2>
+<p>This is the <a href="https://en.wikipedia.org/wiki/Elephant_in_the_room">elephant in the room</a>, or as some have described it, the <a href="https://www.quora.com/Which-language-has-the-brightest-future-in-replacement-of-C-between-D-Go-and-Rust-And-Why">‘N’ word of Go</a>. Generics are a feature that solves real world problems which Go literally can’t cope with. These problems that are nigh on impossible to solve without resorting to bypassing <a href="https://en.wikipedia.org/wiki/Type_system">type system</a> or using <a href="https://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> hacks, both of which are highly discouraged.</p>
+<p>These are currently impossible to do with Go in any sane way</p>
+<ol style="list-style-type: decimal">
+<li>Create reusable <a href="https://en.wikipedia.org/wiki/Abstract_data_type">abstract data types</a></li>
+<li>Create reusable algorithms (for comparison, iteration, mutation, searching and sorting)</li>
+<li>Implement reusable interfaces (for <a href="http://www.informit.com/articles/article.aspx?p=1407357&amp;seqNum=2">ranges</a> or <a href="https://en.wikipedia.org/wiki/Iterator">iterators</a>)</li>
+<li>Create any non-trivial <a href="https://en.wikipedia.org/wiki/Abstraction_(software_engineering)">abstraction</a></li>
+</ol>
+<p>The list goes on but the startling common thread running through this list is reusability. Why is Go so adverse to reusability or to writing libraries? I know <a href="https://en.wikipedia.org/wiki/Rob_Pike">Rob Pike</a> likes to espouse &quot;<a href="https://go-proverbs.github.io/">A little copying is better than a little dependency.</a>&quot; but the copying is getting out of control and whats more, this is a solved problem.</p>
+<p>Even the <a href="https://www.airs.com/blog/archives/559">Go team has suffered from the lack of reusability</a> making difficult decisions to add new built-in functions to the language because of the lack of library friendly generics.</p>
+<blockquote>
+<p><a href="https://www.airs.com/blog/archives/559">I’m not really opposed to a builtin append function but I want to make the obvious comment that, like copy, this is a function we are only considering because we don’t have generics.</a> – Ian Lance Taylor</p>
+</blockquote>
+<h2 id="generics-will-solve-this">Generics will solve this</h2>
+<p>You don’t need user experience reports to clearly see the problems people are facing using Go. You just have to open any Go discussion on the internet. This is a bigger problem than experience reports will show because people simply use another language if they have to implement the above list. Generics are the missing part of the puzzle to make Go a world class, leading language. <a href="https://github.com/golang/go/issues/15292">Adding this for Go v2.0 is the right thing to do</a>.</p>
+															<div id="disqus_thread" class="disqus"></div>
+						<script>
+							var disqus_config = function() {
+								this.page.url        = "http://nomad.uk.net/articles/generics-in-go2-Its-a-no-brainer.html";
+								this.page.identifier = "ca202477cd566cfd97638c522238e978";
+							};
+
+							(function() {
+								var d = document;
+								var s = d.createElement('script');
+								s.src = 'https://nomad-software.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+							})();
+						</script>
+												</div>
+		</div>
+
+		<footer>
+			<div class="content">
+				<table>
+					<tr>
+						<td>
+							<img src="https://s.gravatar.com/avatar/8b96f7858444f2ec6d364adfea854acc?s=80" class="thumb" />
+						</td>
+						<td>
+							<p class="author">
+								<strong>Author: Gary Willoughby</strong><br>
+								Software engineer and published author with nearly twenty years experience of software design and development.
+							</p>
+							<p class="copyright">
+								Content copyright &copy; 2017 Gary Willoughby All Rights Reserved.
+								All source code is public domain and provided "as is", so use at your own risk.
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</footer>
+	</body>
+</html>
