@@ -1,4 +1,4 @@
-<iframe class="youtube" src="https://www.youtube.com/embed/hQVTIJBZook?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/hQVTIJBZook" frameborder="0" allowfullscreen></iframe>
 
 # JavaScript – The Good Parts
 

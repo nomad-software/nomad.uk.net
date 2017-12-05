@@ -8,7 +8,7 @@ do
 	ID=$(echo ${URL} | md5sum | cut -d ' ' -f 1);
 
 	pandoc --standalone \
-		--template="template.html" \
+		--template="templates/article.html" \
 		--output="./${SHORT}.html" \
 		--variable=disqus-url:${URL} \
 		--variable=disqus-id:${ID} \
@@ -23,11 +23,11 @@ do
 	ID=$(echo ${URL} | md5sum | cut -d ' ' -f 1);
 
 	pandoc --standalone \
-		--template="template.html" \
+		--template="templates/article.html" \
 		--output="./${SHORT}.html" \
 		--variable=disqus-url:${URL} \
 		--variable=disqus-id:${ID} \
 		${LONG};
 done
 
-pandoc --standalone --template="template.html" --output="./index.html" "./markdown/index.md";
+pandoc --standalone --template="templates/article.html" --output="./index.html" "./markdown/index.md";

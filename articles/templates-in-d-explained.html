@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>nomad.uk.net</title>
+
+		<meta name="author" content="Gary Willoughby">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/css/gist.css">
+		<link rel="stylesheet" type="text/css" href="/css/disqus.css">
+	</head>
+	<body>
+		<header>
+			<div class="content">
+				<table>
+					<tr>
+						<td class="logo">
+							<a href="/"><h1>nomad<span class="highlight">software</span></h1></a>
+						</td>
+						<td class="links">
+							<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+							<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+							<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="nav-bar">
+								<ul>
+									<li><a href="/"><img src="/images/header/home.png" /></a></li>
+									<li><a href="/pages/about.html">About</a></li>
+									<li><a href="/pages/tools.html">Tools</a></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</header>
+
+		<div class="body">
+			<div class="content">
+				<div class="figure">
+<img src="/articles/images/templates-in-d-explained-banner.png" />
+
+</div>
+<h1 id="templates-in-d-explained">Templates in D explained</h1>
+<p><time>Posted on 20th July 2013 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
+<p>Let’s get one thing straight from the outset, <a href="https://en.wikipedia.org/wiki/Template_metaprogramming">template metaprogramming</a> scares the hell out of most developers! I have no idea why, probably because it simply <em>sounds</em> scary? Whatever the reason, many developers shy away from even learning about such techniques, let alone use them. This is such a shame because templates offer a superb tool for programming at a higher level of <a href="https://en.wikipedia.org/wiki/Abstraction_(software_engineering)">abstraction</a> which is something that can aid in better program design.</p>
+<p>Even though many programming languages support template metaprogramming this article is about using templates in <a href="https://dlang.org/">D</a>. D is one of the best languages I have ever used and the more I use it the more I realise it’s getting everything just right. Hopefully this article will remove the above fear and educate developers on what can be achieved.</p>
+<h2 id="so-what-are-templates">So what are templates?</h2>
+<p>Put simply templates are a tool to enable automatic generation of source code at <a href="https://en.wikipedia.org/wiki/Compile_time">compile time</a> which is then inserted into your program. You create a template for the source code and the compiler generates the needed code based on that template. It really is that simple. With that in mind let’s start.</p>
+<h2 id="type-parameters">Type parameters</h2>
+<p>To start understanding templates you first need to understand type parameters. These are the things that give templates their flexibility. These type parameters can be applied to classes, member functions, interfaces and structs but for the purpose of initial instruction i’ll demonstrate how they are used with <em>non</em> member functions. So without further ado, take a look at this function definition:</p>
+<script src="https://gist.github.com/nomad-software/16796639f8f9ca52779a3e4aadb30515.js"></script>
+<p>Here i’ve declared a function called <code>foo</code> which takes an integer as a parameter and then returns it. This is pretty straightforward stuff but by using the <code>int</code> type hint for the parameter i’ve effectively constrained this particular function to only accept that particular type. It can only be called successfully by passing an integer as a parameter, as shown in the call. This might not seem like a big deal here but imagine if this was a very useful function that would also make sense to take a string as a parameter too. If that was the case we could achieve this in two ways. The first option is to <a href="https://en.wikipedia.org/wiki/Function_overloading">overload</a> the function and therefore declare one for each supported type:</p>
+<script src="https://gist.github.com/nomad-software/e7d18682e9e8d3f4ea9383743a263bfb.js"></script>
+<p>but that means we have to duplicate the definition, which is less than ideal. The second option to handle this scenario is to use type parameters. Take a look at this:</p>
+<script src="https://gist.github.com/nomad-software/7fae6587905d21113a9cc01eb2598ce2.js"></script>
+<p>Here only <em>one</em> function is needed to support multiple types. In this definition we simply substitute the type hint for a type place holder which will be replaced when we call the function. I’m using the letter <code>T</code> here as the place holder to replace all types, even for the return type. Let me explain this a bit further.</p>
+<h3 id="why-two-sets-of-parentheses">Why two sets of parentheses?</h3>
+<p>You’ll notice that I declare the function with two sets of parentheses that contain the letter <code>T</code>. This is how you define type parameters. The first set defines place holders that are going to substitute the types we use (here i’ve only used one, <code>T</code>). The second set of parens assign these place holders to values as you would for normal value parameters. So essentially i’ve declared that the parameter <code>x</code> is of a type represented by <code>T</code>. We don’t need to declare any types at this stage only the place holders.</p>
+<h3 id="whats-that-strange-exclamation-mark">What’s that strange exclamation mark?</h3>
+<p>To call this templated function we need to pass type information along with the value parameter. This information will be passed into the definition at compile time and replace the place holders. This is called template instantiation. To pass this in correctly you use another set of parens preceded by an exclamation mark <code>!</code> during the call:</p>
+<script src="https://gist.github.com/nomad-software/1e8452386132b34e7a2af0e044dc426c.js"></script>
+<p>The first of the above calls passes <code>int</code> as the type which should replace <code>T</code> and <code>12345</code> as the value parameter. The second call passes <code>string</code> which should replace <code>T</code> and the string <code>hello</code> as the value parameter. The compiler then generates two functions when compiling, effectively recreating the overload example above but without repeating any code.</p>
+<p>When defining a function that uses type parameters you can define as many as you need and use them anywhere in the definition anywhere where real types are expected:</p>
+<script src="https://gist.github.com/nomad-software/e147ad6603a807a3282fcbe1d8f63b0a.js"></script>
+<p>Notice i’m using <code>A[]</code> for the type of <code>container</code> and <code>B</code> as the iterator type in the <code>for</code> loop.</p>
+<h3 id="alternative-syntax">Alternative syntax</h3>
+<p>So far we have seen the longhand way of calling functions with template parameters. Meaning, i’ve only so far shown the most explicit way of calling a function with type parameters. There also exists a alternative syntax.</p>
+<p>The following is sometimes used when calling a defined function where there exists only one type parameter. If that’s the case we don’t need to use parens around the type parameter in the call. These two calls instantiate the template in exactly the same way:</p>
+<script src="https://gist.github.com/nomad-software/a81a35239148c7bc759a530b90cbdd3a.js"></script>
+<p>To further shorten this, we could even take away the type parameter completely. These are all equal:</p>
+<script src="https://gist.github.com/nomad-software/079f9b11ba3aff198b2f9822801c3949.js"></script>
+<p>When calling a templated function using the last option however, the type must be able to be inferred by the compiler at compile time. If that’s possible, the template will be instantiated successfully.</p>
+<p>The last alternative can be the most confusing and exists only because <strong>in D all functions defined without value parameters can be called without their parens</strong>.</p>
+<script src="https://gist.github.com/nomad-software/a93adbae0a350a1690b05e503a64e5cd.js"></script>
+<p>Here i’ve opted to call the function only specifying the type parameters (without the parens) and without the normal parameter parens (because the function doesn’t take any parameters).</p>
+<p>I try to stay away from alternative styles where possible to make sure the code is as readable as possible for other developers. I can however understand why these alternative styles exist so they need to be understood.</p>
+<h3 id="dot-notation-support">Dot notation support</h3>
+<p>As with all non member functions you can call templated versions using the dot notation syntax too. <strong>In D any non member function can infer the first value parameter from the identifier prefixing the call appended via a dot</strong>:</p>
+<script src="https://gist.github.com/nomad-software/fd28cc6daa27888603018634bf44145c.js"></script>
+<p>All seven calls above instantiate the templated function successfully and all produce the same output. In the case of the calls where no type parameter is passed, the type is inferred from the literal. Using dot notation is an excellent way to create <a href="https://en.wikipedia.org/wiki/Extension_method">extension methods</a> for existing types and to create very flexible libraries. In fact this pattern is used extensively in <a href="https://dlang.org/phobos/index.html">Phobos</a>, the standard library included with all D compilers.</p>
+<h2 id="parameterized-classes-interfaces-and-structs">Parameterized classes, interfaces and structs</h2>
+<p>So far i’ve used non member functions to demonstrate type parameters but they can also be applied to classes, interfaces and structs. Here’s an example implementation of a queue using type parameters on an interface and a class. (Structures use them in exactly the same way.)</p>
+<script src="https://gist.github.com/nomad-software/96e4ba0162dca82d3ccd3dd3a91a565c.js"></script>
+<p>The usage of type parameters above makes sure the type represented by the place holder flows through not only the class but the interface as well. The type is then used throughout the entire definition for the type of the <code>data</code> member variable, the parameter type of the <code>enqueue</code> method and return type of the <code>dequeue</code> method.</p>
+<p>To demonstrate the true flexibility of the above implementation we can easily create a queue that uses integers instead, like this:</p>
+<script src="https://gist.github.com/nomad-software/a110dd54a3b56a6c690f240d64175cc8.js"></script>
+<p>And that is it! Simply by changing the type we instantiate the template in a different way. Each instantiated template, both the string and integer version are strongly typed and react as if two implementations had been created by hand.</p>
+<p>Notice i’ve used the longhand syntax to define the interface and class. For me this is easier to read and understand what is being asked of the compiler. When instantiating the queue object i’m in two minds whether the longhand or alternative is better. Some people prefer <code>auto x = new Queue!(string)();</code> while others prefer <code>auto x = new Queue!string;</code>. After learning the alternative syntax above, both are equal.</p>
+<h2 id="parameterized-scopes">Parameterized scopes</h2>
+<p>After reading the above few paragraphs you should now have a grasp on what type parameters are and how they are used in definitions. Sometimes however you might like to perform some compile time type manipulation but don’t want to create a class, struct or function doing it. This is where parameterized scopes come into play. These allow you to define a block scope using the <code>template</code> keyword and later instantiate it while passing parameters. These scopes (or templates as we’ll refer to them from now on) can be instantiated whenever they are needed. Once the template has been instantiated you can then read types or values from it. Here is an example:</p>
+<script src="https://gist.github.com/nomad-software/33db1eae40694f06c07172c7fba092d8.js"></script>
+<p>Above i’ve defined a template called <code>FixedSizeArray</code> that can create many array types depending on the parameters passed. The first thing to notice is that you can pass type parameters and value parameters to the template in the same set of parens. This is intended and as long as everything passed is available at compile time the template will instantiate successfully.</p>
+<p>When first instantiating the template I pass the type <code>short</code> and the literal <code>2</code> like this:</p>
+<script src="https://gist.github.com/nomad-software/d10248fffbb4f4927269b1a2ba9b6ece.js"></script>
+<p>I then access the aliased type definition inside the template scope by using dot notation and use it as a type to define <code>location</code>. In the above line <code>type</code> is the alias i’m accessing (created by the template) therefore the entire line compiles to:</p>
+<script src="https://gist.github.com/nomad-software/09e3c04fc7f74ae722aa7145c8398162.js"></script>
+<p>Of course this is a contrived example to demonstrate how templates are used but the example clearly shows how types and values are passed into a template and how values or (in this case) types are accessed from outside the scope. A template can create as many types and values as needed and all can be accessed from outside via dot notation. However, templates usually only define one type or value purely to keep things modular and simple.</p>
+<h3 id="eponymous-templates">Eponymous templates</h3>
+<p>I can guess what you’re thinking, oh no, another template to learn? Well not exactly. <strong>Eponymous templates are templates defined in a particular way enabling alternative access of one type or value inside</strong>. If you look at the above template again, it only defines one aliased type called <code>type</code> and we then access that using dot notation to actually use it. It would be nicer to infer that type or value for use during template instantiation. To do this is to create an eponymous template. Here is the above example re-written to be one:</p>
+<script src="https://gist.github.com/nomad-software/5aa14fec8cc353b6d2c8b50c7fc027e3.js"></script>
+<p>The only change i’ve made is to rename the type alias to the same name as the template itself and remove the dot notation when instantiating it. That’s all that’s needed for a type or value to be automatically used on template instantiation. In fact all the compiler is doing is automatically adding the dot notation for us. So in effect when we use the template like this:</p>
+<script src="https://gist.github.com/nomad-software/77e0d1ac99adc7849a71c96776a8b354.js"></script>
+<p>The compiler is really doing this:</p>
+<script src="https://gist.github.com/nomad-software/35b16ecab4d3acd144d2e8c3a0817ffa.js"></script>
+<p>This is awesome and makes the code a lot cleaner. There is however one draw back in that you can’t access any other types or values within the template as any dot notation used will always have the inferred name appended first.</p>
+<h2 id="mixins-templates">Mixins templates</h2>
+<p>The final part of understanding templates is learning about mixins. These are templates that allow you to inject code anywhere where the mixin is used. Using one is very similar to using parameterized scopes (templates) but instead of accessing that scope from outside, the mixin is instantiated (compiled) and injected where it’s used. Look at this example:</p>
+<script src="https://gist.github.com/nomad-software/f2a0a2033ae286cb12cbcf36bccee7b7.js"></script>
+<p>Here i’ve created a mixin template called <code>property</code> to allow automatic creation of class member variables. When instantiated using the <code>mixin</code> keyword followed by its name and type parameters, this template will copy its contents to that position in the code. You can see this in action in the above class definition of <code>C</code>. There you can see the template instantiation and point of injection:</p>
+<script src="https://gist.github.com/nomad-software/b49e25561a1a736d47e54e6cd2356b6c.js"></script>
+<p>The above line means replace <code>T</code> with <code>int</code> in the mixin definition and then inject all of the mixin’s contents here. Once this class is then instantiated we have access to the injected property through the mutator and accessor methods as also defined by the mixin.</p>
+<h3 id="mixin-scopes">Mixin scopes</h3>
+<p>Another feature of mixins is that a scope can be introduced when injecting a mixin. This allows us to resolve ambiguity when referring to code that is injected multiple times. For example, if we try and inject another property into the class above we will encounter an error because each mixin is trampling over the other. To get around this problem the idea of scopes can be added to the mixin instantiation. Using the same mixin template as before we can modify the class definition to add scopes to mixin injection.</p>
+<script src="https://gist.github.com/nomad-software/952015627c1f184a5871a5583dcd3ee0.js"></script>
+<p>Introducing scopes like this means we can now refer to each piece of injected code separately.</p>
+<h3 id="a-brief-warning">A brief warning</h3>
+<p>Mixins can inject any code anywhere and as such require a great deal of discipline to use without creating an unholy undecipherable monster. You have been warned!</p>
+<h2 id="common-template-features">Common template features</h2>
+<p>Most of the template types discussed above have common features that can be used for each. For example the type parameters are a common feature of all template types and were introduced first as they are fundamental to understanding all templates. There are however a few more common features that can be applied to all of the above template types.</p>
+<h3 id="variadic-type-parameters">Variadic type parameters</h3>
+<p>Similar to variadic value parameters in functions, templates also support variadic type parameters too. These are useful for passing an arbitrary amount of types or values to any kind of template. When passing types or values this way the place holder refers to a <a href="https://en.wikipedia.org/wiki/Tuple">Tuple</a> containing the passed data. As a by-product of this and as a demonstration we can create an eponymous template to create usable tuples extremely easily:</p>
+<script src="https://gist.github.com/nomad-software/fda0d4136b3f13428a91838a6ccfa792.js"></script>
+<p>Notice the <a href="https://en.wikipedia.org/wiki/Ellipsis">ellipsis</a> immediately after the place holder <code>T</code> in the <code>Tuple</code> template definition. That denotes this is an arbitrary length tuple of types and/or values. I haven’t done it in this template but the tuple data itself can be accessed via array like indexes. The tuple is assigned to the <code>rhyme</code> variable and passed to the <code>format</code> function which itself requires variadic value parameters for its data. Just for information, when passing a tuple like this to a function it is flattened out as a comma delimited list of its contents. Read more about tuples in D <a href="https://dlang.org/tuple.html">here</a>.</p>
+<h3 id="template-constraints">Template constraints</h3>
+<p>When defining type parameters you can also create constraints to make sure templates only instantiate when parameters of a certain type are passed. These are called template constraints or template specialisations and there are two forms. The first is a simple type hint on the type parameter like this:</p>
+<script src="https://gist.github.com/nomad-software/2c055c39095f31dd5a835799ecd82586.js"></script>
+<p>Here we’ve decorated the place holder <code>T</code> with the type hint <code>int</code> using a colon character. This only allows type parameters that can be implicitly cast to an integer. All the calls above will instantiate the template correctly.</p>
+<p>The second form is a more firm constraint used to strongly define the only allowed type that should be used for a particular type parameter:</p>
+<script src="https://gist.github.com/nomad-software/e6294fcacf1a551bb93f4b52b7a31f0b.js"></script>
+<p>Using the <code>if</code> and <code>is</code> keywords together only <code>int</code> can now be specified as the type parameter to replace <code>T</code> and successfully instantiate the template.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Okay, this article has expanded to way more than i first imagined but after writing it i’m glad a single resource like this now exists. Hopefully this article will give future D developers a firm grounding of how to use templates in D and what options are available. I could expand a little further giving multiple examples and use cases but i prefer to keep it as simple as possible for now. There is a lot more to learn about templates especially about what’s really going on ‘under the hood’ but you don’t need to know that in order to use them effectively.</p>
+<p>I hope this has been insightful and given you the confidence to use template meta programming in your D programs and i hope it has removed a lot of the fear that surrounds it. D is a fantastic language and makes stuff like this fun and intuitive. Give it a go!</p>
+															<div id="disqus_thread" class="disqus"></div>
+						<script>
+							var disqus_config = function() {
+								this.page.url        = "http://nomad.uk.net/articles/templates-in-d-explained.html";
+								this.page.identifier = "14673a7dd5fd4541e9dfa9799fbe4d60";
+							};
+
+							(function() {
+								var d = document;
+								var s = d.createElement('script');
+								s.src = 'https://nomad-software.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+							})();
+						</script>
+												</div>
+		</div>
+
+		<footer>
+			<div class="content">
+				<table>
+					<tr>
+						<td>
+							<img src="https://s.gravatar.com/avatar/8b96f7858444f2ec6d364adfea854acc?s=80" class="thumb" />
+						</td>
+						<td>
+							<p class="author">
+								<strong>Author: Gary Willoughby</strong><br>
+								Software engineer and published author with nearly twenty years experience of software design and development.
+							</p>
+
+							<div class="links">
+								<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+								<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+								<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+							</div>
+
+							<p class="copyright">
+								Content copyright &copy; 2017 Gary Willoughby All Rights Reserved.
+								All source code is public domain and provided "as is", so use at your own risk.
+								All content previously appeared at <a href="http://nomad.so/" target="_blank">www.nomad.so</a> and carefully migrated here because the somalis wanted their domain back! 😞
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</footer>
+	</body>
+</html>

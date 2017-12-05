@@ -8,7 +8,7 @@ Recently there has been a lot of talk about adding [Generics](https://en.wikiped
 
 ## Go’s hype is real
 
-[I’ve written before about Go](#) and how I was initially pretty unimpressed with the over simplicity and parenting that is forced upon you. However, over time I’ve come to enjoy using Go to the point that every new project I tackle, Go is the first language I consider. In my opinion, it’s unsurpassed for cross-platform support, tooling and libraries. The language itself is simple and straightforward and the concurrency support is second to none. It really is an absolute joy to create [concurrent programs](https://en.wikipedia.org/wiki/Concurrent_computing) in such a simple, robust way. I, like many people, just enjoy using Go. So what’s the problem?
+[I’ve written before about Go](/articles/why-gos-design-is-a-disservice-to-intelligent-programmers.html) and how I was initially pretty unimpressed with the over simplicity and parenting that is forced upon you. However, over time I’ve come to enjoy using Go to the point that every new project I tackle, Go is the first language I consider. In my opinion, it’s unsurpassed for cross-platform support, tooling and libraries. The language itself is simple and straightforward and the concurrency support is second to none. It really is an absolute joy to create [concurrent programs](https://en.wikipedia.org/wiki/Concurrent_computing) in such a simple, robust way. I, like many people, just enjoy using Go. So what’s the problem?
 
 ## Its problem is a lack of reusability
 
@@ -25,8 +25,12 @@ The list goes on but the startling common thread running through this list is re
 
 Even the [Go team has suffered from the lack of reusability](https://www.airs.com/blog/archives/559) making difficult decisions to add new built-in functions to the language because of the lack of library friendly generics.
 
-> [I’m not really opposed to a builtin append function but I want to make the obvious comment that, like copy, this is a function we are only considering because we don’t have generics.](https://www.airs.com/blog/archives/559) – Ian Lance Taylor
+> I’m not really opposed to a builtin append function but I want to make the obvious comment that, like copy, this is a function we are only considering because we don’t have generics. – Ian Lance Taylor <sup>1</sup>
 
 ## Generics will solve this
 
 You don’t need user experience reports to clearly see the problems people are facing using Go. You just have to open any Go discussion on the internet. This is a bigger problem than experience reports will show because people simply use another language if they have to implement the above list. Generics are the missing part of the puzzle to make Go a world class, leading language. [Adding this for Go v2.0 is the right thing to do](https://github.com/golang/go/issues/15292).
+
+---
+
+1. [https://www.airs.com/blog/archives/559](https://www.airs.com/blog/archives/559)

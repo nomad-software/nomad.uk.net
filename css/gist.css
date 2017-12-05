@@ -5,5 +5,22 @@
 }
 
 .gist .blob-num, .gist .blob-code-inner, .gist .highlight, .gist pre, .gist code, .gist .gist-file {
-	font-family: "DeJaVu Sans Mono", "Droid Sans Mono", "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+	font-family: "Droid Sans Mono", "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
 }
+
+.gist .gist-data {
+	/* max-height: 450px; */
+}
+
+.gist .gist-meta {
+    background: transparent !important;
+}
+
+.gist .gist-data .highlight {
+	margin: 1em 0 !important;
+}
+
+.gist .gist-data .highlight .blob-num, .gist .gist-data .highlight .blob-code {
+	padding: 0px 10px !important;
+}
+

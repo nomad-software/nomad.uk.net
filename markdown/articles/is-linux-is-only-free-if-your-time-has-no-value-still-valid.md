@@ -2,13 +2,13 @@
 
 # Is ‘Linux is only free if your time has no value’ still valid?
 
-<time>Posted on 8th July 2017 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 8th July 2013 by [Gary Willoughby](/pages/about.html)</time>
 
 **EDIT:** This is now an old post and my opinion on Linux has changed a great deal over the years. While I agree this viewpoint had some merit a few years ago, the enormous effort by the open source community to make Linux great has generally succeeded. So for the record, this article no longer represents my views on Linux and should be viewed in a historical context.
 
 ---
 
-> [This is the part where I start getting hate mail from people, and cheerleading messages telling me to take a look at it again, because it’s so much better now. I understand. I’ll take your word for it. And when the time comes to replace the O2 I have today, maybe my next machine will run Linux. But as we all know, Linux is only free if your time has no value, and I find that my time is better spent doing things other than the endless moving-target-upgrade dance.](https://www.jwz.org/doc/linux.html) – Jamie Zawinski
+> This is the part where I start getting hate mail from people, and cheerleading messages telling me to take a look at it again, because it’s so much better now. I understand. I’ll take your word for it. And when the time comes to replace the O2 I have today, maybe my next machine will run Linux. But as we all know, Linux is only free if your time has no value, and I find that my time is better spent doing things other than the endless moving-target-upgrade dance. – Jamie Zawinski <sup>1</sup>
 
 The above quote comes from a post made by a programmer called [Jamie Zawinski](https://en.wikipedia.org/wiki/Jamie_Zawinski) back in1998. It’s a quote aimed squarely at the user unfriendliness of Linux and at the amount of time you need to understand and configure a computer using Linux to get stuff done. Of course this was a long time ago and Linux, in its many different guises (distros), has made a lot of progress, so is this quote still valid?
 
@@ -31,10 +31,14 @@ This, however, is not the problem. The problem is the little things, the kind of
 * Why is there no 64bit Flash player?
 * Why can’t i play DVDs or MP3s straight away?
 * Why doesn’t Linux recognise my Web Camera?
-* …and so on
+* ...and so on
 
 These are all small and simple but legitimate problems and of course for me easily solved but for the user who has never used any Linux distribution before these are major time sinks. Anybody with a modicum of intelligence can overcome these obstacles with a little help from Google, but why should they, when competing operating systems work ‘straight out of the box’? These types of problems are extremely common place on any Linux system and they make doing anything remotely professional a chore on such systems.
 
 Linux of course is doing just fine in the server rooms around the world, mainly because a lot of technical people work in such environments and have been using UNIX type systems for a long time but for the novice wanting to use Linux on the desktop or server because of some perceived value of using free stuff, i’d advise not to, unless you have a lot of disposable time on your hands.
 
 You’re gonna have to pay in one way or another, it might be in staff, training or time, but you will pay for using Linux!
+
+---
+
+1. [https://www.jwz.org/doc/linux.html](https://www.jwz.org/doc/linux.html)

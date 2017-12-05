@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>nomad.uk.net</title>
+
+		<meta name="author" content="Gary Willoughby">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/css/gist.css">
+		<link rel="stylesheet" type="text/css" href="/css/disqus.css">
+	</head>
+	<body>
+		<header>
+			<div class="content">
+				<table>
+					<tr>
+						<td class="logo">
+							<a href="/"><h1>nomad<span class="highlight">software</span></h1></a>
+						</td>
+						<td class="links">
+							<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+							<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+							<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="nav-bar">
+								<ul>
+									<li><a href="/"><img src="/images/header/home.png" /></a></li>
+									<li><a href="/pages/about.html">About</a></li>
+									<li><a href="/pages/tools.html">Tools</a></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</header>
+
+		<div class="body">
+			<div class="content">
+				<div class="figure">
+<img src="/articles/images/stop-abusing-arrays-in-php-banner.jpg" />
+
+</div>
+<h1 id="stop-abusing-arrays-in-php">Stop abusing arrays in PHP</h1>
+<p><time>Posted on 29th June 2014 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
+<p>This is an issue i’ve wanted to get of my chest for a long time. It’s been latently brewing inside me for a considerable amount of time and it’s starting to come to a head. The issue is with PHP and the total abuse of arrays. Whether this issue is an artifact of the language’s historical baggage or because PHP just attracts a lot of inexperienced developers is up for debate. My problem here is that arrays are nearly always used where objects should be!</p>
+<p>Let’s take a look at some truly horrendous code abusing arrays. Let’s say for example that we are retrieving some data from a database (or saving it for that matter) and the way we handle that data is via arrays. Here is a made up example i see daily.</p>
+<script src="https://gist.github.com/nomad-software/4ef174e03e6f87673ac3c5ba81da41ff.js"></script>
+<p>Here we have a giant <a href="https://en.wikipedia.org/wiki/Array_data_structure#Multidimensional_arrays">multidimensional array</a> holding information about a particular fishing pond. There is only one pond listed here but imagine if there were hundreds in this array with much more rich data. So what’s up with this? Well think about it, here we have a shed load of data stored in an array but absolutely no associated behaviour. When we need to work with this data we have to construct complicated processor classes or functions full of nested loops to handle it. For example, how do i get the total amount of fish stocked in a pond? I’d have to iterate through the array and add and the numbers together. To the untrained eye that would not be such a big deal but it would be nicer to handle that calculation like this.</p>
+<script src="https://gist.github.com/nomad-software/12fca8711de70ef1173b2f89824f5a85.js"></script>
+<p>No processor class needed and a lot less code to get at the exact piece of data i need. Of course the calculation has to take place somewhere and you can’t escape looping through the data to add this up but this behaviour should be nicely encapsulated inside the relevant classes. And that’s the main problem here. Using arrays as gigantic storage bins means you are robbing yourself blind from all of the advantages of <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">object oriented programming</a>. The above should be structured more like this.</p>
+<script src="https://gist.github.com/nomad-software/67751e417b3ef29a79c4b4a79f31e61e.js"></script>
+<h2 id="needless-complexity">Needless complexity</h2>
+<p>Using huge multidimensional arrays not only means all associated behaviour is absent but you need complicated access mechanisms in place to actually work with the data. Usually these are implemented as processor classes which employ huge methods using nested loops. It’s not unusual to see code like this.</p>
+<script src="https://gist.github.com/nomad-software/40405c92bee49630b4075349cfe41e57.js"></script>
+<p>Usually though these processor classes are a lot more complicated because the nesting levels in the arrays are a lot more deep and contain way too much information. Complexity and maintainability goes through the roof making future modifications of the array structure or the processor time consuming and fraught with danger. Also the behaviour implemented here has nothing in common with the data it’s using. It’s literally just a processor iterating through data, there’s no relationship at all. The more i think about this i’m convinced this is another facet of the <a href="https://www.martinfowler.com/bliki/AnemicDomainModel.html">anemic domain model</a> anti-pattern <a href="https://en.wikipedia.org/wiki/Martin_Fowler">Martin Fowler</a> talked about years ago. Again, wouldn’t it be a lot simpler to do this?</p>
+<script src="https://gist.github.com/nomad-software/fdd0e067b263893cde339f52d72c2382.js"></script>
+<p>Using classes to encapsulate the data better might seem like you are writing more code but i guarantee from experience it’s less in the long run. Just think of all the code needed to be written in processors that deal with arrays. All those loops are not necessary. Not only will it turn out to be less code written but you are also defining clear boundaries to what each class does and <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">what it’s responsible for</a> making future maintenance work easier to perform. Lots of little components are easier to work with than <a href="https://en.wikipedia.org/wiki/Big_ball_of_mud">huge balls of code</a>.</p>
+<h2 id="youre-doing-it-wrong">You’re doing it wrong</h2>
+<p>The only reason i see the above being used on a daily basis is because either the developer is inexperienced, doesn’t understand object oriented programming or is lost in the past. I don’t care how you justify using arrays like this, at it’s core is <a href="https://en.wikipedia.org/wiki/Procedural_programming">procedural programming</a>, it’s not scalable and you’re doing it wrong! Object oriented programming was invented to handle this kind of stuff especially for associating behaviour with state, helping with maintainability and keeping complexity to an absolute minimum. Believe it or not i’ve seen code from extremely popular e-commerce companies using this <a href="https://en.wikipedia.org/wiki/Anti-pattern">anti pattern</a> for something as important as shopping carts and orders. In some places developers are not allowed to touch the code (even when it’s bugged) because it’s so complicated and brittle, change is literally impossible. It’s crazy!</p>
+<h2 id="working-with-collections">Working with collections</h2>
+<p>Get it out of your head that you need to use an array because you have a collection of data. <strong>The word ‘collection’ does <em>not</em> mean use an array!</strong> This is where inexperience of PHP developers show through because they have never heard of <a href="https://en.wikipedia.org/wiki/Iterator">iterators</a>. Using iterators enables you to work with collections of data while implementing associated behaviour. It sounds complicated but it’s actually really simple. Here is a class implementing an iterator.</p>
+<script src="https://gist.github.com/nomad-software/08035d4bbd536850752ea981e021bab4.js"></script>
+<p>Boom, that’s it. Implementing a class like this creates an iterable collection of data with associated behaviour. At it’s heart is an array but an array which can now be nicely decorated with associated methods for working with the data. Implementing the <code>IteratorAggregate</code> interface on this class makes it immediately available to loops.</p>
+<script src="https://gist.github.com/nomad-software/87336117022349f1f09817e7954bf53c.js"></script>
+<p>Here the value of <code>$pond</code> is whatever the individual elements of <code>$collection</code> are, which of course can be instances of other objects. This is how collections should be handled in PHP when they need any behaviour associated with them. Instead of this associated behaviour being spread around the application in different processors, it’s now actually attached to the collection itself. More information on iterators can be found here.</p>
+<ul>
+<li><a href="http://www.php.net/manual/en/class.iteratoraggregate.php" class="uri">http://www.php.net/manual/en/class.iteratoraggregate.php</a></li>
+<li><a href="http://www.php.net/manual/en/spl.iterators.php" class="uri">http://www.php.net/manual/en/spl.iterators.php</a></li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Arrays are not evil but should only be used when a collection of data has no associated behaviour. Please stop this madness of using (and abusing) arrays for everything!</p>
+															<div id="disqus_thread" class="disqus"></div>
+						<script>
+							var disqus_config = function() {
+								this.page.url        = "http://nomad.uk.net/articles/stop-abusing-arrays-in-php.html";
+								this.page.identifier = "18b227c562914333eaac09991fd88452";
+							};
+
+							(function() {
+								var d = document;
+								var s = d.createElement('script');
+								s.src = 'https://nomad-software.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+							})();
+						</script>
+												</div>
+		</div>
+
+		<footer>
+			<div class="content">
+				<table>
+					<tr>
+						<td>
+							<img src="https://s.gravatar.com/avatar/8b96f7858444f2ec6d364adfea854acc?s=80" class="thumb" />
+						</td>
+						<td>
+							<p class="author">
+								<strong>Author: Gary Willoughby</strong><br>
+								Software engineer and published author with nearly twenty years experience of software design and development.
+							</p>
+
+							<div class="links">
+								<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+								<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+								<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+							</div>
+
+							<p class="copyright">
+								Content copyright &copy; 2017 Gary Willoughby All Rights Reserved.
+								All source code is public domain and provided "as is", so use at your own risk.
+								All content previously appeared at <a href="http://nomad.so/" target="_blank">www.nomad.so</a> and carefully migrated here because the somalis wanted their domain back! 😞
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</footer>
+	</body>
+</html>
