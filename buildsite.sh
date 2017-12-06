@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Delete and then regenerate all articles.
-find ./articles -iname "*.html" -exec rm {} \;
+find ./site -iname "*.html" -exec rm -v {} \;
+
 find ./markdown/articles -iname "*.md" -print0 | while read -d $'\0' file
 do
 	LONG=$file;
@@ -9,16 +9,16 @@ do
 	URL="http://nomad.uk.net/${SHORT}.html";
 	ID=$(echo ${URL} | md5sum | cut -d ' ' -f 1);
 
+	echo "created './site/${SHORT}.html'";
+
 	pandoc --standalone \
 		--template="templates/article.html" \
-		--output="./${SHORT}.html" \
+		--output="./site/${SHORT}.html" \
 		--variable=disqus-url:${URL} \
 		--variable=disqus-id:${ID} \
 		${LONG};
 done;
 
-# Delete and then regenerate all pages.
-find ./pages -iname "*.html" -exec rm {} \;
 find ./markdown/pages -iname "*.md" -print0 | while read -d $'\0' file
 do
 	LONG=$file;
@@ -26,14 +26,15 @@ do
 	URL="http://nomad.uk.net/${SHORT}.html";
 	ID=$(echo ${URL} | md5sum | cut -d ' ' -f 1);
 
+	echo "created './site/${SHORT}.html'";
+
 	pandoc --standalone \
 		--template="templates/article.html" \
-		--output="./${SHORT}.html" \
+		--output="./site/${SHORT}.html" \
 		--variable=disqus-url:${URL} \
 		--variable=disqus-id:${ID} \
 		${LONG};
 done;
 
-# Delete and then regenerate all pages.
-rm index.html;
-pandoc --standalone --template="templates/article.html" --output="./index.html" "./markdown/index.md";
+pandoc --standalone --template="templates/article.html" --output="./site/index.html" "./markdown/index.md";
+echo "created './site/index.html'";
