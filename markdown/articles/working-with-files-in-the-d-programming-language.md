@@ -12,11 +12,11 @@ Some of following code examples make good use of D’s uniform function call syn
 
 ### Open and close files
 
-The following code show how to open and close a file in a safe way. Generally D does not attempt to provide thin wrappers over equivalent functions from the [C](https://en.wikipedia.org/wiki/C_(programming_language)) standard library, but manipulating such file handles directly is unsafe and error-prone in many ways. The <code>File</code> type ensures safe manipulation, automatic file closing, and a lot of convenience. The underlying handle is maintained in a [reference-counted](https://en.wikipedia.org/wiki/Reference_counting) manner, such that as soon as the last <code>File</code> variable goes out of scope, the underlying handle is automatically closed.
+The following code show how to open and close a file in a safe way. Generally D does not attempt to provide thin wrappers over equivalent functions from the [C](https://en.wikipedia.org/wiki/C_(programming_language)) standard library, but manipulating such file handles directly is unsafe and error-prone in many ways. The `File` type ensures safe manipulation, automatic file closing, and a lot of convenience. The underlying handle is maintained in a [reference-counted](https://en.wikipedia.org/wiki/Reference_counting) manner, such that as soon as the last `File` variable goes out of scope, the underlying handle is automatically closed.
 
 <script src="https://gist.github.com/nomad-software/33365afda104c3ff4d50c20341c73773.js"></script>
 
-If an exception is thrown, there has been an error accessing the file and the <code>errno</code> property of the exception can be examined to find out what went wrong. Because the <code>File</code> type is a wrapper over a C function, the error number returned will be equal to the constants defined in <code>core.stdc.errno</code>. This is the most common way of accessing files and handling any errors that occur. Extended information can be gleaned from a file using the <code>std.file.getAttributes</code> function which returns an unsigned integer. This integer contains several [bit flags](https://en.wikipedia.org/wiki/Bit_field) that are set in an operating system specific manner. More information about these flags can be found [here](https://dlang.org/phobos/std_file.html#.getAttributes).
+If an exception is thrown, there has been an error accessing the file and the `errno` property of the exception can be examined to find out what went wrong. Because the `File` type is a wrapper over a C function, the error number returned will be equal to the constants defined in `core.stdc.errno`. This is the most common way of accessing files and handling any errors that occur. Extended information can be gleaned from a file using the `std.file.getAttributes` function which returns an unsigned integer. This integer contains several [bit flags](https://en.wikipedia.org/wiki/Bit_field) that are set in an operating system specific manner. More information about these flags can be found [here](https://dlang.org/phobos/std_file.html#.getAttributes).
 
 [Documentation](https://dlang.org/phobos/std_stdio.html#.File)
 
@@ -72,7 +72,7 @@ This example shows how to read bytes from a file.
 
 <script src="https://gist.github.com/nomad-software/be7dce7a437df53057eff78ee59d9e26.js"></script>
 
-When reading bytes like this you have to provide a buffer which receives the read data. This example uses a [dynamic array](https://dlang.org/spec/arrays.html#dynamic-arrays) for such a buffer and preallocates 1024 bytes before reading. The <code>rawRead</code> method fills the buffer with data and returns a [slice](https://dlang.org/d-array-article.html) of that buffer. The buffer length is the maximum number of bytes that will be read.
+When reading bytes like this you have to provide a buffer which receives the read data. This example uses a [dynamic array](https://dlang.org/spec/arrays.html#dynamic-arrays) for such a buffer and preallocates 1024 bytes before reading. The `rawRead` method fills the buffer with data and returns a [slice](https://dlang.org/d-array-article.html) of that buffer. The buffer length is the maximum number of bytes that will be read.
 
 [Documentation](https://dlang.org/phobos/std_stdio.html#.File.rawRead)
 
@@ -88,7 +88,7 @@ The returned data is typed as a [void](https://en.wikipedia.org/wiki/Void_type) 
 
 ### Read _n_ bytes from a file
 
-This example uses the <code>read</code> function again but this time uses the second parameter to define a limit of bytes to read. If the file is smaller than the defined limit, only the data in the file will be returned.
+This example uses the `read` function again but this time uses the second parameter to define a limit of bytes to read. If the file is smaller than the defined limit, only the data in the file will be returned.
 
 <script src="https://gist.github.com/nomad-software/16f932512ff84c5894160bc07a89e5c6.js"></script>
 
@@ -102,7 +102,7 @@ This example reads a file in 1024 byte chunks.
 
 <script src="https://gist.github.com/nomad-software/e1b7d6bcca32971375782a197ce510fb.js"></script>
 
-The <code>byChunk</code> method returns an [input range](https://dlang.org/phobos/std_range.html) of bytes which reads from the file handle a chunk at a time. In this case, each call will return a maximum of 1024 bytes. The buffer is reused for every call so if you need the data to persist between calls, copies must be made.
+The `byChunk` method returns an [input range](https://dlang.org/phobos/std_range.html) of bytes which reads from the file handle a chunk at a time. In this case, each call will return a maximum of 1024 bytes. The buffer is reused for every call so if you need the data to persist between calls, copies must be made.
 
 [Documentation](https://dlang.org/phobos/std_stdio.html#.File.byChunk)
 
@@ -112,7 +112,7 @@ These examples show how to read strings from a file.
 
 <script src="https://gist.github.com/nomad-software/09e72ff00a9b459322bcefa6363e4c58.js"></script>
 
-While the above example is convenient for reading strings from a file there is a downside and that is <code>readln</code> allocates a new buffer for every line read. Because of this potential performance issue there is an [overloaded method](https://en.wikipedia.org/wiki/Function_overloading) which takes a buffer as a parameter, like this.
+While the above example is convenient for reading strings from a file there is a downside and that is `readln` allocates a new buffer for every line read. Because of this potential performance issue there is an [overloaded method](https://en.wikipedia.org/wiki/Function_overloading) which takes a buffer as a parameter, like this.
 
 <script src="https://gist.github.com/nomad-software/45bdac475dff4f3c567d96c10194d887.js"></script>
 
@@ -126,7 +126,7 @@ Reading a file as a range allows you to use many generic algorithms defined in [
 
 <script src="https://gist.github.com/nomad-software/96eb6246e5479bdf67eee0399f0d504d.js"></script>
 
-The <code>byLine</code> method returns an input range which reads from the file handle one line at a time. Internally a buffer is reused for every line so if you need this data to persist between calls, copies must be made. There is a convenience method called <code>byLineCopy</code> which does this automatically.
+The `byLine` method returns an input range which reads from the file handle one line at a time. Internally a buffer is reused for every line so if you need this data to persist between calls, copies must be made. There is a convenience method called `byLineCopy` which does this automatically.
 
 [Documentation](https://dlang.org/phobos/std_stdio.html#.File.byLine)
 
@@ -144,7 +144,7 @@ This reads and validates a text file. No character width conversion is performed
 
 ### Create an empty file
 
-This creates a new file (if one doesn’t exist) when initialising a <code>File</code> struct. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.
+This creates a new file (if one doesn’t exist) when initialising a `File` struct. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.
 
 <script src="https://gist.github.com/nomad-software/49343c39a8ecb37af30e29b941e12bbb.js"></script>
 
@@ -184,7 +184,7 @@ This simply deletes a file.
 
 ### Get information about a file
 
-This gets information for a particular file, similar to what you’d get from [stat](https://en.wikipedia.org/wiki/Stat_(system_call)) on a [Posix](https://en.wikipedia.org/wiki/POSIX) system. The following code shows only cross-platform information, more is available for individual operating systems by decoding the <code>attributes</code> member.
+This gets information for a particular file, similar to what you’d get from [stat](https://en.wikipedia.org/wiki/Stat_(system_call)) on a [Posix](https://en.wikipedia.org/wiki/POSIX) system. The following code shows only cross-platform information, more is available for individual operating systems by decoding the `attributes` member.
 
 <script src="https://gist.github.com/nomad-software/748957f1cf59757d46c066054ca0a633.js"></script>
 
@@ -224,7 +224,7 @@ This example shows how to compress data before writing to a file.
 
 <script src="https://gist.github.com/nomad-software/216b4306fc06cca0ffc23637f790c9c9.js"></script>
 
-In the above example a string is used but any data can be compressed. Internally the <code>std.zlib</code> module uses the [zlib](http://www.zlib.net/) C library.
+In the above example a string is used but any data can be compressed. Internally the `std.zlib` module uses the [zlib](http://www.zlib.net/) C library.
 
 [Documentation](https://dlang.org/phobos/std_zlib.html#.compress)
 
@@ -244,7 +244,7 @@ This changes file access rights on a [Posix](https://en.wikipedia.org/wiki/POSIX
 
 <script src="https://gist.github.com/nomad-software/43accf5342006b317af628d4a42a1d6e.js"></script>
 
-The <code>chmod</code> system call functions in exactly the same way as the chmod [shell](https://en.wikipedia.org/wiki/Unix_shell) command. A file name is specified along with its new [access rights](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) (expressed as an [octal](https://en.wikipedia.org/wiki/Octal) number). When modifying a file in this way, you also need permission to actually perform the operation. This can be accomplished by owning the file or by being a [super user](https://en.wikipedia.org/wiki/Superuser).
+The `chmod` system call functions in exactly the same way as the chmod [shell](https://en.wikipedia.org/wiki/Unix_shell) command. A file name is specified along with its new [access rights](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) (expressed as an [octal](https://en.wikipedia.org/wiki/Octal) number). When modifying a file in this way, you also need permission to actually perform the operation. This can be accomplished by owning the file or by being a [super user](https://en.wikipedia.org/wiki/Superuser).
 
 [Documentation](https://en.wikipedia.org/wiki/Chmod)
 
@@ -254,7 +254,7 @@ This changes the ownership of a file on a Posix system. Once a file is owned, fi
 
 <script src="https://gist.github.com/nomad-software/abc8f6d9fbb7c0e6ca0e9b7c033b28ae.js"></script>
 
-The <code>chown</code> system call functions in exactly the same way as the chown shell command. A file name is specified along with its new owner and group. Your program will need super user permissions to change the owner.
+The `chown` system call functions in exactly the same way as the chown shell command. A file name is specified along with its new owner and group. Your program will need super user permissions to change the owner.
 
 [Documentation](https://en.wikipedia.org/wiki/Chown)
 

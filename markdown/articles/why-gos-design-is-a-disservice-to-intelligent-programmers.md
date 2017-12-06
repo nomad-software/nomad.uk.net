@@ -56,7 +56,7 @@ Here’s the same example in D:
 
 <script src="https://gist.github.com/nomad-software/2efe729e232120230d085ef6fb807e3f.js"></script>
 
-Simple, elegant and straight to the point. Here the <code>reduce</code> function can handle _any_ type and the predicate (passed as a template parameter) defines how to reduce the list. Yes it’s more complicated than Go but not so complicated that intelligent programmers can’t understand it. Which is more maintainable and easy to read?
+Simple, elegant and straight to the point. Here the `reduce` function can handle _any_ type and the predicate (passed as a template parameter) defines how to reduce the list. Yes it’s more complicated than Go but not so complicated that intelligent programmers can’t understand it. Which is more maintainable and easy to read?
 
 ### An easily circumvented type system
 
@@ -66,11 +66,11 @@ Check this example out for a showcase of ~~stupidity~~ patching a language to ov
 
 <script src="https://gist.github.com/nomad-software/4b5a837ce7df363abb840ea7ffa296aa.js"></script>
 
-This <code>Reduce</code> implementation was taken from an on-line article entitled [Idiomatic generics in Go](http://bouk.co/blog/idiomatic-generics-in-go/). Well if that’s idiomatic, i’d hate to see un-idiomatic. Using <code>interface{}</code> is a farce and is only included in the language to circumvent type checking. It is an empty interface which is implicitly implemented by all types allowing a total free for all. This style of programming is as ugly as hell and not only that but to perform such acrobatics in the above example you are also forced to use runtime [reflection](https://en.wikipedia.org/wiki/Reflection_(computer_programming)). Even Rob Pike doesn’t like people abusing reflection and has mentioned this in many talks.
+This `Reduce` implementation was taken from an on-line article entitled [Idiomatic generics in Go](http://bouk.co/blog/idiomatic-generics-in-go/). Well if that’s idiomatic, i’d hate to see un-idiomatic. Using `interface{}` is a farce and is only included in the language to circumvent type checking. It is an empty interface which is implicitly implemented by all types allowing a total free for all. This style of programming is as ugly as hell and not only that but to perform such acrobatics in the above example you are also forced to use runtime [reflection](https://en.wikipedia.org/wiki/Reflection_(computer_programming)). Even Rob Pike doesn’t like people abusing reflection and has mentioned this in many talks.
 
 > It’s a powerful tool that should be used with care and avoided unless strictly necessary. – Rob Pike <sup>3</sup>
 
-I’d take [D’s templates](/articles/templates-in-d-explained.html) any day over this nonsense. How can anyone say <code>interface{}</code>  is more readable or even type safe?
+I’d take [D’s templates](/articles/templates-in-d-explained.html) any day over this nonsense. How can anyone say `interface{}`  is more readable or even type safe?
 
 ## Dependency management woes
 

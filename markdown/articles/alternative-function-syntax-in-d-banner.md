@@ -14,7 +14,7 @@ The first alternative syntax enables calling a function without using parens. Th
 
 ### Non member functions
 
-The following demonstrates how functions defined without value parameters can be called without parens and return a value. Here <code>foo()</code> has no value parameters and can simply be called as <code>foo</code> which returns its value. This by itself seems a bit lazy and at first doesn’t seem very useful but combined with the dot notation syntax (discussed further down) it becomes very useful indeed.
+The following demonstrates how functions defined without value parameters can be called without parens and return a value. Here `foo()` has no value parameters and can simply be called as `foo` which returns its value. This by itself seems a bit lazy and at first doesn’t seem very useful but combined with the dot notation syntax (discussed further down) it becomes very useful indeed.
 
 <script src="https://gist.github.com/nomad-software/df1e94925b6d53720af2374eaad461fd.js"></script>
 
@@ -22,7 +22,7 @@ Non member functions can also be called as an assignment, passing the assigned v
 
 <script src="https://gist.github.com/nomad-software/6c3d2998ea76a3298636c3e69c6640af.js"></script>
 
-In the above example i pass the value <code>123</code> as an argument to the <code>foo</code> function during a simulated assignment. This is really weird and in my opinion not very useful for non member functions.
+In the above example i pass the value `123` as an argument to the `foo` function during a simulated assignment. This is really weird and in my opinion not very useful for non member functions.
 
 ### Member functions
 
@@ -30,9 +30,9 @@ These behave in exactly the same way as non member functions and can be called w
 
 <script src="https://gist.github.com/nomad-software/ac593726cd73751708d686a1a729fa50.js"></script>
 
-Above, the [overloading](https://en.wikipedia.org/wiki/Function_overloading) of <code>bar</code> simulates a property quite nicely as both defined functions can be called without parens.
+Above, the [overloading](https://en.wikipedia.org/wiki/Function_overloading) of `bar` simulates a property quite nicely as both defined functions can be called without parens.
 
-This behavior is further enhanced by a compiler command line argument <code>-property</code> which only allows this alternative syntax on member functions marked with the <code>@property</code> attribute. There is [quite a controversy surrounding this](http://forum.dlang.org/thread/uskutitmqgdfjeusrtfv@forum.dlang.org) so use with care.
+This behavior is further enhanced by a compiler command line argument `-property` which only allows this alternative syntax on member functions marked with the `@property` attribute. There is [quite a controversy surrounding this](http://forum.dlang.org/thread/uskutitmqgdfjeusrtfv@forum.dlang.org) so use with care.
 
 ### Template parameters
 
@@ -50,7 +50,7 @@ The same also applies for template parameters in classes, structures and interfa
 
 <script src="https://gist.github.com/nomad-software/7a2c2e92c4f2621128e65a063bab447d.js"></script>
 
-Here i’ve instantiated the <code>Stack</code> class using no parens whatsoever which looks extremely weird but mirrors what we’ve learned so far. First, there is only one template parameter so parens are not needed there. Second, there’s no constructor defined for this class so we don’t need parens there either. The constructor is a member function too so it also adheres to previous rules regarding parens usage with functions that have no parameters.
+Here i’ve instantiated the `Stack` class using no parens whatsoever which looks extremely weird but mirrors what we’ve learned so far. First, there is only one template parameter so parens are not needed there. Second, there’s no constructor defined for this class so we don’t need parens there either. The constructor is a member function too so it also adheres to previous rules regarding parens usage with functions that have no parameters.
 
 ## Dot notation (UFCS)
 
@@ -58,7 +58,7 @@ Aside from optional parentheses there is another important alternative syntax wh
 
 <script src="https://gist.github.com/nomad-software/306fbfb52f7c88e234066236a689b896.js"></script>
 
-Here the <code>foo</code> function defines an <code>int</code> as its first parameter. During the call we pass this argument using a literal (or alternatively a variable) prefixing the call appended via a dot e.g. <code>123.foo()</code>. Because the first parameter is now fulfilled using dot notation, the argument is no longer required to be passed in the call’s parens. Because the function no longer needs any arguments, the parens are optional as shown on by the last <code>assert</code>.
+Here the `foo` function defines an `int` as its first parameter. During the call we pass this argument using a literal (or alternatively a variable) prefixing the call appended via a dot e.g. `123.foo()`. Because the first parameter is now fulfilled using dot notation, the argument is no longer required to be passed in the call’s parens. Because the function no longer needs any arguments, the parens are optional as shown on by the last `assert`.
 
 **This dot notation syntax is commonly referred to as UFCS (Uniform Function Call Syntax)** You can read more about the rationale behind it in an aptly named article called [Uniform Function Call Syntax](http://www.drdobbs.com/cpp/uniform-function-call-syntax/232700394) by [Walter Bright](https://en.wikipedia.org/wiki/Walter_Bright).
 
@@ -76,7 +76,7 @@ Having optional parens on non member functions coupled with dot notation allows 
 
 <script src="https://gist.github.com/nomad-software/e46bfe73e572461912e9ce18be94c65a.js"></script>
 
-Here i’ve chained templates and functions together to create the array <code>x</code>, each passed an argument via dot notation and all missing their parens. This style lends itself very well to [functional programming](https://en.wikipedia.org/wiki/Functional_programming).
+Here i’ve chained templates and functions together to create the array `x`, each passed an argument via dot notation and all missing their parens. This style lends itself very well to [functional programming](https://en.wikipedia.org/wiki/Functional_programming).
 
 ### Extension methods
 
@@ -84,7 +84,7 @@ One of the most useful applications of the dot notation syntax is to create [ext
 
 <script src="https://gist.github.com/nomad-software/a6e31fab79941b029ff1c79eb84cb3cd.js"></script>
 
-Although here the <code>increment()</code> function is defined separately (and could quite easily be imported from a module) its use through dot notation makes it appear to be a native property or method of <code>x</code>. This alternative syntax can be a great way to create flexible libraries. In fact this pattern is used extensively in [Phobos](https://dlang.org/phobos/index.html), the standard library included with all D compilers.
+Although here the `increment()` function is defined separately (and could quite easily be imported from a module) its use through dot notation makes it appear to be a native property or method of `x`. This alternative syntax can be a great way to create flexible libraries. In fact this pattern is used extensively in [Phobos](https://dlang.org/phobos/index.html), the standard library included with all D compilers.
 
 > A huge reason for them is to head off the temptation to write ‘kitchen sink’ classes that are filled with every conceivable method. The  desired approach is to have the class implement the bare minimum of functionality, and add other functionality with extension methods (that do not have access to the class’ private state). – Walter Bright
 

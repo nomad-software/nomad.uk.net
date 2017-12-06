@@ -18,13 +18,13 @@ The following is a simple program to display numbers of the [Fibonacci](https://
 
 <script src="https://gist.github.com/nomad-software/472a5366fd91f0067acbd0f056ca9c0b.js"></script>
 
-If i run this on my computer it finishes in about 13 seconds, which is not great. That’s because it’s recalculating values every time it’s run. Using the <code>memoize</code> template we can cache the values instead of recalculating them again. This caching assumes that for any given valid arguments the function will return the exact same result. Here is the memoized version.
+If i run this on my computer it finishes in about 13 seconds, which is not great. That’s because it’s recalculating values every time it’s run. Using the `memoize` template we can cache the values instead of recalculating them again. This caching assumes that for any given valid arguments the function will return the exact same result. Here is the memoized version.
 
 <script src="https://gist.github.com/nomad-software/c0ae4bfb1d979c57d30b96d62ec7b328.js"></script>
 
-Internally in <code>fib</code> the recursive calls are now being made to the memoized version <code>mfib</code>. When the memoized version is called, it first checks its cache and if a value exists for that particular combination of arguments the cached value is returned avoiding any recalculation. This can save an enormous amount of computation time but with the overhead of maintaining a simple cache. If i run this new program using the memoized function, the execution time is dramatically shortened to only a fraction of a second.
+Internally in `fib` the recursive calls are now being made to the memoized version `mfib`. When the memoized version is called, it first checks its cache and if a value exists for that particular combination of arguments the cached value is returned avoiding any recalculation. This can save an enormous amount of computation time but with the overhead of maintaining a simple cache. If i run this new program using the memoized function, the execution time is dramatically shortened to only a fraction of a second.
 
-The memoization cache is implemented as a simple associative array keyed on the types and values of the passed arguments. The cache element size can be limited by passing a second argument to the <code>memoize</code> template. [View documentation](https://dlang.org/phobos/std_functional.html#.memoize).
+The memoization cache is implemented as a simple associative array keyed on the types and values of the passed arguments. The cache element size can be limited by passing a second argument to the `memoize` template. [View documentation](https://dlang.org/phobos/std_functional.html#.memoize).
 
 ## std.parallelism
 
@@ -32,17 +32,17 @@ This module implements high-level primitives for [SMP parallelism](https://en.wi
 
 ### parallel
 
-This is actually a convenience function that forwards to <code>taskPool.parallel</code> (which resides in the same module), the purpose of which is to create a [parallel](https://en.wikipedia.org/wiki/Parallel_computing) foreach loop. Parallelizing a foreach loop means that potentially each iteration can be run asynchronously across different [threads](https://en.wikipedia.org/wiki/Thread_(computing)). In reality, the <code>parallel</code> function allows you more fine grained control by adjusting how many range elements are allocated to separate threads in the form of tasks. These tasks contain a consecutive section of the iterated range and passes it to a thread for processing. Here’s an example of something that would benefit from being calculated in parallel.
+This is actually a convenience function that forwards to `taskPool.parallel` (which resides in the same module), the purpose of which is to create a [parallel](https://en.wikipedia.org/wiki/Parallel_computing) foreach loop. Parallelizing a foreach loop means that potentially each iteration can be run asynchronously across different [threads](https://en.wikipedia.org/wiki/Thread_(computing)). In reality, the `parallel` function allows you more fine grained control by adjusting how many range elements are allocated to separate threads in the form of tasks. These tasks contain a consecutive section of the iterated range and passes it to a thread for processing. Here’s an example of something that would benefit from being calculated in parallel.
 
 <script src="https://gist.github.com/nomad-software/2befec31def2da0d4cc36bd45d186b0e.js"></script>
 
 Again we’re using our hideously inefficient fibonacci sequence generator to populate elements of an array. When run this program takes about 13 seconds to complete on my computer and it only uses one thread (on one CPU core).
 
-To parallelize the loop we simply use the <code>parallel</code> function, like this.
+To parallelize the loop we simply use the `parallel` function, like this.
 
 <script src="https://gist.github.com/nomad-software/362a34d07a6214a31bfd64328b7ffd51.js"></script>
 
-Notice the second argument to <code>parallel</code>? that’s the number of work units (i.e. consecutive elements to pass to each thread for processing). I’ve set it to <code>1</code> to indicate i want each element to be run independently in its own thread. Smaller work units provide better load balancing, but larger work units avoid the overhead of communicating with other threads. The less time a single iteration of the loop takes, the larger work unit should be. For very expensive loop bodies, the unit size should be <code>1</code>.
+Notice the second argument to `parallel`? that’s the number of work units (i.e. consecutive elements to pass to each thread for processing). I’ve set it to `1` to indicate i want each element to be run independently in its own thread. Smaller work units provide better load balancing, but larger work units avoid the overhead of communicating with other threads. The less time a single iteration of the loop takes, the larger work unit should be. For very expensive loop bodies, the unit size should be `1`.
 
 Now that the above loop is parallelized and each element is processed in it’s own thread, the execution time is slashed to 5 seconds. The program now uses multiple threads (and all [four CPU cores](https://en.wikipedia.org/wiki/Multi-core_processor)) on my computer. [View documentation](https://dlang.org/phobos/std_parallelism.html#.TaskPool.parallel).
 
@@ -56,7 +56,7 @@ This function provides a way of generating random numbers using [weighting](http
 
 <script src="https://gist.github.com/nomad-software/e37a58726ffbb2d5c30b40425909c238.js"></script>
 
-Here the random number generated by <code>dice</code> will be in the range defined by 0 and the maximum index of the passed weight i.e. it will be between 0 and 2 as there are only three weighted elements. The weights themselves (element values) act as percentages, causing the different indexes to be returned with more or less frequency than others. In this particular example, 0 will be returned seventy percent of the time, 1 twenty percent and 2 ten percent of the time.
+Here the random number generated by `dice` will be in the range defined by 0 and the maximum index of the passed weight i.e. it will be between 0 and 2 as there are only three weighted elements. The weights themselves (element values) act as percentages, causing the different indexes to be returned with more or less frequency than others. In this particular example, 0 will be returned seventy percent of the time, 1 twenty percent and 2 ten percent of the time.
 
 I’ve yet to think of a use case for this little function but it seems like it could be really useful and deserves a little light shedding on it. [View documentation](https://dlang.org/phobos/std_random.html#.dice).
 
@@ -74,7 +74,7 @@ What exactly do the three boolean arguments mean? They _mean_ you have to look a
 
 <script src="https://gist.github.com/nomad-software/a5f0ea58531c9e890b6e68cb51d97ccb.js"></script>
 
-Notice that the second parameter of the <code>foo</code> function is a flag. The flag’s string defines its meaning much like a variable. Usually a parameter like this would be defined as a boolean value but using flags we can make it easier to understand. As a bonus, the flag can be tested in the same way as you would a boolean value. One further treat is that because the <code>Flag</code> syntax is a little too verbose for the call site there are a couple of helper structs to make the call look a little more presentable. Using these, the above function could be called like this.
+Notice that the second parameter of the `foo` function is a flag. The flag’s string defines its meaning much like a variable. Usually a parameter like this would be defined as a boolean value but using flags we can make it easier to understand. As a bonus, the flag can be tested in the same way as you would a boolean value. One further treat is that because the `Flag` syntax is a little too verbose for the call site there are a couple of helper structs to make the call look a little more presentable. Using these, the above function could be called like this.
 
 <script src="https://gist.github.com/nomad-software/c8fe320161167bc70c070acecc9025cb.js"></script>
 
@@ -82,9 +82,9 @@ Don’t you agree this is much nicer than having to guess what boolean arguments
 
 ### Proxy
 
-This is an extremely handy [mixin template](/articles/templates-in-d-explained.html) for injecting code into a class or struct to make it behave like another type. Doing this manually is quite time consuming and involves a lot of [operator overloading](https://en.wikipedia.org/wiki/Operator_overloading), whereas <code>Proxy</code> is a simple one liner that enables lots of automatic functionality.
+This is an extremely handy [mixin template](/articles/templates-in-d-explained.html) for injecting code into a class or struct to make it behave like another type. Doing this manually is quite time consuming and involves a lot of [operator overloading](https://en.wikipedia.org/wiki/Operator_overloading), whereas `Proxy` is a simple one liner that enables lots of automatic functionality.
 
-Here’s an example where i make the struct <code>Foo</code> behave as an integral type.
+Here’s an example where i make the struct `Foo` behave as an integral type.
 
 <script src="https://gist.github.com/nomad-software/d290b376d2e08462a6493d5e2557dff2.js"></script>
 
@@ -92,7 +92,7 @@ Notice that all the operators in the above example just work? Here’s another s
 
 <script src="https://gist.github.com/nomad-software/ff3baea41ac28c3bf93590fe89e5d687.js"></script>
 
-In this example i’m accessing the inner array via concatenation, iteration, indexing and using it as a function parameter. Using this mixin is great for quickly creating user defined collections. <code>Proxy</code> overloads all the necessary operators making sure the outer type can be used wherever the inner type would be expected. The only functionality that isn’t supported is implicit conversions to the inner type, which is by design. [View documentation](https://dlang.org/phobos/std_typecons.html#.Proxy).
+In this example i’m accessing the inner array via concatenation, iteration, indexing and using it as a function parameter. Using this mixin is great for quickly creating user defined collections. `Proxy` overloads all the necessary operators making sure the outer type can be used wherever the inner type would be expected. The only functionality that isn’t supported is implicit conversions to the inner type, which is by design. [View documentation](https://dlang.org/phobos/std_typecons.html#.Proxy).
 
 ### RefCounted
 
@@ -106,13 +106,13 @@ There are a few words of warning here though. It doesn’t work with classes and
 
 ### scoped
 
-This is another nice addition for those who like to control what goes where in memory. Unlike <code>RefCounted</code> which can’t be used with classes, <code>scope</code> exists purely to cater for them. The idea behind this template is to avoid the reliance on the <code>new</code> keyword and the automatic allocation of classes on the garbage collected [heap](https://en.wikipedia.org/wiki/Memory_management#Dynamic_memory_allocation). Instead it instantiates a class in the current scope and on the [stack](https://en.wikipedia.org/wiki/Stack-based_memory_allocation). Here’s an example.
+This is another nice addition for those who like to control what goes where in memory. Unlike `RefCounted` which can’t be used with classes, `scope` exists purely to cater for them. The idea behind this template is to avoid the reliance on the `new` keyword and the automatic allocation of classes on the garbage collected [heap](https://en.wikipedia.org/wiki/Memory_management#Dynamic_memory_allocation). Instead it instantiates a class in the current scope and on the [stack](https://en.wikipedia.org/wiki/Stack-based_memory_allocation). Here’s an example.
 
 <script src="https://gist.github.com/nomad-software/7e3cfb3a46a6e064d4ae7f193c061130.js"></script>
 
-Here <code>foo</code> is allocated on the stack and used just like any other instantiated object. The effect of the <code>scoped</code> template is that the object will immediately be destroyed upon leaving the scope it was created in. This provides what is know as [deterministic destruction](https://en.wikipedia.org/wiki/Object_lifetime#Determinism) for class based objects and as a result allows idioms such as [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) to be implemented.
+Here `foo` is allocated on the stack and used just like any other instantiated object. The effect of the `scoped` template is that the object will immediately be destroyed upon leaving the scope it was created in. This provides what is know as [deterministic destruction](https://en.wikipedia.org/wiki/Object_lifetime#Determinism) for class based objects and as a result allows idioms such as [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) to be implemented.
 
-As with <code>RefCounted</code> there are a few caveats. It only works with classes and it is also deemed unsafe, i.e. it is the responsibility of the user to not escape a reference to the object outside the scope. [View documentation](https://dlang.org/phobos/std_typecons.html#.scoped).
+As with `RefCounted` there are a few caveats. It only works with classes and it is also deemed unsafe, i.e. it is the responsibility of the user to not escape a reference to the object outside the scope. [View documentation](https://dlang.org/phobos/std_typecons.html#.scoped).
 
 ## Conclusion
 

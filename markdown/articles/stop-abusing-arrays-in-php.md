@@ -40,11 +40,11 @@ Get it out of your head that you need to use an array because you have a collect
 
 <script src="https://gist.github.com/nomad-software/08035d4bbd536850752ea981e021bab4.js"></script>
 
-Boom, that’s it. Implementing a class like this creates an iterable collection of data with associated behaviour. At it’s heart is an array but an array which can now be nicely decorated with associated methods for working with the data. Implementing the <code>IteratorAggregate</code> interface on this class makes it immediately available to loops.
+Boom, that’s it. Implementing a class like this creates an iterable collection of data with associated behaviour. At it’s heart is an array but an array which can now be nicely decorated with associated methods for working with the data. Implementing the `IteratorAggregate` interface on this class makes it immediately available to loops.
 
 <script src="https://gist.github.com/nomad-software/87336117022349f1f09817e7954bf53c.js"></script>
 
-Here the value of <code>\$pond</code> is whatever the individual elements of <code>\$collection</code> are, which of course can be instances of other objects. This is how collections should be handled in PHP when they need any behaviour associated with them. Instead of this associated behaviour being spread around the application in different processors, it’s now actually attached to the collection itself. More information on iterators can be found here.
+Here the value of `$pond` is whatever the individual elements of `$collection` are, which of course can be instances of other objects. This is how collections should be handled in PHP when they need any behaviour associated with them. Instead of this associated behaviour being spread around the application in different processors, it’s now actually attached to the collection itself. More information on iterators can be found here.
 
 * [http://www.php.net/manual/en/class.iteratoraggregate.php](http://www.php.net/manual/en/class.iteratoraggregate.php)
 * [http://www.php.net/manual/en/spl.iterators.php](http://www.php.net/manual/en/spl.iterators.php)

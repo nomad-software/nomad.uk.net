@@ -50,7 +50,7 @@
 <p><time>Posted on 9th July 2013 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
 <p>I’ve recently created a program which sorts collections of custom types quite extensively and i thought i’d share the standard method of doing this. When i first started designing my program, i honestly thought it would be quite a pain sorting these collections but i was pleasantly surprised, as usual by the .NET framework, that there are built in shortcuts.</p>
 <h2 id="icomparable">IComparable</h2>
-<p>The first stage to allow a custom type to be sorted is to implement the IComparable interface. This consists of one method <code>CompareTo&lt;T&gt;</code> where T is your custom type. This becomes your default comparer.</p>
+<p>The first stage to allow a custom type to be sorted is to implement the IComparable interface. This consists of one method <code>CompareTo&amp;lt;T&amp;gt;</code> where T is your custom type. This becomes your default comparer.</p>
 <p>Here’s an example:</p>
 <script src="https://gist.github.com/nomad-software/a5167f6b866338cd9dcb243f5e982ee0.js"></script>
 <p>Once that method is implemented (here we’ve implemented it using the name field to compare against) you can use the native sort methods on a collection of such types and have them sorted via this default comparer. For example if you are using an array as your collection, you can use the default static ‘Sort’ method to sort it:</p>

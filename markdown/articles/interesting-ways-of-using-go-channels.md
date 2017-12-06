@@ -22,19 +22,19 @@ In this example, a goroutine is started, does some work (in this case waiting fo
 
 ### Coordinate multiple goroutines
 
-In this example, a hundred goroutines are started, waiting for communication of data on the <code>start</code> channel (or for it to be closed). In this case, once closed, all goroutines start.
+In this example, a hundred goroutines are started, waiting for communication of data on the `start` channel (or for it to be closed). In this case, once closed, all goroutines start.
 
 <script src="https://gist.github.com/nomad-software/9714bef93f932b028f2bd6ec0c7be138.js"></script>
 
 ### Coordinated termination of workers
 
-In this example, a hundred goroutines are started, waiting for communication of data on the <code>die</code> channel (or for it to be closed). In this case, once closed all goroutines end.
+In this example, a hundred goroutines are started, waiting for communication of data on the `die` channel (or for it to be closed). In this case, once closed all goroutines end.
 
 <script src="https://gist.github.com/nomad-software/b2c2e936f22f8f353bc09a42c7f82398.js"></script>
 
 ### Verify termination of workers
 
-In this example, a goroutine is started, waiting for communication of data on the <code>die</code> channel (or for it to be closed). In this case, once closed, the goroutine performs termination tasks, then signals to the main goroutine (via the same <code>die</code> channel) that it’s finished.
+In this example, a goroutine is started, waiting for communication of data on the `die` channel (or for it to be closed). In this case, once closed, the goroutine performs termination tasks, then signals to the main goroutine (via the same `die` channel) that it’s finished.
 
 <script src="https://gist.github.com/nomad-software/36ca3d628f524c07256d33512799c321.js"></script>
 
@@ -42,13 +42,13 @@ In this example, a goroutine is started, waiting for communication of data on th
 
 ### Unique ID service
 
-In this example, a goroutine is started to generate unique hexadecimal id’s. Each id is sent via the <code>id</code> channel and the goroutine halts until the channel is read. Each time the channel is read, the goroutine is free to increment the value and send another.
+In this example, a goroutine is started to generate unique hexadecimal id’s. Each id is sent via the `id` channel and the goroutine halts until the channel is read. Each time the channel is read, the goroutine is free to increment the value and send another.
 
 <script src="https://gist.github.com/nomad-software/219b2931e5fc825bca02646043542048.js"></script>
 
 ### Memory recycler
 
-In this example, a goroutine is started to recycle memory buffers. The <code>give</code> channel receives old memory buffers and stores them in a list. While the <code>get</code> channel dispenses these buffers for use. If no buffers are available in the list, a new one is created.
+In this example, a goroutine is started to recycle memory buffers. The `give` channel receives old memory buffers and stores them in a list. While the `get` channel dispenses these buffers for use. If no buffers are available in the list, a new one is created.
 
 <script src="https://gist.github.com/nomad-software/b29afb25a376c6fbedb40bafad954f4d.js"></script>
 
@@ -64,13 +64,13 @@ The select statements provide non-blocking access to this channel in the case th
 
 ### Disable receiving case statements
 
-In this example, a goroutine is started and using <code>select</code> tries to receive on two channels. If a channel is closed, it is set to <code>nil</code>. Because <code>nil</code> channels always block, this has the effect of disabling the associated <code>case</code> statement. If both channels are set to <code>nil</code>, the goroutine exits because it cannot receive anything else.
+In this example, a goroutine is started and using `select` tries to receive on two channels. If a channel is closed, it is set to `nil`. Because `nil` channels always block, this has the effect of disabling the associated `case` statement. If both channels are set to `nil`, the goroutine exits because it cannot receive anything else.
 
 <script src="https://gist.github.com/nomad-software/8f34e50f561ce54d3a46443880618f55.js"></script>
 
 ### Disable sending case statements
 
-In this example, a goroutine is started to generate random numbers and send them on the <code>c</code> channel. If a message is sent on the <code>d</code> channel, the <code>c</code> channel is set to <code>nil</code>, disabling the associated case statement. Once disabled, the goroutine can no longer send random numbers.
+In this example, a goroutine is started to generate random numbers and send them on the `c` channel. If a message is sent on the `d` channel, the `c` channel is set to `nil`, disabling the associated case statement. Once disabled, the goroutine can no longer send random numbers.
 
 <script src="https://gist.github.com/nomad-software/a97f5ba70a1c93ce9f34b3c9f0b3111f.js"></script>
 
@@ -78,13 +78,13 @@ In this example, a goroutine is started to generate random numbers and send them
 
 ### Timeout
 
-In this example, a goroutine is started to do some work. A <code>timeout</code> channel is created to make sure a <code>case</code> is executed if the <code>select</code> is halting for too long. In this case, the goroutine is terminated after thirty seconds of being idle. The timeout is assigned on every iteration of the <code>select</code> to make sure that if work is done, the timeout is reset.
+In this example, a goroutine is started to do some work. A `timeout` channel is created to make sure a `case` is executed if the `select` is halting for too long. In this case, the goroutine is terminated after thirty seconds of being idle. The timeout is assigned on every iteration of the `select` to make sure that if work is done, the timeout is reset.
 
 <script src="https://gist.github.com/nomad-software/0ff7b3bd50a91d366b9949c1cf84648d.js"></script>
 
 ### Heartbeat
 
-In this example, a goroutine is started to do some work. A <code>heartbeat</code> channel is created to make sure a <code>case</code> statement is executed at regular intervals. The <code>heartbeat</code> channel is not reset on each iteration to make sure it always executes on time.
+In this example, a goroutine is started to do some work. A `heartbeat` channel is created to make sure a `case` statement is executed at regular intervals. The `heartbeat` channel is not reset on each iteration to make sure it always executes on time.
 
 <script src="https://gist.github.com/nomad-software/eae38fe99db4976f1b2d47abe7042329.js"></script>
 
@@ -100,13 +100,13 @@ This example doesn’t run (because we are trying to connect to an example domai
 
 ### First response
 
-In this example, an array of web URL’s are iterated upon and passed individually to separate goroutines. Each goroutine executes asynchronously and queries the passed URL. Each query response is passed into the <code>first</code> channel, which (of course) ensures the first query to respond is the first passed into the channel. We can then read this response from the channel and act accordingly.
+In this example, an array of web URL’s are iterated upon and passed individually to separate goroutines. Each goroutine executes asynchronously and queries the passed URL. Each query response is passed into the `first` channel, which (of course) ensures the first query to respond is the first passed into the channel. We can then read this response from the channel and act accordingly.
 
 <script src="https://gist.github.com/nomad-software/1cd5e1448c91037bae786b017217b780.js"></script>
 
 ### Passing a channel
 
-In this example, the <code>w</code> channel is created to transfer a unit of work to a goroutine. This unit of work is received and a request is made to the contained URL. As part of this work, a <code>resp</code> channel is also passed. Once the request is performed, the response is sent back along the response channel. This allows this goroutine to process work and send a response back on different channels configured for each unit of work.
+In this example, the `w` channel is created to transfer a unit of work to a goroutine. This unit of work is received and a request is made to the contained URL. As part of this work, a `resp` channel is also passed. Once the request is performed, the response is sent back along the response channel. This allows this goroutine to process work and send a response back on different channels configured for each unit of work.
 
 <script src="https://gist.github.com/nomad-software/43874dbd7c3024afca5d0c732816f83e.js"></script>
 

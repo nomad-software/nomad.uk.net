@@ -18,7 +18,7 @@ To start understanding templates you first need to understand type parameters. T
 
 <script src="https://gist.github.com/nomad-software/16796639f8f9ca52779a3e4aadb30515.js"></script>
 
-Here i’ve declared a function called <code>foo</code> which takes an integer as a parameter and then returns it. This is pretty straightforward stuff but by using the <code>int</code> type hint for the parameter i’ve effectively constrained this particular function to only accept that particular type. It can only be called successfully by passing an integer as a parameter, as shown in the call. This might not seem like a big deal here but imagine if this was a very useful function that would also make sense to take a string as a parameter too. If that was the case we could achieve this in two ways. The first option is to [overload](https://en.wikipedia.org/wiki/Function_overloading) the function and therefore declare one for each supported type:
+Here i’ve declared a function called `foo` which takes an integer as a parameter and then returns it. This is pretty straightforward stuff but by using the `int` type hint for the parameter i’ve effectively constrained this particular function to only accept that particular type. It can only be called successfully by passing an integer as a parameter, as shown in the call. This might not seem like a big deal here but imagine if this was a very useful function that would also make sense to take a string as a parameter too. If that was the case we could achieve this in two ways. The first option is to [overload](https://en.wikipedia.org/wiki/Function_overloading) the function and therefore declare one for each supported type:
 
 <script src="https://gist.github.com/nomad-software/e7d18682e9e8d3f4ea9383743a263bfb.js"></script>
 
@@ -26,25 +26,25 @@ but that means we have to duplicate the definition, which is less than ideal. Th
 
 <script src="https://gist.github.com/nomad-software/7fae6587905d21113a9cc01eb2598ce2.js"></script>
 
-Here only _one_ function is needed to support multiple types. In this definition we simply substitute the type hint for a type place holder which will be replaced when we call the function. I’m using the letter <code>T</code> here as the place holder to replace all types, even for the return type. Let me explain this a bit further.
+Here only _one_ function is needed to support multiple types. In this definition we simply substitute the type hint for a type place holder which will be replaced when we call the function. I’m using the letter `T` here as the place holder to replace all types, even for the return type. Let me explain this a bit further.
 
 ### Why two sets of parentheses?
 
-You’ll notice that I declare the function with two sets of parentheses that contain the letter <code>T</code>. This is how you define type parameters. The first set defines place holders that are going to substitute the types we use (here i’ve only used one, <code>T</code>). The second set of parens assign these place holders to values as you would for normal value parameters. So essentially i’ve declared that the parameter <code>x</code> is of a type represented by <code>T</code>. We don’t need to declare any types at this stage only the place holders.
+You’ll notice that I declare the function with two sets of parentheses that contain the letter `T`. This is how you define type parameters. The first set defines place holders that are going to substitute the types we use (here i’ve only used one, `T`). The second set of parens assign these place holders to values as you would for normal value parameters. So essentially i’ve declared that the parameter `x` is of a type represented by `T`. We don’t need to declare any types at this stage only the place holders.
 
 ### What’s that strange exclamation mark?
 
-To call this templated function we need to pass type information along with the value parameter. This information will be passed into the definition at compile time and replace the place holders. This is called template instantiation. To pass this in correctly you use another set of parens preceded by an exclamation mark <code>!</code> during the call:
+To call this templated function we need to pass type information along with the value parameter. This information will be passed into the definition at compile time and replace the place holders. This is called template instantiation. To pass this in correctly you use another set of parens preceded by an exclamation mark `!` during the call:
 
 <script src="https://gist.github.com/nomad-software/1e8452386132b34e7a2af0e044dc426c.js"></script>
 
-The first of the above calls passes <code>int</code> as the type which should replace <code>T</code> and <code>12345</code> as the value parameter. The second call passes <code>string</code> which should replace <code>T</code> and the string <code>hello</code> as the value parameter. The compiler then generates two functions when compiling, effectively recreating the overload example above but without repeating any code.
+The first of the above calls passes `int` as the type which should replace `T` and `12345` as the value parameter. The second call passes `string` which should replace `T` and the string `hello` as the value parameter. The compiler then generates two functions when compiling, effectively recreating the overload example above but without repeating any code.
 
 When defining a function that uses type parameters you can define as many as you need and use them anywhere in the definition anywhere where real types are expected:
 
 <script src="https://gist.github.com/nomad-software/e147ad6603a807a3282fcbe1d8f63b0a.js"></script>
 
-Notice i’m using <code>A[]</code> for the type of <code>container</code> and <code>B</code> as the iterator type in the <code>for</code> loop.
+Notice i’m using `A[]` for the type of `container` and `B` as the iterator type in the `for` loop.
 
 ### Alternative syntax
 
@@ -82,7 +82,7 @@ So far i’ve used non member functions to demonstrate type parameters but they 
 
 <script src="https://gist.github.com/nomad-software/96e4ba0162dca82d3ccd3dd3a91a565c.js"></script>
 
-The usage of type parameters above makes sure the type represented by the place holder flows through not only the class but the interface as well. The type is then used throughout the entire definition for the type of the <code>data</code> member variable, the parameter type of the <code>enqueue</code> method and return type of the <code>dequeue</code> method.
+The usage of type parameters above makes sure the type represented by the place holder flows through not only the class but the interface as well. The type is then used throughout the entire definition for the type of the `data` member variable, the parameter type of the `enqueue` method and return type of the `dequeue` method.
 
 To demonstrate the true flexibility of the above implementation we can easily create a queue that uses integers instead, like this:
 
@@ -90,21 +90,21 @@ To demonstrate the true flexibility of the above implementation we can easily cr
 
 And that is it! Simply by changing the type we instantiate the template in a different way. Each instantiated template, both the string and integer version are strongly typed and react as if two implementations had been created by hand.
 
-Notice i’ve used the longhand syntax to define the interface and class. For me this is easier to read and understand what is being asked of the compiler. When instantiating the queue object i’m in two minds whether the longhand or alternative is better. Some people prefer <code>auto x = new Queue!(string)();</code> while others prefer <code>auto x = new Queue!string;</code>. After learning the alternative syntax above, both are equal.
+Notice i’ve used the longhand syntax to define the interface and class. For me this is easier to read and understand what is being asked of the compiler. When instantiating the queue object i’m in two minds whether the longhand or alternative is better. Some people prefer `auto x = new Queue!(string)();` while others prefer `auto x = new Queue!string;`. After learning the alternative syntax above, both are equal.
 
 ## Parameterized scopes
 
-After reading the above few paragraphs you should now have a grasp on what type parameters are and how they are used in definitions. Sometimes however you might like to perform some compile time type manipulation but don’t want to create a class, struct or function doing it. This is where parameterized scopes come into play. These allow you to define a block scope using the <code>template</code> keyword and later instantiate it while passing parameters. These scopes (or templates as we’ll refer to them from now on) can be instantiated whenever they are needed. Once the template has been instantiated you can then read types or values from it. Here is an example:
+After reading the above few paragraphs you should now have a grasp on what type parameters are and how they are used in definitions. Sometimes however you might like to perform some compile time type manipulation but don’t want to create a class, struct or function doing it. This is where parameterized scopes come into play. These allow you to define a block scope using the `template` keyword and later instantiate it while passing parameters. These scopes (or templates as we’ll refer to them from now on) can be instantiated whenever they are needed. Once the template has been instantiated you can then read types or values from it. Here is an example:
 
 <script src="https://gist.github.com/nomad-software/33db1eae40694f06c07172c7fba092d8.js"></script>
 
-Above i’ve defined a template called <code>FixedSizeArray</code> that can create many array types depending on the parameters passed. The first thing to notice is that you can pass type parameters and value parameters to the template in the same set of parens. This is intended and as long as everything passed is available at compile time the template will instantiate successfully.
+Above i’ve defined a template called `FixedSizeArray` that can create many array types depending on the parameters passed. The first thing to notice is that you can pass type parameters and value parameters to the template in the same set of parens. This is intended and as long as everything passed is available at compile time the template will instantiate successfully.
 
-When first instantiating the template I pass the type <code>short</code> and the literal <code>2</code> like this:
+When first instantiating the template I pass the type `short` and the literal `2` like this:
 
 <script src="https://gist.github.com/nomad-software/d10248fffbb4f4927269b1a2ba9b6ece.js"></script>
 
-I then access the aliased type definition inside the template scope by using dot notation and use it as a type to define <code>location</code>. In the above line <code>type</code> is the alias i’m accessing (created by the template) therefore the entire line compiles to:
+I then access the aliased type definition inside the template scope by using dot notation and use it as a type to define `location`. In the above line `type` is the alias i’m accessing (created by the template) therefore the entire line compiles to:
 
 <script src="https://gist.github.com/nomad-software/09e3c04fc7f74ae722aa7145c8398162.js"></script>
 
@@ -112,7 +112,7 @@ Of course this is a contrived example to demonstrate how templates are used but 
 
 ### Eponymous templates
 
-I can guess what you’re thinking, oh no, another template to learn? Well not exactly. **Eponymous templates are templates defined in a particular way enabling alternative access of one type or value inside**. If you look at the above template again, it only defines one aliased type called <code>type</code> and we then access that using dot notation to actually use it. It would be nicer to infer that type or value for use during template instantiation. To do this is to create an eponymous template. Here is the above example re-written to be one:
+I can guess what you’re thinking, oh no, another template to learn? Well not exactly. **Eponymous templates are templates defined in a particular way enabling alternative access of one type or value inside**. If you look at the above template again, it only defines one aliased type called `type` and we then access that using dot notation to actually use it. It would be nicer to infer that type or value for use during template instantiation. To do this is to create an eponymous template. Here is the above example re-written to be one:
 
 <script src="https://gist.github.com/nomad-software/5aa14fec8cc353b6d2c8b50c7fc027e3.js"></script>
 
@@ -132,11 +132,11 @@ The final part of understanding templates is learning about mixins. These are te
 
 <script src="https://gist.github.com/nomad-software/f2a0a2033ae286cb12cbcf36bccee7b7.js"></script>
 
-Here i’ve created a mixin template called <code>property</code> to allow automatic creation of class member variables. When instantiated using the <code>mixin</code> keyword followed by its name and type parameters, this template will copy its contents to that position in the code. You can see this in action in the above class definition of <code>C</code>. There you can see the template instantiation and point of injection:
+Here i’ve created a mixin template called `property` to allow automatic creation of class member variables. When instantiated using the `mixin` keyword followed by its name and type parameters, this template will copy its contents to that position in the code. You can see this in action in the above class definition of `C`. There you can see the template instantiation and point of injection:
 
 <script src="https://gist.github.com/nomad-software/b49e25561a1a736d47e54e6cd2356b6c.js"></script>
 
-The above line means replace <code>T</code> with <code>int</code> in the mixin definition and then inject all of the mixin’s contents here. Once this class is then instantiated we have access to the injected property through the mutator and accessor methods as also defined by the mixin.
+The above line means replace `T` with `int` in the mixin definition and then inject all of the mixin’s contents here. Once this class is then instantiated we have access to the injected property through the mutator and accessor methods as also defined by the mixin.
 
 ### Mixin scopes
 
@@ -160,7 +160,7 @@ Similar to variadic value parameters in functions, templates also support variad
 
 <script src="https://gist.github.com/nomad-software/fda0d4136b3f13428a91838a6ccfa792.js"></script>
 
-Notice the [ellipsis](https://en.wikipedia.org/wiki/Ellipsis) immediately after the place holder <code>T</code> in the <code>Tuple</code> template definition. That denotes this is an arbitrary length tuple of types and/or values. I haven’t done it in this template but the tuple data itself can be accessed via array like indexes. The tuple is assigned to the <code>rhyme</code> variable and passed to the <code>format</code> function which itself requires variadic value parameters for its data. Just for information, when passing a tuple like this to a function it is flattened out as a comma delimited list of its contents. Read more about tuples in D [here](https://dlang.org/tuple.html).
+Notice the [ellipsis](https://en.wikipedia.org/wiki/Ellipsis) immediately after the place holder `T` in the `Tuple` template definition. That denotes this is an arbitrary length tuple of types and/or values. I haven’t done it in this template but the tuple data itself can be accessed via array like indexes. The tuple is assigned to the `rhyme` variable and passed to the `format` function which itself requires variadic value parameters for its data. Just for information, when passing a tuple like this to a function it is flattened out as a comma delimited list of its contents. Read more about tuples in D [here](https://dlang.org/tuple.html).
 
 ### Template constraints
 
@@ -168,13 +168,13 @@ When defining type parameters you can also create constraints to make sure templ
 
 <script src="https://gist.github.com/nomad-software/2c055c39095f31dd5a835799ecd82586.js"></script>
 
-Here we’ve decorated the place holder <code>T</code> with the type hint <code>int</code> using a colon character. This only allows type parameters that can be implicitly cast to an integer. All the calls above will instantiate the template correctly.
+Here we’ve decorated the place holder `T` with the type hint `int` using a colon character. This only allows type parameters that can be implicitly cast to an integer. All the calls above will instantiate the template correctly.
 
 The second form is a more firm constraint used to strongly define the only allowed type that should be used for a particular type parameter:
 
 <script src="https://gist.github.com/nomad-software/e6294fcacf1a551bb93f4b52b7a31f0b.js"></script>
 
-Using the <code>if</code> and <code>is</code> keywords together only <code>int</code> can now be specified as the type parameter to replace <code>T</code> and successfully instantiate the template.
+Using the `if` and `is` keywords together only `int` can now be specified as the type parameter to replace `T` and successfully instantiate the template.
 
 ## Conclusion
 
