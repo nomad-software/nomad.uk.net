@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Delete and then regenerate all articles.
+find ./articles -iname "*.html" -exec rm {} \;
 find ./markdown/articles -iname "*.md" -print0 | while read -d $'\0' file
 do
 	LONG=$file;
@@ -13,8 +15,10 @@ do
 		--variable=disqus-url:${URL} \
 		--variable=disqus-id:${ID} \
 		${LONG};
-done
+done;
 
+# Delete and then regenerate all pages.
+find ./pages -iname "*.html" -exec rm {} \;
 find ./markdown/pages -iname "*.md" -print0 | while read -d $'\0' file
 do
 	LONG=$file;
@@ -28,6 +32,8 @@ do
 		--variable=disqus-url:${URL} \
 		--variable=disqus-id:${ID} \
 		${LONG};
-done
+done;
 
+# Delete and then regenerate all pages.
+rm index.html;
 pandoc --standalone --template="templates/article.html" --output="./index.html" "./markdown/index.md";

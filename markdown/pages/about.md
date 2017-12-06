@@ -1,4 +1,4 @@
-![](/pages/images/boat.jpg)
+![](/pages/images/about-banner.jpg)
 
 # About
 
