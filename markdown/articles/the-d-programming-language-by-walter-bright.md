@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: The D programming language by Walter Bright
+description: This is a good introduction to the D programming language by none other than the author himself.
+---
+
 <iframe class="youtube" src="https://www.youtube.com/embed/WKRRgcEk0wg?rel=0" frameborder="0" allowfullscreen></iframe>
 
 # The D programming language by Walter Bright

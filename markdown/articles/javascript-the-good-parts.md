@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: JavaScript – The Good Parts
+description: This is a Google Tech Talk which everyone who's using Javascript should watch. In this video Douglas Crockford explains the good and bad sides to Javascript.
+---
+
 <iframe class="youtube" src="https://www.youtube.com/embed/hQVTIJBZook" frameborder="0" allowfullscreen></iframe>
 
 # JavaScript – The Good Parts

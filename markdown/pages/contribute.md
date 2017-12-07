@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Contribute
+description: This blog is open to anyone wishing to make a contribution. If you've discovered an error and want to fix it or you wish to contribute an article, please feel free to do so by opening a pull request at the github repository below or leave a comment here.
+---
+
 ![](/pages/images/contribute-banner.jpg)
 
 # Contribute

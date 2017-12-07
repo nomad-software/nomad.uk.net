@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Hey, stop ruining my work!
+description: My beautiful website was knackered! Pixel perfect divs not lining up, new colours used not from the original palette, text flowing unnaturally.
+---
+
 ![](/articles/images/hey-stop-ruining-my-work-banner.jpg)
 
 # Hey, stop ruining my work!

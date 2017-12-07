@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Piracy will always occur until attitudes and service improve
+description: The problem is access. When a new piece of software is released, which could be in the form of an application or computer game, people want access to it immediately and why not?
+---
+
 ![](/articles/images/piracy-will-always-occur-until-attitudes-and-service-improve-banner.png)
 
 # Piracy will always occur until attitudes and service improve

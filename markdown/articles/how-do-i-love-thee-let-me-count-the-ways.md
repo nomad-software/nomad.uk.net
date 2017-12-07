@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: How do i love thee? Let me count the ways
+description: What is it about programming? What is that thing that keeps me coming back for more? Why do i spend countless lonely hours tapping away at my keyboard?
+---
+
 ![](/articles/images/how-do-i-love-thee-let-me-count-the-ways-banner.jpg)
 
 # How do i love thee? Let me count the ways

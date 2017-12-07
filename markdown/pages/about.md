@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: About
+description: This blog is where i can rant and rave about all the different aspects of software development, save code and ideas for later and somewhere where readers and i can both learn from each other. What better way is there to reach other like minded developers than to keep a journal of ideas and thoughts that hopefully will help our community as a whole. Plus, it’s also a storage facility for me, so i don’t forget this stuff!
+---
+
 ![](/pages/images/about-banner.jpg)
 
 # About

@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: How to sort collections of custom types in C#
+description: I've recently created a program which sorts collections of custom types quite extensively and i thought i'd share the standard method of doing this.
+---
+
 ![](/articles/images/how-to-sort-collections-of-custom-types-in-c-sharp-banner.jpg)
 
 # How to sort collections of custom types in C#

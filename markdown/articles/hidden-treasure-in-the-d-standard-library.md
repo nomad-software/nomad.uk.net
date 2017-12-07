@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Hidden treasure in the D standard library
+description: I've been using D for a number of years and i am constantly surprised by the hidden treasure i find in the standard library. This article highlights a few of these hidden treasures which i hope you'll enjoy learning about and will be useful for your future D projects.
+---
+
 ![](/articles/images/hidden-treasure-in-the-d-standard-library-banner.jpg)
 
 # Hidden treasure in the D standard library

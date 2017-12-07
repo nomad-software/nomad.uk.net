@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Generics in Go v2.0 It’s a no-brainer!
+description: Recently there has been a lot of talk about adding Generics to the popular programming language Go. Not only do I think this is a good idea, I actually think it's a complete no-brainer!
+---
+
 ![](/articles/images/generics-in-go2-Its-a-no-brainer-banner.jpg)
 
 # Generics in Go v2.0 It’s a no-brainer!

@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Stop abusing arrays in PHP
+description: This is an issue i've wanted to get of my chest for a long time. My problem here is that arrays are nearly always used where objects should be!
+---
+
 ![](/articles/images/stop-abusing-arrays-in-php-banner.jpg)
 
 # Stop abusing arrays in PHP

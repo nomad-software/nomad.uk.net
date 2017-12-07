@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Is ‘Linux is only free if your time has no value’ still valid?
+description: The above quote comes from a post made by a programmer called Jamie Zawinski back in 1998. It's a quote aimed squarely at the user unfriendliness of Linux.
+---
+
 ![](/articles/images/is-linux-is-only-free-if-your-time-has-no-value-still-valid-banner.png)
 
 # Is ‘Linux is only free if your time has no value’ still valid?

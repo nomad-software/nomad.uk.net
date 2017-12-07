@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Forget currying, use partial application
+description: I'm currently reading more about advanced JavaScript design patterns and an interesting concept i've come across a lot is Currying and Partial Application.
+---
+
 ![](/articles/images/forget-currying-use-partial-application-banner.png)
 
 # Forget currying, use partial application

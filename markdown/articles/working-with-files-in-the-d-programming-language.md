@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Working with files in the D programming language
+description: Hopefully this article will change that and show the simplicity and power of the D language when working with files.
+---
+
 ![](/articles/images/working-with-files-in-the-d-programming-language-banner.jpg)
 
 # Working with files in the D programming language

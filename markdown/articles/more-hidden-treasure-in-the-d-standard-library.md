@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: More hidden treasure in the D standard library
+description: After the success of the last article detailing hidden treasures in the D standard library I thought I would write another highlighting why the D programming language coupled with its great standard library is surprisingly useful.
+---
+
 ![](/articles/images/more-hidden-treasure-in-the-d-standard-library-banner.jpg)
 
 # More hidden treasure in the D standard library

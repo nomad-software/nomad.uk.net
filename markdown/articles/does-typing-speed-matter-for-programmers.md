@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Does typing speed matter for programmers?
+description: A few months ago Jeff Atwood blogged about the need for coders to be good typists. He espoused sheer disdain if they were less than certified touch-typists.
+---
+
 ![](/articles/images/does-typing-speed-matter-for-programmers-banner.png)
 
 # Does typing speed matter for programmers?

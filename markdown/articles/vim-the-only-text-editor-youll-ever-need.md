@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Vim – The only text editor you’ll ever need
+description: Well, not wanting to shy away from an argument i'm going to make the case for the Vim text editor and explain why it's so awesome.
+---
+
 ![](/articles/images/vim-the-only-text-editor-youll-ever-need-banner.png)
 
 # Vim – The only text editor you’ll ever need

@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Why Go’s design is a disservice to intelligent programmers
+description: Go is shaping up to be a popular language for doing serious large scale work and a language created by Google is not to be sniffed at. With all that said, I honestly think Go's design is a disservice to intelligent programmers.
+---
+
 ![](/articles/images/why-gos-design-is-a-disservice-to-intelligent-programmers-banner.jpg)
 
 # Why Go’s design is a disservice to intelligent programmers

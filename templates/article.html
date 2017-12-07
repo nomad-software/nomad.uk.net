@@ -1,9 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>nomad.uk.net</title>
+		$if(title)$
+			<title>nomad.uk.net | $title$</title>
+		$else$
+			<title>nomad.uk.net</title>
+		$endif$
 
-		<meta name="author" content="Gary Willoughby">
+		<meta name="author" content="$author$">
+		<meta name="description" content="$description$">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 		<link rel="shortcut icon" href="/images/favicon.ico" />

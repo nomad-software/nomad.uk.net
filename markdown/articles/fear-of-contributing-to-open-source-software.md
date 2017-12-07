@@ -1,3 +1,9 @@
+---
+author: Gary Willoughby
+title: Fear of contributing to open source software
+description: I'm currently considering contributing to an open source software project and while i feel i could make a worthwhile effort i've always had fears about doing so.
+---
+
 ![](/articles/images/fear-of-contributing-to-open-source-software-banner.png)
 
 # Fear of contributing to open source software
