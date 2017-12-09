@@ -4,7 +4,9 @@ title: Home
 description: This blog is where i can rant and rave about all the different aspects of software development, save code and ideas for later and somewhere where readers and i can both learn from each other. What better way is there to reach other like minded developers than to keep a journal of ideas and thoughts that hopefully will help our community as a whole. Plus, it’s also a storage facility for me, so i don’t forget this stuff!
 ---
 
-[![](/articles/images/generics-in-go2-Its-a-no-brainer-banner.jpg)](/articles/generics-in-go2-Its-a-no-brainer.html)
+<a href="/articles/generics-in-go2-Its-a-no-brainer.html">
+	<img src="/articles/images/generics-in-go2-Its-a-no-brainer-banner.jpg" class="banner">
+</a>
 
 # [Generics in Go v2.0 It’s a no-brainer!](/articles/generics-in-go2-Its-a-no-brainer.html)
 
@@ -12,31 +14,62 @@ description: This blog is where i can rant and rave about all the different aspe
 
 Recently there has been a lot of talk about adding [Generics](https://en.wikipedia.org/wiki/Generic_programming) to the popular programming language [Go](https://golang.org/). Not only do I think this is a good idea, I actually think it’s a complete no-brainer! Go has been maturing at a rapid rate over the last few years and the Go team have recently [started asking for user experiences](https://github.com/golang/go/wiki/ExperienceReports) to influence Go’s future. In my humble opinion, they only need to focus on one thing. Can you guess what it is?
 
-[Read full article ➔](/articles/generics-in-go2-Its-a-no-brainer.html)
+<a href="/articles/generics-in-go2-Its-a-no-brainer.html" class="button">Read full article ➔</a>
 
 ---
 
-# Past articles
+<a href="/articles/interesting-ways-of-using-go-channels.html">
+	<img src="/articles/images/interesting-ways-of-using-go-channels-banner.png" class="banner">
+</a>
 
-* [Generics in Go v2.0? It’s a no-brainer!](/articles/generics-in-go2-Its-a-no-brainer.html)
-* [Interesting ways of using Go channels](/articles/interesting-ways-of-using-go-channels.html)
-* [Managing Programmers by Douglas Crockford](/articles/managing-programmers-by-douglas-crockford.html)
-* [Working with files in the D programming language](/articles/working-with-files-in-the-d-programming-language.html)
-* [More hidden treasure in the D standard library](/articles/more-hidden-treasure-in-the-d-standard-library.html)
-* [Why Go’s design is a disservice to intelligent programmers](/articles/why-gos-design-is-a-disservice-to-intelligent-programmers.html)
-* [Hidden treasure in the D standard library](/articles/hidden-treasure-in-the-d-standard-library.html)
-* [Stop abusing arrays in PHP](/articles/stop-abusing-arrays-in-php.html)
-* [Alternative function syntax in D explained](/articles/alternative-function-syntax-in-d-banner.html)
-* [Templates in D explained](/articles/templates-in-d-explained.html)
-* [Forget currying, use partial application](/articles/forget-currying-use-partial-application.html)
-* [Piracy will always occur until attitudes and service improve](/articles/piracy-will-always-occur-until-attitudes-and-service-improve.html)
-* [Fear of contributing to open source software](/articles/fear-of-contributing-to-open-source-software.html)
-* [Vim – The only text editor you’ll ever need](/articles/vim-the-only-text-editor-youll-ever-need.html)
-* [The D programming language by Walter Bright](/articles/the-d-programming-language-by-walter-bright.html)
-* [Does typing speed matter for programmers?](/articles/does-typing-speed-matter-for-programmers.html)
-* [Objective-C, A language from another galaxy](/articles/objective-c-a-language-from-another-galaxy.html)
-* [How to sort collections of custom types in C#](/articles/how-to-sort-collections-of-custom-types-in-c-sharp.html)
-* [How do i love thee? Let me count the ways](/articles/how-do-i-love-thee-let-me-count-the-ways.html)
-* [Is ‘Linux is only free if your time has no value’ still valid?](/articles/is-linux-is-only-free-if-your-time-has-no-value-still-valid.html)
-* [Hey, stop ruining my work!](/articles/hey-stop-ruining-my-work.html)
-* [JavaScript – The Good Parts](/articles/javascript-the-good-parts.html)
+# [Interesting ways of using Go channels](/articles/interesting-ways-of-using-go-channels.html)
+
+<time>Posted on 21st January 2016 by [Gary Willoughby](/pages/about.html)</time>
+
+I’ve created this post to document [slides](https://www.slideshare.net/cloudflare/a-channel-compendium) accompanying a talk on [Go](https://golang.org/) channels given by [John Graham-Cumming](https://en.wikipedia.org/wiki/John_Graham-Cumming) during [GopherCon 2014](https://www.gophercon.com/). The presentation was entitled ‘A Channel Compendium‘ and is available below.
+
+<a href="/articles/interesting-ways-of-using-go-channels.html" class="button">Read full article ➔</a>
+
+---
+
+<iframe class="youtube" src="https://www.youtube.com/embed/NPlMcUxFOlY" frameborder="0" allowfullscreen></iframe>
+
+# [Managing Programmers by Douglas Crockford](/articles/managing-programmers-by-douglas-crockford.html)
+
+<time>Posted on 30th December 2015 by [Gary Willoughby](/pages/about.html)</time>
+
+This is an excellent overview on how to manage programmers, what problems they encounter and what they need to be productive.
+
+<a href="/articles/managing-programmers-by-douglas-crockford.html" class="button">Read full article ➔</a>
+
+---
+
+<a href="/articles/working-with-files-in-the-d-programming-language.html">
+	<img src="/articles/images/working-with-files-in-the-d-programming-language-banner.jpg" class="banner">
+</a>
+
+# [Working with files in the D programming language](/articles/working-with-files-in-the-d-programming-language.html)
+
+<time>Posted on 28th September 2015 by [Gary Willoughby](/pages/about.html)</time>
+
+The inspiration for this article was one written a few weeks ago entitled [Working with Files in Go](https://www.devdungeon.com/content/working-files-go). In that article the author details numerous ways of interacting with files highlighting the capabilities of [Go](https://golang.org/). I thought I would write a companion piece, this time detailing how to interact with files using the [D programming language](https://dlang.org/). Interacting with files is a fundamental task of any programming language and while such tasks are commonplace, it’s not entirely obvious how to achieve certain file related tasks using D. Hopefully this article will change that and show the simplicity and power of the D language when working with files.
+
+<a href="/articles/working-with-files-in-the-d-programming-language.html" class="button">Read full article ➔</a>
+
+---
+
+<a href="/articles/more-hidden-treasure-in-the-d-standard-library.html">
+	<img src="/articles/images/more-hidden-treasure-in-the-d-standard-library-banner.jpg" class="banner">
+</a>
+
+# [More hidden treasure in the D standard library](/articles/more-hidden-treasure-in-the-d-standard-library.html)
+
+<time>Posted on 31st August 2015 by [Gary Willoughby](/pages/about.html)</time>
+
+After the success of the last article detailing [hidden treasures in the D standard library](/articles/hidden-treasure-in-the-d-standard-library.html), I thought I would write another highlighting why the [D programming language](https://dlang.org/) coupled with its great standard library is surprisingly useful. The library itself is a vast beast and has been written by some exceptional programmers, so occasionally you stumble across some truly useful and well designed nuggets of code. This article shows a few more of these hidden treasures and provides examples of where they could be useful when used in your projects.
+
+<a href="/articles/more-hidden-treasure-in-the-d-standard-library.html" class="button">Read full article ➔</a>
+
+---
+
+To read more articles please visit the [Archive](/pages/archive.html).

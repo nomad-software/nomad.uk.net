@@ -257,7 +257,7 @@ header .nav-bar li a img {
 	margin: 0.4em 0 0 0;
 }
 
-.body .content .figure:first-child img, .body .content p:first-child img, .body .content .youtube {
+.body .content .figure:first-child img, .body .content .banner, .body .content .youtube {
 	background-color: #fafeff;
 	border-width: 1px;
 	border-style: solid;
@@ -288,6 +288,27 @@ header .nav-bar li a img {
 
 .body .content .youtube {
 	height: 470px;
+}
+
+.body .content .button {
+	background: #4c4c4d url(../images/body/content/button.png) 0 0 repeat-x;
+	outline: none;
+	display: inline-block;
+	padding: 3px 15px;
+	margin-bottom: 0;
+	font-size: 15px;
+	line-height: 22px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: 700;
+	cursor: pointer;
+	color: #fff;
+	border: 1px solid #4d4d4e;
+	border-radius: 4px;
+}
+
+.body .content .button:hover {
+	background-position: 0 -30px;
 }
 
 .content {
