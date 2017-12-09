@@ -16,7 +16,7 @@ This blog is open to anyone wishing to make a contribution. If you've discovered
 
 #### Build the HTML files
 
-1. Execute the `buildsite.sh` bash script
+1. Execute the `build-site.sh` bash script
 2. The entire site should now reside in the 'public' directory
 
 #### Viewing the site
