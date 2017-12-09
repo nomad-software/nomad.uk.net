@@ -1,6 +1,6 @@
 #!/bin/bash
 
-find ./site -iname "*.html" -exec rm -v {} \;
+find ./public -iname "*.html" -exec rm -v {} \;
 
 find ./markdown/articles -iname "*.md" -print0 | while read -d $'\0' file
 do
@@ -9,11 +9,11 @@ do
 	URL="http://nomad.uk.net/${SHORT}.html";
 	ID=$(echo ${URL} | md5sum | cut -d ' ' -f 1);
 
-	echo "created './site/${SHORT}.html'";
+	echo "created './public/${SHORT}.html'";
 
 	pandoc --standalone \
 		--template="templates/article.html" \
-		--output="./site/${SHORT}.html" \
+		--output="./public/${SHORT}.html" \
 		--variable=disqus-url:${URL} \
 		--variable=disqus-id:${ID} \
 		${LONG};
@@ -26,15 +26,15 @@ do
 	URL="http://nomad.uk.net/${SHORT}.html";
 	ID=$(echo ${URL} | md5sum | cut -d ' ' -f 1);
 
-	echo "created './site/${SHORT}.html'";
+	echo "created './public/${SHORT}.html'";
 
 	pandoc --standalone \
 		--template="templates/article.html" \
-		--output="./site/${SHORT}.html" \
+		--output="./public/${SHORT}.html" \
 		--variable=disqus-url:${URL} \
 		--variable=disqus-id:${ID} \
 		${LONG};
 done;
 
-pandoc --standalone --template="templates/article.html" --output="./site/index.html" "./markdown/index.md";
-echo "created './site/index.html'";
+pandoc --standalone --template="templates/article.html" --output="./public/index.html" "./markdown/index.md";
+echo "created './public/index.html'";
