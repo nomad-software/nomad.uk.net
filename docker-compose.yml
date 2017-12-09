@@ -7,4 +7,4 @@ services:
             - "8080:80"
         volumes:
             - ./public:/source
-            - ./site.conf:/etc/nginx/conf.d/default.conf
+            - ./nginx.conf:/etc/nginx/conf.d/default.conf
