@@ -14,7 +14,7 @@ I’ve recently created a program which sorts collections of custom types quite 
 
 ## IComparable
 
-The first stage to allow a custom type to be sorted is to implement the IComparable interface. This consists of one method `CompareTo&lt;T&gt;` where T is your custom type. This becomes your default comparer.
+The first stage to allow a custom type to be sorted is to implement the IComparable interface. This consists of one method `CompareTo<T>` where T is your custom type. This becomes your default comparer.
 
 Here’s an example:
 
