@@ -4,7 +4,7 @@ title: Interesting ways of using Go channels
 description: I've created this post to document slides accompanying a talk on Go channels given by John Graham-Cumming during GopherCon 2014. The presentation was entitled 'A Channel Compendium' and is available to view on youtub.com.
 ---
 
-![](/articles/images/interesting-ways-of-using-go-channels-banner.png)
+![](/articles/images/interesting-ways-of-using-go-channels-banner.jpg)
 
 # Interesting ways of using Go channels
 

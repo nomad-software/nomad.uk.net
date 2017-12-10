@@ -4,15 +4,13 @@ title: Is ‘Linux is only free if your time has no value’ still valid?
 description: The above quote comes from a post made by a programmer called Jamie Zawinski back in 1998. It's a quote aimed squarely at the user unfriendliness of Linux.
 ---
 
-![](/articles/images/is-linux-is-only-free-if-your-time-has-no-value-still-valid-banner.png)
+![](/articles/images/is-linux-is-only-free-if-your-time-has-no-value-still-valid-banner.jpg)
 
 # Is ‘Linux is only free if your time has no value’ still valid?
 
 <time>Posted on 8th July 2013 by [Gary Willoughby](/pages/about.html)</time>
 
 **EDIT:** This is now an old post and my opinion on Linux has changed a great deal over the years. While I agree this viewpoint had some merit a few years ago, the enormous effort by the open source community to make Linux great has generally succeeded. So for the record, this article no longer represents my views on Linux and should be viewed in a historical context.
-
----
 
 > This is the part where I start getting hate mail from people, and cheerleading messages telling me to take a look at it again, because it’s so much better now. I understand. I’ll take your word for it. And when the time comes to replace the O2 I have today, maybe my next machine will run Linux. But as we all know, Linux is only free if your time has no value, and I find that my time is better spent doing things other than the endless moving-target-upgrade dance. – Jamie Zawinski <sup>1</sup>
 

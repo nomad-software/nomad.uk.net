@@ -4,7 +4,7 @@ title: Alternative function syntax in D explained
 description: An alternative syntax has not been included by accident but by design and as a result could potentially make code more complicated to understand and add more friction to first learning the language.
 ---
 
-![](/articles/images/alternative-function-syntax-in-d-banner.png)
+![](/articles/images/alternative-function-syntax-in-d-banner.jpg)
 
 # Alternative function syntax in D explained
 

@@ -4,9 +4,7 @@ title: Home
 description: This blog is where i can rant and rave about all the different aspects of software development, save code and ideas for later and somewhere where readers and i can both learn from each other. What better way is there to reach other like minded developers than to keep a journal of ideas and thoughts that hopefully will help our community as a whole. Plus, it’s also a storage facility for me, so i don’t forget this stuff!
 ---
 
-<a href="/articles/generics-in-go2-Its-a-no-brainer.html">
-	<img src="/articles/images/generics-in-go2-Its-a-no-brainer-banner.jpg" class="banner">
-</a>
+[![](/articles/images/generics-in-go2-Its-a-no-brainer-banner.jpg)](/articles/generics-in-go2-Its-a-no-brainer.html)
 
 # [Generics in Go v2.0 It’s a no-brainer!](/articles/generics-in-go2-Its-a-no-brainer.html)
 
@@ -18,9 +16,7 @@ Recently there has been a lot of talk about adding [Generics](https://en.wikiped
 
 ---
 
-<a href="/articles/interesting-ways-of-using-go-channels.html">
-	<img src="/articles/images/interesting-ways-of-using-go-channels-banner.png" class="banner">
-</a>
+[![](/articles/images/interesting-ways-of-using-go-channels-banner.jpg)](/articles/interesting-ways-of-using-go-channels.html)
 
 # [Interesting ways of using Go channels](/articles/interesting-ways-of-using-go-channels.html)
 
@@ -44,9 +40,7 @@ This is an excellent overview on how to manage programmers, what problems they e
 
 ---
 
-<a href="/articles/working-with-files-in-the-d-programming-language.html">
-	<img src="/articles/images/working-with-files-in-the-d-programming-language-banner.jpg" class="banner">
-</a>
+[![](/articles/images/working-with-files-in-the-d-programming-language-banner.jpg)](/articles/working-with-files-in-the-d-programming-language.html)
 
 # [Working with files in the D programming language](/articles/working-with-files-in-the-d-programming-language.html)
 
@@ -58,9 +52,7 @@ The inspiration for this article was one written a few weeks ago entitled [Worki
 
 ---
 
-<a href="/articles/more-hidden-treasure-in-the-d-standard-library.html">
-	<img src="/articles/images/more-hidden-treasure-in-the-d-standard-library-banner.jpg" class="banner">
-</a>
+[![](/articles/images/more-hidden-treasure-in-the-d-standard-library-banner.jpg)](/articles/more-hidden-treasure-in-the-d-standard-library.html)
 
 # [More hidden treasure in the D standard library](/articles/more-hidden-treasure-in-the-d-standard-library.html)
 
@@ -72,4 +64,4 @@ After the success of the last article detailing [hidden treasures in the D stand
 
 ---
 
-To read more articles please visit the [Archive](/pages/archive.html).
+To read more articles please visit the [Archive ➔](/pages/archive.html).

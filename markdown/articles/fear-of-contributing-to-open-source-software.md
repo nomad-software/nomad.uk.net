@@ -4,7 +4,7 @@ title: Fear of contributing to open source software
 description: I'm currently considering contributing to an open source software project and while i feel i could make a worthwhile effort i've always had fears about doing so.
 ---
 
-![](/articles/images/fear-of-contributing-to-open-source-software-banner.png)
+![](/articles/images/fear-of-contributing-to-open-source-software-banner.jpg)
 
 # Fear of contributing to open source software
 
@@ -40,7 +40,7 @@ All (and more) of what i explain above was initially brought to my attention in 
 
 In this lecture they both talk about how well meaning developers can seriously disrupt or in some cases destroy a project. Some of the examples given are a little extreme and i personally think the two presenters display a little hubris in some of the things they say. But it’s a good eye opener of what problems there will be when joining an open source team.
 
-![](/articles/images/producing-open-source-software-book-cover.png)
+![](/articles/images/producing-open-source-software-book-cover.jpg)
 
 Another good resource for learning more about open source projects before actually joining one is the 2005 book [Producing Open Source Software](http://producingoss.com/) by [Karl Fogel](http://www.red-bean.com/kfogel/). Not only is this book free to download from the website, it also contains virtually everything you will need to know to successfully run an open source project. More importantly, it describes how successful projects operate, the expectations of users and developers, and expands upon the culture of open source software.
 

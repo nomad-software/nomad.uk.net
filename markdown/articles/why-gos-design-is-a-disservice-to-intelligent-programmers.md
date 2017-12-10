@@ -14,7 +14,7 @@ Over the course of the past few months I’ve been using [Go](https://golang.org
 
 ## Created for lesser programmers?
 
-![](/articles/images/an-introduction-to-programming-in-go-book-cover.png)
+![](/articles/images/an-introduction-to-programming-in-go-book-cover.jpg)
 
 Go is very easy to learn, in fact it’s so easy it took me one evening to read an introductory text and be productive almost immediately. The book I learned from was entitled [An Introduction to Programming in Go](http://www.golang-book.com/) and is available on-line. Similar to Go, the book is easy to read with good examples and clocking in at about 150 pages you can finish it in one sitting. Initially this simplicity starts off very refreshing in a programming world full of overly complicated technologies but there’s a niggling thought of "Is that it?".
 

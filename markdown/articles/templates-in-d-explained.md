@@ -4,7 +4,7 @@ title: Templates in D explained
 description: Template metaprogramming scares the hell out of most developers. Hopefully this article will remove the fear and educate.
 ---
 
-![](/articles/images/templates-in-d-explained-banner.png)
+![](/articles/images/templates-in-d-explained-banner.jpg)
 
 # Templates in D explained
 

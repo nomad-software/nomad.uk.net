@@ -4,7 +4,7 @@ title: Objective-C, A language from another galaxy
 description: Over the last few weeks i've been learning Objective-C, Apple's flagship programming language, preferred for all Mac OS and iOS development.
 ---
 
-![](/articles/images/objective-c-a-language-from-another-galaxy-banner.png)
+![](/articles/images/objective-c-a-language-from-another-galaxy-banner.jpg)
 
 # Objective-C, A language from another galaxy
 
