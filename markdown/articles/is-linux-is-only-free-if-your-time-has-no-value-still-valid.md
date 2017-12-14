@@ -8,7 +8,7 @@ description: The above quote comes from a post made by a programmer called Jamie
 
 # Is ‘Linux is only free if your time has no value’ still valid?
 
-<time>Posted on 8th July 2013 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 3rd March 2010 by [Gary Willoughby](/pages/about.html)</time>
 
 **EDIT:** This is now an old post and my opinion on Linux has changed a great deal over the years. While I agree this viewpoint had some merit a few years ago, the enormous effort by the open source community to make Linux great has generally succeeded. So for the record, this article no longer represents my views on Linux and should be viewed in a historical context.
 

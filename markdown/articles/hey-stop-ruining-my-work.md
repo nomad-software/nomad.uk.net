@@ -8,7 +8,7 @@ description: My beautiful website was knackered! Pixel perfect divs not lining u
 
 # Hey, stop ruining my work!
 
-<time>Posted on 8th July 2013 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 18th January 2010 by [Gary Willoughby](/pages/about.html)</time>
 
 Recently a friend of mine ask me to design and create a small website for their fledgling business. Although slightly weary of creating such websites, he was a good friend so i agreed to do it free of charge. The business was something i am not familiar with and while nothing to do with technology i approached the project with enthusiasm and proceeded to gather information from him as i would any other client.
 
