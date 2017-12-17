@@ -12,7 +12,7 @@ do
 	echo "created './public/${SHORT}.html'";
 
 	pandoc --standalone \
-		--template="templates/article.html" \
+		--template="templates/default.html" \
 		--output="./public/${SHORT}.html" \
 		--variable=disqus-url:${URL} \
 		--variable=disqus-id:${ID} \
@@ -29,12 +29,12 @@ do
 	echo "created './public/${SHORT}.html'";
 
 	pandoc --standalone \
-		--template="templates/article.html" \
+		--template="templates/default.html" \
 		--output="./public/${SHORT}.html" \
 		--variable=disqus-url:${URL} \
 		--variable=disqus-id:${ID} \
 		${LONG};
 done;
 
-pandoc --standalone --template="templates/article.html" --output="./public/index.html" "./markdown/index.md";
+pandoc --standalone --template="templates/default.html" --output="./public/index.html" "./markdown/index.md";
 echo "created './public/index.html'";
