@@ -3,7 +3,7 @@
 ./build-site.sh;
 
 echo "Deleting old docker image"
-docker rmi $(docker images -q nomadsoftware/nomad.uk.net);
+docker rmi -f $(docker images -q nomadsoftware/nomad.uk.net);
 
 echo "Building new docker image"
 docker build -t "nomadsoftware/nomad.uk.net:latest" .;
