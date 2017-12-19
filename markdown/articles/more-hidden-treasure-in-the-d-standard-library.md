@@ -12,7 +12,7 @@ description: After the success of the last article detailing hidden treasures in
 
 After the success of the last article detailing [hidden treasures in the D standard library](/articles/hidden-treasure-in-the-d-standard-library.html), I thought I would write another highlighting why the [D programming language](https://dlang.org/) coupled with its great standard library is surprisingly useful. The library itself is a vast beast and has been written by some exceptional programmers, so occasionally you stumble across some truly useful and well designed nuggets of code. This article shows a few more of these hidden treasures and provides examples of where they could be useful when used in your projects.
 
-The following code examples make good use of D’s uniform function call syntax and template metaprogramming capabilities. Don’t be put off by this as very simple explanations for these can be found [here](/articles/templates-in-d-explained.html) and [here](/articles/alternative-function-syntax-in-d-banner.html).
+The following code examples make good use of D’s uniform function call syntax and template metaprogramming capabilities. Don’t be put off by this as very simple explanations for these can be found [here](/articles/templates-in-d-explained.html) and [here](/articles/alternative-function-syntax-in-d.html).
 
 ## std.algorithm
 

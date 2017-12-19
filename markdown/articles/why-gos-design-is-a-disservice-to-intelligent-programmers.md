@@ -46,7 +46,7 @@ Here’s the same example using the [D language](https://dlang.org/):
 
 <script src="https://gist.github.com/nomad-software/2098c42493b1ff04a79497c14da31671.js"></script>
 
-Now, which one is more readable? I’d choose the D version. It’s a lot more readable purely because it’s expressing the program’s intent in a much more clear way. This code also uses concepts that are more advanced than the Go code but they’re nothing too complicated that an intelligent programmer couldn’t pick up [quickly](/articles/alternative-function-syntax-in-d-banner.html) and [easily](/articles/templates-in-d-explained.html).
+Now, which one is more readable? I’d choose the D version. It’s a lot more readable purely because it’s expressing the program’s intent in a much more clear way. This code also uses concepts that are more advanced than the Go code but they’re nothing too complicated that an intelligent programmer couldn’t pick up [quickly](/articles/alternative-function-syntax-in-d.html) and [easily](/articles/templates-in-d-explained.html).
 
 ### Boiler plate hell
 

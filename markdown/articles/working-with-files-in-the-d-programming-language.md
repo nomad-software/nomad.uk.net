@@ -12,7 +12,7 @@ description: Hopefully this article will change that and show the simplicity and
 
 The inspiration for this article was one written a few weeks ago entitled [Working with Files in Go](https://www.devdungeon.com/content/working-files-go). In that article the author details numerous ways of interacting with files highlighting the capabilities of [Go](https://golang.org/). I thought I would write a companion piece, this time detailing how to interact with files using the [D programming language](https://dlang.org/). Interacting with files is a fundamental task of any programming language and while such tasks are commonplace, it’s not entirely obvious how to achieve certain file related tasks using D. Hopefully this article will change that and show the simplicity and power of the D language when working with files.
 
-Some of following code examples make good use of D’s uniform function call syntax (UFCS). Don’t be put off by this, a very simple explanation can be found [here](/articles/alternative-function-syntax-in-d-banner.html).
+Some of following code examples make good use of D’s uniform function call syntax (UFCS). Don’t be put off by this, a very simple explanation can be found [here](/articles/alternative-function-syntax-in-d.html).
 
 ## Reading and writing
 

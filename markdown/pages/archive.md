@@ -18,7 +18,7 @@ description: An archive of past articles.
 * [Why Go’s design is a disservice to intelligent programmers](/articles/why-gos-design-is-a-disservice-to-intelligent-programmers.html)
 * [Hidden treasure in the D standard library](/articles/hidden-treasure-in-the-d-standard-library.html)
 * [Stop abusing arrays in PHP](/articles/stop-abusing-arrays-in-php.html)
-* [Alternative function syntax in D explained](/articles/alternative-function-syntax-in-d-banner.html)
+* [Alternative function syntax in D explained](/articles/alternative-function-syntax-in-d.html)
 * [Templates in D explained](/articles/templates-in-d-explained.html)
 * [Forget currying, use partial application](/articles/forget-currying-use-partial-application.html)
 * [Piracy will always occur until attitudes and service improve](/articles/piracy-will-always-occur-until-attitudes-and-service-improve.html)
