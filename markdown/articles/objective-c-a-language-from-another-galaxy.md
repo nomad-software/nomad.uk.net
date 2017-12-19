@@ -10,7 +10,7 @@ description: Over the last few weeks i've been learning Objective-C, Apple's fla
 
 <time>Posted on 9th July 2013 by [Gary Willoughby](/pages/about.html)</time>
 
-Over the last few weeks i’ve been learning [Objective-C](https://en.wikipedia.org/wiki/Objective-C), [Apple’s](https://en.wikipedia.org/wiki/Apple_Inc.) flagship programming language, preferred for all [Mac OS](https://en.wikipedia.org/wiki/Macintosh_operating_systems) and [iOS](https://en.wikipedia.org/wiki/IOS) development. Wanting to create my own iPhone and iPad apps, i wanted to learn Objective-C and of course after doing a great deal of programming using C type languages I thought it would be quite easy to learn and program using it, …how wrong i was!
+Over the last few weeks i’ve been learning [Objective-C](https://en.wikipedia.org/wiki/Objective-C), [Apple’s](https://en.wikipedia.org/wiki/Apple_Inc.) flagship programming language, preferred for all [Mac OS](https://en.wikipedia.org/wiki/Macintosh_operating_systems) and [iOS](https://en.wikipedia.org/wiki/IOS) development. Wanting to create my own iPhone and iPad apps, I wanted to learn Objective-C and of course after doing a great deal of programming using C type languages I thought it would be quite easy to learn and program using it, …how wrong I was!
 
 ## A galaxy far, far away
 
@@ -42,7 +42,7 @@ Objective-C also has way of extending objects at runtime without inheriting from
 
 ## The end
 
-I’m still learning Objective-C and i already like what i see. It’s one of the weirdest languages i’ve ever used but i like C and the object stuff bolted on by Objective-C is the icing on the cake. Good programmers always advise you should occasionally try your hand with other languages and try something different once in a while to keep better informed and to get more experience I’m loving learning Objective-C because it’s so different from what i’m used to and there’s so much new stuff to learn. I’m learning this language to eventually create my own iPhone and iPad apps, hopefully i’ll keep you updated on what i discover while learning.
+I’m still learning Objective-C and I already like what I see. It’s one of the weirdest languages i’ve ever used but I like C and the object stuff bolted on by Objective-C is the icing on the cake. Good programmers always advise you should occasionally try your hand with other languages and try something different once in a while to keep better informed and to get more experience I’m loving learning Objective-C because it’s so different from what i’m used to and there’s so much new stuff to learn. I’m learning this language to eventually create my own iPhone and iPad apps, hopefully i’ll keep you updated on what I discover while learning.
 
 If you have the time and a sense of adventure, i’d strongly recommend you give Objective-C a go. You’ll be confused for a while but who knows, you may enjoy learning something new and get some valuable experience along the way?
 

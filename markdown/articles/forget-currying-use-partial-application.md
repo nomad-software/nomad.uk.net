@@ -14,7 +14,7 @@ I’m currently reading more about advanced [JavaScript](https://en.wikipedia.or
 
 ## Partial application
 
-I’ll start with partial application first as i think it’s the easiest to understand and the most useful in JavaScript programming.
+I’ll start with partial application first as I think it’s the easiest to understand and the most useful in JavaScript programming.
 
 So what is it? It’s basically a function factory that customises the returned function via the passed arguments to the main function. Here’s an example:
 
@@ -28,7 +28,7 @@ As a cool by-product, the example above elegantly demonstrates two of JavaScript
 
 Before it start to describe currying in any detail, i’ll describe its etymology. Currying is a rediscovery of an earlier technique discovered by a guy named [Moses Schönfinkel](https://en.wikipedia.org/wiki/Moses_Sch%C3%B6nfinkel) and in many cases it is referred to as Schönfinkeling! I guess because Moses’ last name is hard to pronounce people tend to use the name of its re-discoverer [Haskell Curry](https://en.wikipedia.org/wiki/Haskell_Curry). For the sake of brevity i’ll use the term Currying.
 
-Earlier i wrote that currying is the more serious cousin to partial application purely because it’s used more in true [Functional Languages](https://en.wikipedia.org/wiki/Functional_programming) and for more mathematical applications such as [Lambda Calculus](https://en.wikipedia.org/wiki/Lambda_calculus). In principle however the two are very much alike and are frequently confused.
+Earlier I wrote that currying is the more serious cousin to partial application purely because it’s used more in true [Functional Languages](https://en.wikipedia.org/wiki/Functional_programming) and for more mathematical applications such as [Lambda Calculus](https://en.wikipedia.org/wiki/Lambda_calculus). In principle however the two are very much alike and are frequently confused.
 
 Currying is very similar to partial application but is a process that transforms a function to act differently regarding the data it consumes through it’s arguments. Once curried, the new function returns another function with a reduced amount of parameters with state held in closure. The difference from partial application is that each returned function will only everhave one parameter. Each invocation of the returned function will return another function that requires one parameter until the operation is complete and a value is returned.
 

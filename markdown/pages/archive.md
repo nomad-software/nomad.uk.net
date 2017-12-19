@@ -28,7 +28,7 @@ description: An archive of past articles.
 * [Does typing speed matter for programmers?](/articles/does-typing-speed-matter-for-programmers.html)
 * [Objective-C, A language from another galaxy](/articles/objective-c-a-language-from-another-galaxy.html)
 * [How to sort collections of custom types in C#](/articles/how-to-sort-collections-of-custom-types-in-c-sharp.html)
-* [How do i love thee? Let me count the ways](/articles/how-do-i-love-thee-let-me-count-the-ways.html)
+* [How do I love thee? Let me count the ways](/articles/how-do-i-love-thee-let-me-count-the-ways.html)
 * [Is ‘Linux is only free if your time has no value’ still valid?](/articles/is-linux-is-only-free-if-your-time-has-no-value-still-valid.html)
 * [Hey, stop ruining my work!](/articles/hey-stop-ruining-my-work.html)
 * [JavaScript – The Good Parts](/articles/javascript-the-good-parts.html)

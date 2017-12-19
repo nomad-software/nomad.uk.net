@@ -1,7 +1,7 @@
 ---
 author: Gary Willoughby
 title: Hidden treasure in the D standard library
-description: I've been using D for a number of years and i am constantly surprised by the hidden treasure i find in the standard library. This article highlights a few of these hidden treasures which i hope you'll enjoy learning about and will be useful for your future D projects.
+description: I've been using D for a number of years and I am constantly surprised by the hidden treasure I find in the standard library. This article highlights a few of these hidden treasures which I hope you'll enjoy learning about and will be useful for your future D projects.
 ---
 
 ![](/articles/images/hidden-treasure-in-the-d-standard-library-banner.jpg)
@@ -10,7 +10,7 @@ description: I've been using D for a number of years and i am constantly surpris
 
 <time>Posted on 28th August 2014 by [Gary Willoughby](/pages/about.html)</time>
 
-I’ve been using [D](https://dlang.org/) for a number of years and i am constantly surprised by the hidden treasure i find in the standard library. I guess the reason for my surprise is that i’ve never exhaustively read the entire library documentation, i only skim it for what’s needed at any given time. I’ve promised myself i _will_ read it thoroughly one day but until then i’ll enjoy these little discoveries. This article highlights a few of these hidden treasures which i hope you’ll enjoy learning about and will be useful for your future D projects.
+I’ve been using [D](https://dlang.org/) for a number of years and I am constantly surprised by the hidden treasure I find in the standard library. I guess the reason for my surprise is that i’ve never exhaustively read the entire library documentation, I only skim it for what’s needed at any given time. I’ve promised myself I _will_ read it thoroughly one day but until then i’ll enjoy these little discoveries. This article highlights a few of these hidden treasures which I hope you’ll enjoy learning about and will be useful for your future D projects.
 
 ## std.functional
 
@@ -24,11 +24,11 @@ The following is a simple program to display numbers of the [Fibonacci](https://
 
 <script src="https://gist.github.com/nomad-software/472a5366fd91f0067acbd0f056ca9c0b.js"></script>
 
-If i run this on my computer it finishes in about 13 seconds, which is not great. That’s because it’s recalculating values every time it’s run. Using the `memoize` template we can cache the values instead of recalculating them again. This caching assumes that for any given valid arguments the function will return the exact same result. Here is the memoized version.
+If I run this on my computer it finishes in about 13 seconds, which is not great. That’s because it’s recalculating values every time it’s run. Using the `memoize` template we can cache the values instead of recalculating them again. This caching assumes that for any given valid arguments the function will return the exact same result. Here is the memoized version.
 
 <script src="https://gist.github.com/nomad-software/c0ae4bfb1d979c57d30b96d62ec7b328.js"></script>
 
-Internally in `fib` the recursive calls are now being made to the memoized version `mfib`. When the memoized version is called, it first checks its cache and if a value exists for that particular combination of arguments the cached value is returned avoiding any recalculation. This can save an enormous amount of computation time but with the overhead of maintaining a simple cache. If i run this new program using the memoized function, the execution time is dramatically shortened to only a fraction of a second.
+Internally in `fib` the recursive calls are now being made to the memoized version `mfib`. When the memoized version is called, it first checks its cache and if a value exists for that particular combination of arguments the cached value is returned avoiding any recalculation. This can save an enormous amount of computation time but with the overhead of maintaining a simple cache. If I run this new program using the memoized function, the execution time is dramatically shortened to only a fraction of a second.
 
 The memoization cache is implemented as a simple associative array keyed on the types and values of the passed arguments. The cache element size can be limited by passing a second argument to the `memoize` template. [View documentation](https://dlang.org/phobos/std_functional.html#.memoize).
 
@@ -48,7 +48,7 @@ To parallelize the loop we simply use the `parallel` function, like this.
 
 <script src="https://gist.github.com/nomad-software/362a34d07a6214a31bfd64328b7ffd51.js"></script>
 
-Notice the second argument to `parallel`? that’s the number of work units (i.e. consecutive elements to pass to each thread for processing). I’ve set it to `1` to indicate i want each element to be run independently in its own thread. Smaller work units provide better load balancing, but larger work units avoid the overhead of communicating with other threads. The less time a single iteration of the loop takes, the larger work unit should be. For very expensive loop bodies, the unit size should be `1`.
+Notice the second argument to `parallel`? that’s the number of work units (i.e. consecutive elements to pass to each thread for processing). I’ve set it to `1` to indicate I want each element to be run independently in its own thread. Smaller work units provide better load balancing, but larger work units avoid the overhead of communicating with other threads. The less time a single iteration of the loop takes, the larger work unit should be. For very expensive loop bodies, the unit size should be `1`.
 
 Now that the above loop is parallelized and each element is processed in it’s own thread, the execution time is slashed to 5 seconds. The program now uses multiple threads (and all [four CPU cores](https://en.wikipedia.org/wiki/Multi-core_processor)) on my computer. [View documentation](https://dlang.org/phobos/std_parallelism.html#.TaskPool.parallel).
 
@@ -90,7 +90,7 @@ Don’t you agree this is much nicer than having to guess what boolean arguments
 
 This is an extremely handy [mixin template](/articles/templates-in-d-explained.html) for injecting code into a class or struct to make it behave like another type. Doing this manually is quite time consuming and involves a lot of [operator overloading](https://en.wikipedia.org/wiki/Operator_overloading), whereas `Proxy` is a simple one liner that enables lots of automatic functionality.
 
-Here’s an example where i make the struct `Foo` behave as an integral type.
+Here’s an example where I make the struct `Foo` behave as an integral type.
 
 <script src="https://gist.github.com/nomad-software/d290b376d2e08462a6493d5e2557dff2.js"></script>
 
@@ -108,7 +108,7 @@ This struct is a wrapper for creating [reference counted](https://en.wikipedia.o
 
 Creating reference counted objects is desirable if you are trying to keep reliance on the [garbage collector](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) to a minimum and you want make sure objects are destroyed as soon as they have no more references to them. This makes sure you can easily define when objects are deallocated.
 
-There are a few words of warning here though. It doesn’t work with classes and it’s currently considered unsafe and should be used with care. i.e. No references to the payload should be escaped outside the object or you’re defeating the object (pardon the pun) of using it. With that said i still think it’s pretty cool and valuable. [View documentation](https://dlang.org/phobos/std_typecons.html#.RefCounted).
+There are a few words of warning here though. It doesn’t work with classes and it’s currently considered unsafe and should be used with care. i.e. No references to the payload should be escaped outside the object or you’re defeating the object (pardon the pun) of using it. With that said I still think it’s pretty cool and valuable. [View documentation](https://dlang.org/phobos/std_typecons.html#.RefCounted).
 
 ### scoped
 

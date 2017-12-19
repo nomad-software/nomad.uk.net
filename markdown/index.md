@@ -1,7 +1,7 @@
 ---
 author: Gary Willoughby
 title: Home
-description: This blog is where i can rant and rave about all the different aspects of software development, save code and ideas for later and somewhere where readers and i can both learn from each other. What better way is there to reach other like minded developers than to keep a journal of ideas and thoughts that hopefully will help our community as a whole. Plus, it’s also a storage facility for me, so i don’t forget this stuff!
+description: This blog is where I can rant and rave about all the different aspects of software development, save code and ideas for later and somewhere where readers and I can both learn from each other. What better way is there to reach other like minded developers than to keep a journal of ideas and thoughts that hopefully will help our community as a whole. Plus, it’s also a storage facility for me, so I don’t forget this stuff!
 ---
 
 [![](/articles/images/generics-in-go2-Its-a-no-brainer-banner.jpg)](/articles/generics-in-go2-Its-a-no-brainer.html)

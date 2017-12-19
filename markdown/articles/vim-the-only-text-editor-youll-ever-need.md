@@ -10,7 +10,7 @@ description: Well, not wanting to shy away from an argument i'm going to make th
 
 <time>Posted on 10th July 2013 by [Gary Willoughby](/pages/about.html)</time>
 
-Text editors are a huge topic of discussion and [argument](https://en.wikipedia.org/wiki/Editor_war) in the software world and every developer has their favorite. I’ve seen so many [flame wars](https://en.wikipedia.org/wiki/Flaming_(Internet)) erupting all over the net about this subject that i sometimes dare not bring it up. Well, not wanting to shy away from an argument i’m going to make the case for the [Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) text editor and explain why it’s so awesome.
+Text editors are a huge topic of discussion and [argument](https://en.wikipedia.org/wiki/Editor_war) in the software world and every developer has their favorite. I’ve seen so many [flame wars](https://en.wikipedia.org/wiki/Flaming_(Internet)) erupting all over the net about this subject that I sometimes dare not bring it up. Well, not wanting to shy away from an argument i’m going to make the case for the [Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) text editor and explain why it’s so awesome.
 
 ## History
 
@@ -72,8 +72,8 @@ Vim can also be extended to add syntax highlighting for additional languages or 
 
 ![](/articles/images/vim-logo.jpg)
 
-Vim has been my editor of choice for over a year now after i started using Linux full time at work. Although I’ve experimented with a lot of conventional modern text editors and IDEs, i haven’t found any that match Vim’s efficiency, programmability or ubiquitousness. After using Vim every day over the past year, i’m still discovering new features, capabilities, and useful behaviors that further improve my productivity.
+Vim has been my editor of choice for over a year now after I started using Linux full time at work. Although I’ve experimented with a lot of conventional modern text editors and IDEs, I haven’t found any that match Vim’s efficiency, programmability or ubiquitousness. After using Vim every day over the past year, i’m still discovering new features, capabilities, and useful behaviors that further improve my productivity.
 
 Not only is Vim an extremely advanced text editor it is a hacker’s toy that can never be fully be learned in its entirety (the feature list is simply to large). Thus it provides immense fun to explore while simply editing text.
 
-Vim has aged well over the past 20 years and is still in active development. It’s not a crusty relic, the editor is still as compelling as ever and continues to attract new users. The learning curve can be a little steep and may put new users off but the productivity gains, the sense of achievement and fun of discovering a great tool are well worth the effort in the long run. **Give Vim a go and you’ll never use another editor, i guarantee it!**
+Vim has aged well over the past 20 years and is still in active development. It’s not a crusty relic, the editor is still as compelling as ever and continues to attract new users. The learning curve can be a little steep and may put new users off but the productivity gains, the sense of achievement and fun of discovering a great tool are well worth the effort in the long run. **Give Vim a go and you’ll never use another editor, I guarantee it!**

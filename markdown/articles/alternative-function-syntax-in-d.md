@@ -10,9 +10,9 @@ description: An alternative syntax has not been included by accident but by desi
 
 <time>Posted on 8th August 2013 by [Gary Willoughby](/pages/about.html)</time>
 
-This is an extension article to [Templates in D explained](/articles/templates-in-d-explained.html) where i introduce the alternative function syntax and how it complements template usage. This article will expand a little more on that syntax and make clear what is available in [D](https://dlang.org/) and why.
+This is an extension article to [Templates in D explained](/articles/templates-in-d-explained.html) where I introduce the alternative function syntax and how it complements template usage. This article will expand a little more on that syntax and make clear what is available in [D](https://dlang.org/) and why.
 
-An alternative syntax has not been included by accident but by design and as a result can potentially make code more complicated to understand and add more friction to first learning the language. This particular trade off, i believe is worth it, enabling particular features when using different paradigms.
+An alternative syntax has not been included by accident but by design and as a result can potentially make code more complicated to understand and add more friction to first learning the language. This particular trade off, I believe is worth it, enabling particular features when using different paradigms.
 
 
 ## Optional parentheses
@@ -28,7 +28,7 @@ Non member functions can also be called as an assignment, passing the assigned v
 
 <script src="https://gist.github.com/nomad-software/6c3d2998ea76a3298636c3e69c6640af.js"></script>
 
-In the above example i pass the value `123` as an argument to the `foo` function during a simulated assignment. This is really weird and in my opinion not very useful for non member functions.
+In the above example I pass the value `123` as an argument to the `foo` function during a simulated assignment. This is really weird and in my opinion not very useful for non member functions.
 
 ### Member functions
 

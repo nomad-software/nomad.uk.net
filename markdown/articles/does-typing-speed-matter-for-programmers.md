@@ -18,11 +18,11 @@ Again, in October 2010 he continues
 
 > I can’t take slow typists seriously as programmers. When was the last time you saw a hunt-and-peck pianist? – Jeff Atwood <sup>2</sup>
 
-Strong words indeed. Personally, i think he’s missing the bigger issue. The whole reason we write code is to solve a problem in software. And in order to solve such problems there has to be a certain amount of thought expended on the problem in hand. If you look a little further down the page in the comments section of the 2010 entry he states
+Strong words indeed. Personally, I think he’s missing the bigger issue. The whole reason we write code is to solve a problem in software. And in order to solve such problems there has to be a certain amount of thought expended on the problem in hand. If you look a little further down the page in the comments section of the 2010 entry he states
 
 > I can type 150wpm+ on a keyboard] – Jeff Atwood <sup>3</sup>
 
-Somehow, i doubt his claims because if this was the case he would be one of the fastest typists in the world.
+Somehow, I doubt his claims because if this was the case he would be one of the fastest typists in the world.
 
 > As of 2005, writer Barbara Blackburn was the fastest English language typist in the world, according to The Guinness Book of World Records. Using the Dvorak Simplified Keyboard, she has maintained 150 words per minute (wpm) for 50 minutes. <sup>4</sup>
 
@@ -30,10 +30,10 @@ But, honestly is this really relevant? ...er, **No**!
 
 ## A simple test
 
-I’ve just taken a few typing tests on the internet to see how fast i type. The results were that i type at about 40-45 words per minute with a minimum amount of errors, so what does this mean? Well, using Jeff’s premise the following is true
+I’ve just taken a few typing tests on the internet to see how fast I type. The results were that I type at about 40-45 words per minute with a minimum amount of errors, so what does this mean? Well, using Jeff’s premise the following is true
 
 1. Typing speed equates to being a good programmer.
-1. I can solve software problems at the same rate as i type.
+1. I can solve software problems at the same rate as I type.
 
 So, my performance should be able to be graphed thus:
 

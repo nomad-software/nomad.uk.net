@@ -20,20 +20,20 @@ This quote is basically saying that Linux is a good OS because it’s free of ch
 
 If your time has no value? What can that mean? It means that you dont mind wasting your time or you don’t include time as a chargeable commodity. It means you are essentially free to waste time. Implying that Linux will do just that very thing, waste your time! Of course in business today, your time is not free and you certainly do not want to waste it, so he argues to not touch Linux because it will waste your time and your profit will be hurt.
 
-Is this true, even today? Well, i can answer that one pretty easily with a big **YES!** Linux will definately waste your time but with a small caveat: only if you have never used it before.
+Is this true, even today? Well, I can answer that one pretty easily with a big **YES!** Linux will definately waste your time but with a small caveat: only if you have never used it before.
 
 In the last few months i’ve been testing Linux again with the goal of fully replacing my windows workstation with a free and open operating system. I’ve been testing Linux on and off for about 10 years starting with [Mandrake Linux](https://en.wikipedia.org/wiki/Mandriva_Linux) (as it was called back then in 1999) and more recently, jumping on the bandwagon, and using [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu_%28operating_system%29).
 
-I’ve had a tendency to use the more easy to use distributions to avoid setup time, and to be honest, purely to get things done as quickly as possible. And why not, i need an OS i can quickly install, that’s easy to administrate and easy to find and install software for. Ubuntu is all of these things and is a very polished piece of code. The look and feel is just great and the modern package manager, [Synaptic](https://en.wikipedia.org/wiki/Synaptic_%28software%29) is a great tool for discovering and installing all sorts of software. I’ve used Ubuntu for the desktop and for implementing a web development server.
+I’ve had a tendency to use the more easy to use distributions to avoid setup time, and to be honest, purely to get things done as quickly as possible. And why not, I need an OS I can quickly install, that’s easy to administrate and easy to find and install software for. Ubuntu is all of these things and is a very polished piece of code. The look and feel is just great and the modern package manager, [Synaptic](https://en.wikipedia.org/wiki/Synaptic_%28software%29) is a great tool for discovering and installing all sorts of software. I’ve used Ubuntu for the desktop and for implementing a web development server.
 
 This, however, is not the problem. The problem is the little things, the kind of stuff that bugs you before you can even start to use your OS to get stuff done. For example:
 
-* Why do i need to compile a driver for my network card?
-* Why, if that doesn’t work, do i have to buy a new compatible network card?
-* Why do i need to manually edit my xorg.conf file to get multi-monitors working properly?
-* Why can’t i set preferences for everything from a nice GUI instead of editing text files?
+* Why do I need to compile a driver for my network card?
+* Why, if that doesn’t work, do I have to buy a new compatible network card?
+* Why do I need to manually edit my xorg.conf file to get multi-monitors working properly?
+* Why can’t I set preferences for everything from a nice GUI instead of editing text files?
 * Why is there no 64bit Flash player?
-* Why can’t i play DVDs or MP3s straight away?
+* Why can’t I play DVDs or MP3s straight away?
 * Why doesn’t Linux recognise my Web Camera?
 * ...and so on
 
