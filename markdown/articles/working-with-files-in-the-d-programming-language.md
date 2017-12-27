@@ -46,7 +46,7 @@ This example shows how to write bytes to a file.
 
 Sometimes is nice to just dump a buffer of data to a file and let the library take care of opening and closing it. This example shows you how.
 
-<script src="https://gist.github.com/nomad-software/8cb50779909ac7092aea11464944bbea.js"></script>
+<script src="https://gist.github.com/nomad-software/a095607b75391956909dd0fc8b031876.js"></script>
 
 This is writing an array of bytes to the file but it could just as easily be a string.
 
