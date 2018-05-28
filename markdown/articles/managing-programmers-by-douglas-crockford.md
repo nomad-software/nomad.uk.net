@@ -4,7 +4,7 @@ title: Managing Programmers by Douglas Crockford
 description: This is an excellent overview on how to manage programmers and what problems they encounter and what they need to be productive.
 ---
 
-<iframe class="youtube" src="https://www.youtube.com/embed/NPlMcUxFOlY" frameborder="0" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/3f5PdDjaP3k" frameborder="0" allowfullscreen></iframe>
 
 # Managing Programmers by Douglas Crockford
 
