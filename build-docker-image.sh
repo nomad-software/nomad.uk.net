@@ -12,3 +12,6 @@ docker images;
 
 echo "";
 echo "docker run --rm -i -t -p 80:80 nomadsoftware/nomad.uk.net:latest";
+
+# Remote command.
+#docker run --detach --name nomad.uk.net --publish 80:80 --restart always --volume /var/log/nginx:/var/log/nginx nomadsoftware/nomad.uk.net:latest
