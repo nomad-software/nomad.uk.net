@@ -97,3 +97,5 @@ Although here the `increment()` function is defined separately (and could quite 
 ## Conclusion
 
 Hopefully this article will ease confusion over these alternative syntaxes and help newcomers learn this great language. Once these simple rules are learned reading most D code becomes a breeze and further enhances your toolset.
+
+---

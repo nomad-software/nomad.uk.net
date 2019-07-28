@@ -58,3 +58,5 @@ Here the value of `$pond` is whatever the individual elements of `$collection` a
 ## Conclusion
 
  Arrays are not evil but should only be used when a collection of data has no associated behaviour. Please stop this madness of using (and abusing) arrays for everything!
+
+---

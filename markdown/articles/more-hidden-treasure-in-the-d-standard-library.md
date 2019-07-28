@@ -113,3 +113,5 @@ The above example shows how a unique resource is created, borrowed by reference 
 ## Conclusion
 
 D provides an absolute wealth of fantastic features and advanced ideas in the standard library. Featured above are only a few of the treasures to be found. Click the documentation links above and read more about each one and see for yourself the appeal and productivity of a modern system programming language such as D.
+
+---

@@ -41,7 +41,7 @@ So, my performance should be able to be graphed thus:
 
 If you work out Jeff’s performance using the same formula you get about 3,500 lines of code a day!
 
-But’s there only one problem with this approach, **It is nonsense!** No programmer will ever be able to tell you how many lines of code he will be expected to write in a day because he has no idea what is going to be encountered, so why does Jeff insist that fast is good?
+But there's only one problem with this approach, **It is nonsense!** No programmer will ever be able to tell you how many lines of code he will be expected to write in a day because he has no idea what is going to be encountered, so why does Jeff insist that fast is good?
 
 ![](/articles/images/david-by-michelangelo.jpg)
 

@@ -58,3 +58,5 @@ For those interested, here are what was wrong with the site, time after time:
 And the kicker of this whole episode is that the person ’maintaining’ the site is a ’professional’self employed web developer charging 16.50 GBP an hour, that’s about 27 USD an hour for our USA cousins! Has this person never read any best practises or style guidelines for maintaining websites? I dread to think what other sites have been ruined!
 
 I put the site right once again and politely asked my friend to pass along the guidelines I had written. From now on, any site I author will be delivered with style guidelines written to be passed on to whoever maintains the site.
+
+---

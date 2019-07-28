@@ -123,3 +123,5 @@ As with `RefCounted` there are a few caveats. It only works with classes and it 
 ## Conclusion
 
 D provides an absolute wealth of fantastic features and advanced ideas in the standard library. Featured above are only a few of the treasures to be found. Two of the most amazing modules; [std.algorithm](https://dlang.org/phobos/std_algorithm.html) and [std.range](https://dlang.org/phobos/std_range.html) aren’t even mentioned here. Click the links above and read more about each one and see for yourself the appeal and productivity of a modern system programming language such as D.
+
+---

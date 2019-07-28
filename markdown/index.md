@@ -4,6 +4,18 @@ title: Home
 description: This blog is where I can rant and rave about all the different aspects of software development, save code and ideas for later and somewhere where readers and I can both learn from each other. What better way is there to reach other like minded developers than to keep a journal of ideas and thoughts that hopefully will help our community as a whole. Plus, it’s also a storage facility for me, so I don’t forget this stuff!
 ---
 
+[![](/articles/images/developers-who-hate-on-oop-don't-know-how-to-use-it.jpg)](/articles/developers-who-hate-on-oop-don't-know-how-to-use-it.html)
+
+# Developers who hate on OOP don't know how to use it
+
+<time>Posted on 28th July 2019 by [Gary Willoughby](/pages/about.html)</time>
+
+[Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) seems to be receiving a lot of hate recently, usually from inexperienced developers who have just "learned" [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming) and then want to hate on anything that doesn't support [functional purity](https://en.wikipedia.org/wiki/Pure_function). Unfortunately, this crowd always seems to fit the same mold. They are usually web developers, fairly young, seemingly intelligent but extremely impatient and easily swayed by new technology (e.g. JavaScript developers fit this mold precisely) but the most important trait that sets them apart from developers who embrace OOP, is not persevering long enough to actually learn how to use it.
+
+<a href="/articles/developers-who-hate-on-oop-don't-know-how-to-use-it.html" class="button">Read full article ➔</a>
+
+---
+
 [![](/articles/images/generics-in-go2-Its-a-no-brainer-banner.jpg)](/articles/generics-in-go2-Its-a-no-brainer.html)
 
 # [Generics in Go v2.0 It’s a no-brainer!](/articles/generics-in-go2-Its-a-no-brainer.html)

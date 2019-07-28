@@ -45,3 +45,5 @@ In this lecture they both talk about how well meaning developers can seriously d
 Another good resource for learning more about open source projects before actually joining one is the 2005 book [Producing Open Source Software](http://producingoss.com/) by [Karl Fogel](http://www.red-bean.com/kfogel/). Not only is this book free to download from the website, it also contains virtually everything you will need to know to successfully run an open source project. More importantly, it describes how successful projects operate, the expectations of users and developers, and expands upon the culture of open source software.
 
 I guess I will never know what is to be expected until I actually join a project but after reading through the information above I think i’ll dip my toe in carefully and try not to be too ‘poisonous’.
+
+---

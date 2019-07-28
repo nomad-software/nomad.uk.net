@@ -277,3 +277,5 @@ To create a symbolic link, replace line 9 with the following line.
 ## Conclusion
 
 There is rarely one canonical way of interacting with files and developers like to perform different file related tasks in their own particular way. Hopefully this article demonstrates the power and convenience of D and highlights convenient functions in the standard library for use when working with files.
+
+---

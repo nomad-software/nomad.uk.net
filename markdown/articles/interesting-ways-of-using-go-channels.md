@@ -127,3 +127,5 @@ Using a load balancer such as this can take a huge number of requests, balance t
 ## Conclusion
 
 Go is a language that in my opinion [does have it’s problems](/articles/why-gos-design-is-a-disservice-to-intelligent-programmers.html) but it’s a language I’m willing to learn and use. For me, this presentation of ideas opened my mind to new concepts and really gets me interested in starting a new project which takes advantage of the fantastic concurrency support in Go. It also reinforces the need to read and understand the standard library that ships with languages such as Go to truly understand the ethos and design decisions of the language.
+
+---

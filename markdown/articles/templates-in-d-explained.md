@@ -187,3 +187,5 @@ Using the `if` and `is` keywords together only `int` can now be specified as the
 Okay, this article has expanded to way more than I first imagined but after writing it i’m glad a single resource like this now exists. Hopefully this article will give future D developers a firm grounding of how to use templates in D and what options are available. I could expand a little further giving multiple examples and use cases but I prefer to keep it as simple as possible for now. There is a lot more to learn about templates especially about what’s really going on ‘under the hood’ but you don’t need to know that in order to use them effectively.
 
 I hope this has been insightful and given you the confidence to use template meta programming in your D programs and I hope it has removed a lot of the fear that surrounds it. D is a fantastic language and makes stuff like this fun and intuitive. Give it a go!
+
+---

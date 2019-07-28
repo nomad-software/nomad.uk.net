@@ -49,3 +49,5 @@ and here is how you sort a generic list collection by the Age field:
 Simple.
 
 Hopefully this gives you good grounding on sorting custom type collections and although there are other ways of sorting available in the .NET framework, these are the most common.
+
+---

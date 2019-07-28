@@ -10,6 +10,7 @@ description: An archive of past articles.
 
 <time>Posted on 9th December 2017 by [Gary Willoughby](/pages/about.html)</time>
 
+* [Developers who hate on OOP don't know how to use it](/articles/developers-who-hate-on-oop-don't-know-how-to-use-it.html)
 * [Generics in Go v2.0? It’s a no-brainer!](/articles/generics-in-go2-Its-a-no-brainer.html)
 * [Interesting ways of using Go channels](/articles/interesting-ways-of-using-go-channels.html)
 * [Managing Programmers by Douglas Crockford](/articles/managing-programmers-by-douglas-crockford.html)

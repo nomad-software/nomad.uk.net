@@ -39,3 +39,5 @@ This sounds like an awesome construct and something that would be very useful, b
 ## Conclusion
 
 When people tend to say use currying to solve a problem in JavaScript they probably mean partial application which is incredibly useful. Currying isn’t because i’ve yet to find a useful application of it.
+
+---

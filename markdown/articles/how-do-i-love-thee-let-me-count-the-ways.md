@@ -33,3 +33,5 @@ Not only do I love programming but I love delivering the finished product. The o
 Another appealing aspect for me is the fact that you will never finish learning about programming. They’re are just too many languages, too many platforms and too many [paradigms](https://en.wikipedia.org/wiki/Programming_paradigm). It’s a never ending intellectual adventure, a fun puzzle that can never be wholly solved, something to be poured over and studied from now until eternity. …Ah, pure bliss!
 
 A long winded and strange post I know, but I just felt this uncontrollable urge to express myself!
+
+---

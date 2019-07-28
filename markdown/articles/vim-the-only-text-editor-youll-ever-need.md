@@ -77,3 +77,5 @@ Vim has been my editor of choice for over a year now after I started using Linux
 Not only is Vim an extremely advanced text editor it is a hacker’s toy that can never be fully be learned in its entirety (the feature list is simply to large). Thus it provides immense fun to explore while simply editing text.
 
 Vim has aged well over the past 20 years and is still in active development. It’s not a crusty relic, the editor is still as compelling as ever and continues to attract new users. The learning curve can be a little steep and may put new users off but the productivity gains, the sense of achievement and fun of discovering a great tool are well worth the effort in the long run. **Give Vim a go and you’ll never use another editor, I guarantee it!**
+
+---
