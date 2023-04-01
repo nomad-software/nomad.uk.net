@@ -10,6 +10,10 @@ description: Go is shaping up to be a popular language for doing serious large s
 
 <time>Posted on 25th March 2015 by [Gary Willoughby](/pages/about.html)</time>
 
+**EDIT:** This is now an old post and my opinion of Go has changed a great deal over the years. This article has been used to cause harm on the reputation of Go and its community which is not warranted. Over the years i've come to appreciate the simplicity of Go and the ethos behind its creation. Today, I'm employed as a Go engineer and I enjoy using it tremendously. In fact, I'd go further and say it's one of the finest languages I've ever used. With all honesty, my opinion was wrong when I wrote this article and the quotes by Rob Pike were obviously a reaction to the complexity of other bloated languages.
+
+---
+
 Over the course of the past few months I’ve been using [Go](https://golang.org/) to implement a [proof of concept](https://en.wikipedia.org/wiki/Proof_of_concept) program in my spare time. This was done in part to learn Go and to also see if such a program would work. The program itself is very simplistic and not the focus of this article but my experience of using Go is worth writing a few words. Go is shaping up to be a popular language for doing serious large scale work and a language created by [Google](https://github.com/golang/go) is not to be sniffed at. With all that said, I honestly think Go’s design is a disservice to intelligent programmers.
 
 ## Created for lesser programmers?

@@ -40,7 +40,7 @@ I’ve created this post to document [slides](https://www.slideshare.net/cloudfl
 
 ---
 
-<iframe class="youtube" src="https://www.youtube.com/embed/3f5PdDjaP3k" frameborder="0" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/NPlMcUxFOlY" frameborder="0" allowfullscreen></iframe>
 
 # [Managing Programmers by Douglas Crockford](/articles/managing-programmers-by-douglas-crockford.html)
 
