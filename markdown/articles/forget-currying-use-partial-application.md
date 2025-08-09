@@ -4,11 +4,11 @@ title: Forget currying, use partial application
 description: I'm currently reading more about advanced JavaScript design patterns and an interesting concept i've come across a lot is Currying and Partial Application.
 ---
 
-![]($root-path$/articles/images/forget-currying-use-partial-application-banner.jpg)
+![](/nomad.uk.net/articles/images/forget-currying-use-partial-application-banner.jpg)
 
 # Forget currying, use partial application
 
-<time>Posted on 10th July 2013 by [Gary Willoughby]($root-path$/pages/about.html)</time>
+<time>Posted on 10th July 2013 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
 I'm currently reading more about advanced [JavaScript](https://en.wikipedia.org/wiki/JavaScript) [design patterns](https://en.wikipedia.org/wiki/Design_pattern) and an interesting concept i've come across a lot is **Currying** and **Partial Application**. For years i've used partial application but not known its name or how it can be used to its fullest, so it was a pleasant surprise to read more and fully understand it. Currying on the other hand is partial application's more serious cousin and something i've never really used. Here follows the differences and why they may or may not be useful.
 

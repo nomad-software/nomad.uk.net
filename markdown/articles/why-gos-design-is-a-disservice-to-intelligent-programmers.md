@@ -4,11 +4,11 @@ title: Why Go's design is a disservice to intelligent programmers
 description: Go is shaping up to be a popular language for doing serious large scale work and a language created by Google is not to be sniffed at. With all that said, I honestly think Go's design is a disservice to intelligent programmers.
 ---
 
-![]($root-path$/articles/images/why-gos-design-is-a-disservice-to-intelligent-programmers-banner.jpg)
+![](/nomad.uk.net/articles/images/why-gos-design-is-a-disservice-to-intelligent-programmers-banner.jpg)
 
 # Why Go's design is a disservice to intelligent programmers
 
-<time>Posted on 25th March 2015 by [Gary Willoughby]($root-path$/pages/about.html)</time>
+<time>Posted on 25th March 2015 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
 **EDIT:** This is now an old post and my opinion of Go has changed a great deal over the years. This article has been used to cause harm on the reputation of Go and its community which is not warranted. Over the years i've come to appreciate the simplicity of Go and the ethos behind its creation. Today, I'm employed as a Go engineer and I enjoy using it tremendously. In fact, I'd go further and say it's one of the finest languages I've ever used. With all honesty, my opinion was wrong when I wrote this article and the quotes by Rob Pike were obviously a reaction to the complexity of other bloated languages.
 
@@ -18,7 +18,7 @@ Over the course of the past few months I've been using [Go](https://golang.org/)
 
 ## Created for lesser programmers?
 
-![]($root-path$/articles/images/an-introduction-to-programming-in-go-book-cover.jpg)
+![](/nomad.uk.net/articles/images/an-introduction-to-programming-in-go-book-cover.jpg)
 
 Go is very easy to learn, in fact it's so easy it took me one evening to read an introductory text and be productive almost immediately. The book I learned from was entitled [An Introduction to Programming in Go](http://www.golang-book.com/) and is available on-line. Similar to Go, the book is easy to read with good examples and clocking in at about 150 pages you can finish it in one sitting. Initially this simplicity starts off very refreshing in a programming world full of overly complicated technologies but there's a niggling thought of "Is that it?".
 
@@ -50,7 +50,7 @@ Here's the same example using the [D language](https://dlang.org/):
 
 <script src="https://gist.github.com/nomad-software/2098c42493b1ff04a79497c14da31671.js"></script>
 
-Now, which one is more readable? I'd choose the D version. It's a lot more readable purely because it's expressing the program's intent in a much more clear way. This code also uses concepts that are more advanced than the Go code but they're nothing too complicated that an intelligent programmer couldn't pick up [quickly]($root-path$/articles/alternative-function-syntax-in-d.html) and [easily]($root-path$/articles/templates-in-d-explained.html).
+Now, which one is more readable? I'd choose the D version. It's a lot more readable purely because it's expressing the program's intent in a much more clear way. This code also uses concepts that are more advanced than the Go code but they're nothing too complicated that an intelligent programmer couldn't pick up [quickly](/nomad.uk.net/articles/alternative-function-syntax-in-d.html) and [easily](/nomad.uk.net/articles/templates-in-d-explained.html).
 
 ### Boiler plate hell
 
@@ -80,7 +80,7 @@ This `Reduce` implementation was taken from an on-line article entitled [Idiomat
 
 > It's a powerful tool that should be used with care and avoided unless strictly necessary. – Rob Pike <sup>3</sup>
 
-I'd take [D's templates]($root-path$/articles/templates-in-d-explained.html) any day over this nonsense. How can anyone say `interface{}`  is more readable or even type safe?
+I'd take [D's templates](/nomad.uk.net/articles/templates-in-d-explained.html) any day over this nonsense. How can anyone say `interface{}`  is more readable or even type safe?
 
 ## Dependency management woes
 

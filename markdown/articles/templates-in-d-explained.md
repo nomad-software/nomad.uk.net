@@ -4,11 +4,11 @@ title: Templates in D explained
 description: Template metaprogramming scares the hell out of most developers. Hopefully this article will remove the fear and educate.
 ---
 
-![]($root-path$/articles/images/templates-in-d-explained-banner.jpg)
+![](/nomad.uk.net/articles/images/templates-in-d-explained-banner.jpg)
 
 # Templates in D explained
 
-<time>Posted on 20th July 2013 by [Gary Willoughby]($root-path$/pages/about.html)</time>
+<time>Posted on 20th July 2013 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
 Let's get one thing straight from the outset, [template metaprogramming](https://en.wikipedia.org/wiki/Template_metaprogramming) scares the hell out of most developers! I have no idea why, probably because it simply _sounds_ scary? Whatever the reason, many developers shy away from even learning about such techniques, let alone use them. This is such a shame because templates offer a superb tool for programming at a higher level of [abstraction](https://en.wikipedia.org/wiki/Abstraction_(software_engineering)) which is something that can aid in better program design.
 

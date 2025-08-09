@@ -4,11 +4,11 @@ title: Piracy will always occur until attitudes and service improve
 description: The problem is access. When a new piece of software is released, which could be in the form of an application or computer game, people want access to it immediately and why not?
 ---
 
-![]($root-path$/articles/images/piracy-will-always-occur-until-attitudes-and-service-improve-banner.jpg)
+![](/nomad.uk.net/articles/images/piracy-will-always-occur-until-attitudes-and-service-improve-banner.jpg)
 
 # Piracy will always occur until attitudes and service improve
 
-<time>Posted on 10th July 2013 by [Gary Willoughby]($root-path$/pages/about.html)</time>
+<time>Posted on 10th July 2013 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
 In modern terms Piracy is the act of obtaining something while not paying for it. This is usually content that can be distributed digitally such as software and with the birth of the internet this allows anyone at any time to obtain those goods. But wait, isn't that a good thing? Anyone, anywhere in the entire world being able to get a copy of your software? Of course this needs to be limited to paying consumers but what if the pirates provide a better service than the commercial entity that owns the content? If the distribution network and infrastructure is there why the hell not use it to distribute your digital goods?
 

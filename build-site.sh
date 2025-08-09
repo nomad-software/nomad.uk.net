@@ -14,7 +14,6 @@ do
 	if [[ ${SHORT} =~ ^(index|pages/errors/404)$ ]]
 	then
 		pandoc \
-			--variable=root-path:"/nomad.uk.net" \
 			--wrap=none \
 			--standalone \
 			--template="templates/default.html" \
@@ -22,7 +21,6 @@ do
 			${LONG};
 	else
 		pandoc \
-			--variable=root-path:"/nomad.uk.net" \
 			--wrap=none \
 			--standalone \
 			--template="templates/default.html" \

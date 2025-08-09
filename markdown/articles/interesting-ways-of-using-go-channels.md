@@ -4,11 +4,11 @@ title: Interesting ways of using Go channels
 description: I've created this post to document slides accompanying a talk on Go channels given by John Graham-Cumming during GopherCon 2014. The presentation was entitled 'A Channel Compendium' and is available to view on youtub.com.
 ---
 
-![]($root-path$/articles/images/interesting-ways-of-using-go-channels-banner.jpg)
+![](/nomad.uk.net/articles/images/interesting-ways-of-using-go-channels-banner.jpg)
 
 # Interesting ways of using Go channels
 
-<time>Posted on 21st January 2016 by [Gary Willoughby]($root-path$/pages/about.html)</time>
+<time>Posted on 21st January 2016 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
 I've created this post to document [slides](https://www.slideshare.net/cloudflare/a-channel-compendium) accompanying a talk on [Go](https://golang.org/) channels given by [John Graham-Cumming](https://en.wikipedia.org/wiki/John_Graham-Cumming) during [GopherCon 2014](https://www.gophercon.com/). The presentation was entitled 'A Channel Compendium' and is available below.
 
@@ -126,6 +126,6 @@ Using a load balancer such as this can take a huge number of requests, balance t
 
 ## Conclusion
 
-Go is a language that in my opinion [does have it's problems]($root-path$/articles/why-gos-design-is-a-disservice-to-intelligent-programmers.html) but it's a language I'm willing to learn and use. For me, this presentation of ideas opened my mind to new concepts and really gets me interested in starting a new project which takes advantage of the fantastic concurrency support in Go. It also reinforces the need to read and understand the standard library that ships with languages such as Go to truly understand the ethos and design decisions of the language.
+Go is a language that in my opinion [does have it's problems](/nomad.uk.net/articles/why-gos-design-is-a-disservice-to-intelligent-programmers.html) but it's a language I'm willing to learn and use. For me, this presentation of ideas opened my mind to new concepts and really gets me interested in starting a new project which takes advantage of the fantastic concurrency support in Go. It also reinforces the need to read and understand the standard library that ships with languages such as Go to truly understand the ethos and design decisions of the language.
 
 ---

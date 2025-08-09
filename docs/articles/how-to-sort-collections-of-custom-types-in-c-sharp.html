@@ -54,9 +54,9 @@
 
 		<div class="body">
 			<div class="content">
-				<p><img src="$root-path$/articles/images/how-to-sort-collections-of-custom-types-in-c-sharp-banner.jpg" /></p>
+				<p><img src="/nomad.uk.net/articles/images/how-to-sort-collections-of-custom-types-in-c-sharp-banner.jpg" /></p>
 <h1 id="how-to-sort-collections-of-custom-types-in-c">How to sort collections of custom types in C</h1>
-<p><time>Posted on 20th March 2010 by <a href="$root-path$/pages/about.html">Gary Willoughby</a></time></p>
+<p><time>Posted on 20th March 2010 by <a href="/nomad.uk.net/pages/about.html">Gary Willoughby</a></time></p>
 <p>I’ve recently created a program which sorts collections of custom types quite extensively and I thought i’d share the standard method of doing this. When I first started designing my program, I honestly thought it would be quite a pain sorting these collections but I was pleasantly surprised, as usual by the .NET framework, that there are built in shortcuts.</p>
 <h2 id="icomparable">IComparable</h2>
 <p>The first stage to allow a custom type to be sorted is to implement the IComparable interface. This consists of one method <code>CompareTo&lt;T&gt;</code> where T is your custom type. This becomes your default comparer.</p>

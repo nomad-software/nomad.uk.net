@@ -4,11 +4,11 @@ title: Does typing speed matter for programmers?
 description: A few months ago Jeff Atwood blogged about the need for coders to be good typists. He espoused sheer disdain if they were less than certified touch-typists.
 ---
 
-![]($root-path$/articles/images/does-typing-speed-matter-for-programmers-banner.jpg)
+![](/nomad.uk.net/articles/images/does-typing-speed-matter-for-programmers-banner.jpg)
 
 # Does typing speed matter for programmers?
 
-<time>Posted on 9th July 2013 by [Gary Willoughby]($root-path$/pages/about.html)</time>
+<time>Posted on 9th July 2013 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
 A few months ago [Jeff Atwood](https://en.wikipedia.org/wiki/Jeff_Atwood) blogged again about the need for programmers to be good typists. In fact he has espoused sheer disdain over the years for all programmers if they were anything less than certified touch-typists. In November 2008 he wrote
 
@@ -43,7 +43,7 @@ If you work out Jeff's performance using the same formula you get about 3,500 li
 
 But there's only one problem with this approach, **It is nonsense!** No programmer will ever be able to tell you how many lines of code he will be expected to write in a day because he has no idea what is going to be encountered, so why does Jeff insist that fast is good?
 
-![]($root-path$/articles/images/david-by-michelangelo.jpg)
+![](/nomad.uk.net/articles/images/david-by-michelangelo.jpg)
 
 With creative endeavors, such as programming, there has to be time for contemplation for creativity to emerge, there has to be thought in what you are doing. No programmer has all the answers before starting to write code and problems tend to bloom as code is written as unforeseeable issues are dealt with.
 

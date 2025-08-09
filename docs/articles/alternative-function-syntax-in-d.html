@@ -54,10 +54,10 @@
 
 		<div class="body">
 			<div class="content">
-				<p><img src="$root-path$/articles/images/alternative-function-syntax-in-d-banner.jpg" /></p>
+				<p><img src="/nomad.uk.net/articles/images/alternative-function-syntax-in-d-banner.jpg" /></p>
 <h1 id="alternative-function-syntax-in-d-explained">Alternative function syntax in D explained</h1>
-<p><time>Posted on 8th August 2013 by <a href="$root-path$/pages/about.html">Gary Willoughby</a></time></p>
-<p>This is an extension article to <a href="$root-path$/articles/templates-in-d-explained.html">Templates in D explained</a> where I introduce the alternative function syntax and how it complements template usage. This article will expand a little more on that syntax and make clear what is available in <a href="https://dlang.org/">D</a> and why.</p>
+<p><time>Posted on 8th August 2013 by <a href="/nomad.uk.net/pages/about.html">Gary Willoughby</a></time></p>
+<p>This is an extension article to <a href="/nomad.uk.net/articles/templates-in-d-explained.html">Templates in D explained</a> where I introduce the alternative function syntax and how it complements template usage. This article will expand a little more on that syntax and make clear what is available in <a href="https://dlang.org/">D</a> and why.</p>
 <p>An alternative syntax has not been included by accident but by design and as a result can potentially make code more complicated to understand and add more friction to first learning the language. This particular trade off, I believe is worth it, enabling particular features when using different paradigms.</p>
 <h2 id="optional-parentheses">Optional parentheses</h2>
 <p>The first alternative syntax enables calling a function without using parens. This is possible with member functions as well as non member functions.</p>
@@ -73,7 +73,7 @@
 <p>Above, the <a href="https://en.wikipedia.org/wiki/Function_overloading">overloading</a> of <code>bar</code> simulates a property quite nicely as both defined functions can be called without parens.</p>
 <p>This behavior is further enhanced by a compiler command line argument <code>-property</code> which only allows this alternative syntax on member functions marked with the <code>@property</code> attribute. There is <a href="http://forum.dlang.org/thread/uskutitmqgdfjeusrtfv@forum.dlang.org">quite a controversy surrounding this</a> so use with care.</p>
 <h3 id="template-parameters">Template parameters</h3>
-<p>Template parameters (and templates in general) are detailed in a previous post <a href="$root-path$/articles/templates-in-d-explained.html">previous post</a> where it’s explained that the rules for their parens are very similar to functions. At the most basic, if there is only one template parameter then those parens can be omitted and in some cases the template parameter can be omitted too.</p>
+<p>Template parameters (and templates in general) are detailed in a previous post <a href="/nomad.uk.net/articles/templates-in-d-explained.html">previous post</a> where it’s explained that the rules for their parens are very similar to functions. At the most basic, if there is only one template parameter then those parens can be omitted and in some cases the template parameter can be omitted too.</p>
 <p>For example these three calls instantiate this templated function in exactly the same way:</p>
 <script src="https://gist.github.com/nomad-software/7e57ce98947cf5568b4371ac53e728fb.js"></script>
 <p>When calling a templated function using the last option however, the type must be able to be inferred by the compiler at compile time. If that’s possible, the template will be instantiated successfully. If more than one template parameter is defined and specified in the call then parens must always be used.</p>

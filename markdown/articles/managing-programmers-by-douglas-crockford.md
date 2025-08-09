@@ -8,7 +8,7 @@ description: This is an excellent overview on how to manage programmers and what
 
 # Managing Programmers by Douglas Crockford
 
-<time>Posted on 30th December 2015 by [Gary Willoughby]($root-path$/pages/about.html)</time>
+<time>Posted on 30th December 2015 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
 This is an excellent overview on how to manage programmers, what problems they encounter and what they need to be productive.
 

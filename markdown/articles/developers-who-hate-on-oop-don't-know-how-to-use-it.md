@@ -4,11 +4,11 @@ title: Developers who hate on OOP don't know how to use it
 description: Object-oriented programming seems to be receiving a lot of hate recently, usually from inexperienced developers who have just learned functional programming.
 ---
 
-![]($root-path$/articles/images/developers-who-hate-on-oop-don't-know-how-to-use-it.jpg)
+![](/nomad.uk.net/articles/images/developers-who-hate-on-oop-don't-know-how-to-use-it.jpg)
 
 # Developers who hate on OOP don't know how to use it
 
-<time>Posted on 28th July 2019 by [Gary Willoughby]($root-path$/pages/about.html)</time>
+<time>Posted on 28th July 2019 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
 [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) seems to be receiving a lot of hate recently, usually from inexperienced developers who have just "learned" [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming) and then want to hate on anything that doesn't support [functional purity](https://en.wikipedia.org/wiki/Pure_function). Unfortunately, this crowd always seems to fit the same mold. They are usually web developers, fairly young, seemingly intelligent but extremely impatient and easily swayed by new technology (e.g. JavaScript developers fit this mold precisely) but the most important trait that sets them apart from developers who embrace OOP, is not persevering long enough to actually learn how to use it.
 

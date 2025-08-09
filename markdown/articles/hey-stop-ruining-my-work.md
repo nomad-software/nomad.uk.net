@@ -4,11 +4,11 @@ title: Hey, stop ruining my work!
 description: My beautiful website was knackered! Pixel perfect divs not lining up, new colours used not from the original palette, text flowing unnaturally.
 ---
 
-![]($root-path$/articles/images/hey-stop-ruining-my-work-banner.jpg)
+![](/nomad.uk.net/articles/images/hey-stop-ruining-my-work-banner.jpg)
 
 # Hey, stop ruining my work!
 
-<time>Posted on 18th January 2010 by [Gary Willoughby]($root-path$/pages/about.html)</time>
+<time>Posted on 18th January 2010 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
 Recently a friend of mine ask me to design and create a small website for their fledgling business. Although slightly weary of creating such websites, he was a good friend so I agreed to do it free of charge. The business was something I am not familiar with and while nothing to do with technology I approached the project with enthusiasm and proceeded to gather information from him as I would any other client.
 

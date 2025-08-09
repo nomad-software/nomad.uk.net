@@ -4,11 +4,11 @@ title: Stop abusing arrays in PHP
 description: This is an issue i've wanted to get of my chest for a long time. My problem here is that arrays are nearly always used where objects should be!
 ---
 
-![]($root-path$/articles/images/stop-abusing-arrays-in-php-banner.jpg)
+![](/nomad.uk.net/articles/images/stop-abusing-arrays-in-php-banner.jpg)
 
 # Stop abusing arrays in PHP
 
-<time>Posted on 29th June 2014 by [Gary Willoughby]($root-path$/pages/about.html)</time>
+<time>Posted on 29th June 2014 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
 This is an issue i've wanted to get of my chest for a long time. It's been latently brewing inside me for a considerable amount of time and it's starting to come to a head. The issue is with PHP and the total abuse of arrays. Whether this issue is an artifact of the language's historical baggage or because PHP just attracts a lot of inexperienced developers is up for debate. My problem here is that arrays are nearly always used where objects should be!
 
