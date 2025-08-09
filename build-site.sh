@@ -1,6 +1,6 @@
 #!/bin/bash
 
-find ./public -iname "*.html" -exec rm -v {} \;
+find ./docs -iname "*.html" -exec rm -v {} \;
 
 find ./markdown -iname "*.md" -print0 | while read -d $'\0' file
 do
@@ -9,22 +9,22 @@ do
 	URL="http://nomad.uk.net/${SHORT}.html";
 	ID=$(echo ${URL} | md5sum | cut -d ' ' -f 1);
 
-	mkdir -p ./public/$(dirname ${SHORT});
+	mkdir -p ./docs/$(dirname ${SHORT});
 
 	if [[ ${SHORT} =~ ^(index|pages/errors/404)$ ]]
 	then
 		pandoc --standalone \
 			--template="templates/default.html" \
-			--output="./public/${SHORT}.html" \
+			--output="./docs/${SHORT}.html" \
 			${LONG};
 	else
 		pandoc --standalone \
 			--template="templates/default.html" \
-			--output="./public/${SHORT}.html" \
+			--output="./docs/${SHORT}.html" \
 			--variable=disqus-url:${URL} \
 			--variable=disqus-id:${ID} \
 			${LONG};
 	fi;
 
-	echo "created './public/${SHORT}.html'";
+	echo "created './docs/${SHORT}.html'";
 done;
