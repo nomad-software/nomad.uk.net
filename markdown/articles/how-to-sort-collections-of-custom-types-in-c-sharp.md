@@ -4,11 +4,11 @@ title: How to sort collections of custom types in C#
 description: I've recently created a program which sorts collections of custom types quite extensively and I thought i'd share the standard method of doing this.
 ---
 
-![](/articles/images/how-to-sort-collections-of-custom-types-in-c-sharp-banner.jpg)
+![]($root-path$/articles/images/how-to-sort-collections-of-custom-types-in-c-sharp-banner.jpg)
 
 # How to sort collections of custom types in C#
 
-<time>Posted on 20th March 2010 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 20th March 2010 by [Gary Willoughby]($root-path$/pages/about.html)</time>
 
 I've recently created a program which sorts collections of custom types quite extensively and I thought i'd share the standard method of doing this. When I first started designing my program, I honestly thought it would be quite a pain sorting these collections but I was pleasantly surprised, as usual by the .NET framework, that there are built in shortcuts.
 

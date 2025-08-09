@@ -4,11 +4,11 @@ title: Fear of contributing to open source software
 description: I'm currently considering contributing to an open source software project and while I feel I could make a worthwhile effort i've always had fears about doing so.
 ---
 
-![](/articles/images/fear-of-contributing-to-open-source-software-banner.jpg)
+![]($root-path$/articles/images/fear-of-contributing-to-open-source-software-banner.jpg)
 
 # Fear of contributing to open source software
 
-<time>Posted on 10th July 2013 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 10th July 2013 by [Gary Willoughby]($root-path$/pages/about.html)</time>
 
 I'm currently considering contributing to an open source software project and while I feel I could make a worthwhile effort i've always had fears about doing so. In this article i'll explain these fears perhaps because other developers may feel the same. Then later, i'll try and come up with some solutions. So lets get started listing the main issues I have.
 
@@ -40,7 +40,7 @@ All (and more) of what I explain above was initially brought to my attention in 
 
 In this lecture they both talk about how well meaning developers can seriously disrupt or in some cases destroy a project. Some of the examples given are a little extreme and I personally think the two presenters display a little hubris in some of the things they say. But it's a good eye opener of what problems there will be when joining an open source team.
 
-![](/articles/images/producing-open-source-software-book-cover.jpg)
+![]($root-path$/articles/images/producing-open-source-software-book-cover.jpg)
 
 Another good resource for learning more about open source projects before actually joining one is the 2005 book [Producing Open Source Software](http://producingoss.com/) by [Karl Fogel](http://www.red-bean.com/kfogel/). Not only is this book free to download from the website, it also contains virtually everything you will need to know to successfully run an open source project. More importantly, it describes how successful projects operate, the expectations of users and developers, and expands upon the culture of open source software.
 

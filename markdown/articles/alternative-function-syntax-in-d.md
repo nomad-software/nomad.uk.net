@@ -4,13 +4,13 @@ title: Alternative function syntax in D explained
 description: An alternative syntax has not been included by accident but by design and as a result could potentially make code more complicated to understand and add more friction to first learning the language.
 ---
 
-![](/articles/images/alternative-function-syntax-in-d-banner.jpg)
+![]($root-path$/articles/images/alternative-function-syntax-in-d-banner.jpg)
 
 # Alternative function syntax in D explained
 
-<time>Posted on 8th August 2013 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 8th August 2013 by [Gary Willoughby]($root-path$/pages/about.html)</time>
 
-This is an extension article to [Templates in D explained](/articles/templates-in-d-explained.html) where I introduce the alternative function syntax and how it complements template usage. This article will expand a little more on that syntax and make clear what is available in [D](https://dlang.org/) and why.
+This is an extension article to [Templates in D explained]($root-path$/articles/templates-in-d-explained.html) where I introduce the alternative function syntax and how it complements template usage. This article will expand a little more on that syntax and make clear what is available in [D](https://dlang.org/) and why.
 
 An alternative syntax has not been included by accident but by design and as a result can potentially make code more complicated to understand and add more friction to first learning the language. This particular trade off, I believe is worth it, enabling particular features when using different paradigms.
 
@@ -42,7 +42,7 @@ This behavior is further enhanced by a compiler command line argument `-property
 
 ### Template parameters
 
-Template parameters (and templates in general) are detailed in a previous post [previous post](/articles/templates-in-d-explained.html) where it's explained that the rules for their parens are very similar to functions. At the most basic, if there is only one template parameter then those parens can be omitted and in some cases the template parameter can be omitted too.
+Template parameters (and templates in general) are detailed in a previous post [previous post]($root-path$/articles/templates-in-d-explained.html) where it's explained that the rules for their parens are very similar to functions. At the most basic, if there is only one template parameter then those parens can be omitted and in some cases the template parameter can be omitted too.
 
 For example these three calls instantiate this templated function in exactly the same way:
 

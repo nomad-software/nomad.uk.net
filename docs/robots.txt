@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /pages/errors/
+Disallow: /nomad.uk.net/pages/errors/

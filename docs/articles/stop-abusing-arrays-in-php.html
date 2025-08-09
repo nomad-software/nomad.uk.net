@@ -8,10 +8,10 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Expires" content="7" />
 
-		<link rel="shortcut icon" href="favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="css/site.css">
-		<link rel="stylesheet" type="text/css" href="css/gist.css">
-		<link rel="stylesheet" type="text/css" href="css/disqus.css">
+		<link rel="shortcut icon" href="/nomad.uk.net/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/nomad.uk.net/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/nomad.uk.net/css/gist.css">
+		<link rel="stylesheet" type="text/css" href="/nomad.uk.net/css/disqus.css">
 
 		<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-111284073-1" defer></script>
 		<script type="text/javascript" defer>
@@ -41,9 +41,9 @@
 						<td colspan="2">
 							<div class="nav-bar">
 								<ul>
-									<li><a href="/nomad.uk.net/"><img src="images/header/home.png" /></a></li>
-									<li><a href="pages/about.html">About</a></li>
-									<li><a href="pages/archive.html">Archive</a></li>
+									<li><a href="/nomad.uk.net/"><img src="/nomad.uk.net/images/header/home.png" /></a></li>
+									<li><a href="/nomad.uk.net/pages/about.html">About</a></li>
+									<li><a href="/nomad.uk.net/pages/archive.html">Archive</a></li>
 								</ul>
 							</div>
 						</td>
@@ -54,9 +54,9 @@
 
 		<div class="body">
 			<div class="content">
-				<p><img src="/articles/images/stop-abusing-arrays-in-php-banner.jpg" /></p>
+				<p><img src="$root-path$/articles/images/stop-abusing-arrays-in-php-banner.jpg" /></p>
 <h1 id="stop-abusing-arrays-in-php">Stop abusing arrays in PHP</h1>
-<p><time>Posted on 29th June 2014 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
+<p><time>Posted on 29th June 2014 by <a href="$root-path$/pages/about.html">Gary Willoughby</a></time></p>
 <p>This is an issue i’ve wanted to get of my chest for a long time. It’s been latently brewing inside me for a considerable amount of time and it’s starting to come to a head. The issue is with PHP and the total abuse of arrays. Whether this issue is an artifact of the language’s historical baggage or because PHP just attracts a lot of inexperienced developers is up for debate. My problem here is that arrays are nearly always used where objects should be!</p>
 <p>Let’s take a look at some truly horrendous code abusing arrays. Let’s say for example that we are retrieving some data from a database (or saving it for that matter) and the way we handle that data is via arrays. Here is a made up example I see daily.</p>
 <script src="https://gist.github.com/nomad-software/4ef174e03e6f87673ac3c5ba81da41ff.js"></script>

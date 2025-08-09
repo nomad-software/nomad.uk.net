@@ -4,11 +4,11 @@ title: How do I love thee? Let me count the ways
 description: What is it about programming? What is that thing that keeps me coming back for more? Why do I spend countless lonely hours tapping away at my keyboard?
 ---
 
-![](/articles/images/how-do-i-love-thee-let-me-count-the-ways-banner.jpg)
+![]($root-path$/articles/images/how-do-i-love-thee-let-me-count-the-ways-banner.jpg)
 
 # How do I love thee? Let me count the ways
 
-<time>Posted on 17th March 2010 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 17th March 2010 by [Gary Willoughby]($root-path$/pages/about.html)</time>
 
 > How do I love thee? Let me count the ways. I love thee to the depth and breadth and height My soul can reach, when feeling out of sight For the ends of Being and ideal Grace. I love thee to the level of every day's Most quiet need, by sun and candle-light. I love thee freely, as men strive for Right; I love thee purely, as they turn from Praise. I love thee with a passion put to use In my old griefs, and with my childhood's faith. I love thee with a love I seemed to lose With my lost saints, I love thee with the breath, Smiles, tears, of all my life! and, if God choose, I shall but love thee better after death. – Elizabeth Barrett Browning
 

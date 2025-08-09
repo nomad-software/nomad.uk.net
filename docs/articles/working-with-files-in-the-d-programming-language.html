@@ -8,10 +8,10 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Expires" content="7" />
 
-		<link rel="shortcut icon" href="favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="css/site.css">
-		<link rel="stylesheet" type="text/css" href="css/gist.css">
-		<link rel="stylesheet" type="text/css" href="css/disqus.css">
+		<link rel="shortcut icon" href="/nomad.uk.net/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/nomad.uk.net/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/nomad.uk.net/css/gist.css">
+		<link rel="stylesheet" type="text/css" href="/nomad.uk.net/css/disqus.css">
 
 		<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-111284073-1" defer></script>
 		<script type="text/javascript" defer>
@@ -41,9 +41,9 @@
 						<td colspan="2">
 							<div class="nav-bar">
 								<ul>
-									<li><a href="/nomad.uk.net/"><img src="images/header/home.png" /></a></li>
-									<li><a href="pages/about.html">About</a></li>
-									<li><a href="pages/archive.html">Archive</a></li>
+									<li><a href="/nomad.uk.net/"><img src="/nomad.uk.net/images/header/home.png" /></a></li>
+									<li><a href="/nomad.uk.net/pages/about.html">About</a></li>
+									<li><a href="/nomad.uk.net/pages/archive.html">Archive</a></li>
 								</ul>
 							</div>
 						</td>
@@ -54,11 +54,11 @@
 
 		<div class="body">
 			<div class="content">
-				<p><img src="/articles/images/working-with-files-in-the-d-programming-language-banner.jpg" /></p>
+				<p><img src="$root-path$/articles/images/working-with-files-in-the-d-programming-language-banner.jpg" /></p>
 <h1 id="working-with-files-in-the-d-programming-language">Working with files in the D programming language</h1>
-<p><time>Posted on 28th September 2015 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
+<p><time>Posted on 28th September 2015 by <a href="$root-path$/pages/about.html">Gary Willoughby</a></time></p>
 <p>The inspiration for this article was one written a few weeks ago entitled <a href="https://www.devdungeon.com/content/working-files-go">Working with Files in Go</a>. In that article the author details numerous ways of interacting with files highlighting the capabilities of <a href="https://golang.org/">Go</a>. I thought I would write a companion piece, this time detailing how to interact with files using the <a href="https://dlang.org/">D programming language</a>. Interacting with files is a fundamental task of any programming language and while such tasks are commonplace, it’s not entirely obvious how to achieve certain file related tasks using D. Hopefully this article will change that and show the simplicity and power of the D language when working with files.</p>
-<p>Some of following code examples make good use of D’s uniform function call syntax (UFCS). Don’t be put off by this, a very simple explanation can be found <a href="/articles/alternative-function-syntax-in-d.html">here</a>.</p>
+<p>Some of following code examples make good use of D’s uniform function call syntax (UFCS). Don’t be put off by this, a very simple explanation can be found <a href="$root-path$/articles/alternative-function-syntax-in-d.html">here</a>.</p>
 <h2 id="reading-and-writing">Reading and writing</h2>
 <h3 id="open-and-close-files">Open and close files</h3>
 <p>The following code show how to open and close a file in a safe way. Generally D does not attempt to provide thin wrappers over equivalent functions from the <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> standard library, but manipulating such file handles directly is unsafe and error-prone in many ways. The <code>File</code> type ensures safe manipulation, automatic file closing, and a lot of convenience. The underlying handle is maintained in a <a href="https://en.wikipedia.org/wiki/Reference_counting">reference-counted</a> manner, such that as soon as the last <code>File</code> variable goes out of scope, the underlying handle is automatically closed.</p>

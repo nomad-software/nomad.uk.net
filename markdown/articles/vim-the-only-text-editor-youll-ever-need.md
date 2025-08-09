@@ -4,11 +4,11 @@ title: Vim – The only text editor you'll ever need
 description: Well, not wanting to shy away from an argument i'm going to make the case for the Vim text editor and explain why it's so awesome.
 ---
 
-![](/articles/images/vim-the-only-text-editor-youll-ever-need-banner.jpg)
+![]($root-path$/articles/images/vim-the-only-text-editor-youll-ever-need-banner.jpg)
 
 # Vim – The only text editor you'll ever need
 
-<time>Posted on 10th July 2013 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 10th July 2013 by [Gary Willoughby]($root-path$/pages/about.html)</time>
 
 Text editors are a huge topic of discussion and [argument](https://en.wikipedia.org/wiki/Editor_war) in the software world and every developer has their favorite. I've seen so many [flame wars](https://en.wikipedia.org/wiki/Flaming_(Internet)) erupting all over the net about this subject that I sometimes dare not bring it up. Well, not wanting to shy away from an argument i'm going to make the case for the [Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) text editor and explain why it's so awesome.
 
@@ -70,7 +70,7 @@ Vim can also be extended to add syntax highlighting for additional languages or 
 
 ## Give it a go
 
-![](/articles/images/vim-logo.jpg)
+![]($root-path$/articles/images/vim-logo.jpg)
 
 Vim has been my editor of choice for over a year now after I started using Linux full time at work. Although I've experimented with a lot of conventional modern text editors and IDEs, I haven't found any that match Vim's efficiency, programmability or ubiquitousness. After using Vim every day over the past year, i'm still discovering new features, capabilities, and useful behaviors that further improve my productivity.
 

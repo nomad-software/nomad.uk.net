@@ -4,11 +4,11 @@ title: Objective-C, A language from another galaxy
 description: Over the last few weeks i've been learning Objective-C, Apple's flagship programming language, preferred for all Mac OS and iOS development.
 ---
 
-![](/articles/images/objective-c-a-language-from-another-galaxy-banner.jpg)
+![]($root-path$/articles/images/objective-c-a-language-from-another-galaxy-banner.jpg)
 
 # Objective-C, A language from another galaxy
 
-<time>Posted on 9th July 2013 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 9th July 2013 by [Gary Willoughby]($root-path$/pages/about.html)</time>
 
 Over the last few weeks i've been learning [Objective-C](https://en.wikipedia.org/wiki/Objective-C), [Apple's](https://en.wikipedia.org/wiki/Apple_Inc.) flagship programming language, preferred for all [Mac OS](https://en.wikipedia.org/wiki/Macintosh_operating_systems) and [iOS](https://en.wikipedia.org/wiki/IOS) development. Wanting to create my own iPhone and iPad apps, I wanted to learn Objective-C and of course after doing a great deal of programming using C type languages I thought it would be quite easy to learn and program using it, …how wrong I was!
 

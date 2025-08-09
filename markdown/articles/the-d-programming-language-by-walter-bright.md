@@ -8,7 +8,7 @@ description: This is a good introduction to the D programming language by none o
 
 # The D programming language by Walter Bright
 
-<time>Posted on 10th July 2013 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 10th July 2013 by [Gary Willoughby]($root-path$/pages/about.html)</time>
 
 This is a good introduction to the D programming language by none other than the author himself. I'm a big fan of D and thought I would share this to educate any other interested developers.
 

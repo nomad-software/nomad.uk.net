@@ -8,7 +8,7 @@ description: This is a Google Tech Talk which everyone who's using Javascript sh
 
 # JavaScript – The Good Parts
 
-<time>Posted on 13th December 2009 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 13th December 2009 by [Gary Willoughby]($root-path$/pages/about.html)</time>
 
 This is a Google Tech Talk which everyone who's using Javascript should watch. In this video [Douglas Crockford](https://en.wikipedia.org/wiki/Douglas_Crockford) explains the good and bad sides to Javascript and highlights very good tips for Javascript development.
 

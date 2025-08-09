@@ -8,10 +8,10 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Expires" content="7" />
 
-		<link rel="shortcut icon" href="favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="css/site.css">
-		<link rel="stylesheet" type="text/css" href="css/gist.css">
-		<link rel="stylesheet" type="text/css" href="css/disqus.css">
+		<link rel="shortcut icon" href="/nomad.uk.net/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/nomad.uk.net/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/nomad.uk.net/css/gist.css">
+		<link rel="stylesheet" type="text/css" href="/nomad.uk.net/css/disqus.css">
 
 		<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-111284073-1" defer></script>
 		<script type="text/javascript" defer>
@@ -41,9 +41,9 @@
 						<td colspan="2">
 							<div class="nav-bar">
 								<ul>
-									<li><a href="/nomad.uk.net/"><img src="images/header/home.png" /></a></li>
-									<li><a href="pages/about.html">About</a></li>
-									<li><a href="pages/archive.html">Archive</a></li>
+									<li><a href="/nomad.uk.net/"><img src="/nomad.uk.net/images/header/home.png" /></a></li>
+									<li><a href="/nomad.uk.net/pages/about.html">About</a></li>
+									<li><a href="/nomad.uk.net/pages/archive.html">Archive</a></li>
 								</ul>
 							</div>
 						</td>
@@ -54,9 +54,9 @@
 
 		<div class="body">
 			<div class="content">
-				<p><img src="/articles/images/hidden-treasure-in-the-d-standard-library-banner.jpg" /></p>
+				<p><img src="$root-path$/articles/images/hidden-treasure-in-the-d-standard-library-banner.jpg" /></p>
 <h1 id="hidden-treasure-in-the-d-standard-library">Hidden treasure in the D standard library</h1>
-<p><time>Posted on 28th August 2014 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
+<p><time>Posted on 28th August 2014 by <a href="$root-path$/pages/about.html">Gary Willoughby</a></time></p>
 <p>I’ve been using <a href="https://dlang.org/">D</a> for a number of years and I am constantly surprised by the hidden treasure I find in the standard library. I guess the reason for my surprise is that i’ve never exhaustively read the entire library documentation, I only skim it for what’s needed at any given time. I’ve promised myself I <em>will</em> read it thoroughly one day but until then i’ll enjoy these little discoveries. This article highlights a few of these hidden treasures which I hope you’ll enjoy learning about and will be useful for your future D projects.</p>
 <h2 id="std.functional">std.functional</h2>
 <p>This module implements functions that manipulate other functions. I guess this is where D implements library functions to accommodate some aspects of functional programming. It’s a bit thin on the ground in there but what is there seems to be very useful.</p>
@@ -96,7 +96,7 @@
 <script src="https://gist.github.com/nomad-software/c8fe320161167bc70c070acecc9025cb.js"></script>
 <p>Don’t you agree this is much nicer than having to guess what boolean arguments mean? <a href="https://dlang.org/phobos/std_typecons.html#.Flag">View documentation</a>.</p>
 <h3 id="proxy">Proxy</h3>
-<p>This is an extremely handy <a href="/articles/templates-in-d-explained.html">mixin template</a> for injecting code into a class or struct to make it behave like another type. Doing this manually is quite time consuming and involves a lot of <a href="https://en.wikipedia.org/wiki/Operator_overloading">operator overloading</a>, whereas <code>Proxy</code> is a simple one liner that enables lots of automatic functionality.</p>
+<p>This is an extremely handy <a href="$root-path$/articles/templates-in-d-explained.html">mixin template</a> for injecting code into a class or struct to make it behave like another type. Doing this manually is quite time consuming and involves a lot of <a href="https://en.wikipedia.org/wiki/Operator_overloading">operator overloading</a>, whereas <code>Proxy</code> is a simple one liner that enables lots of automatic functionality.</p>
 <p>Here’s an example where I make the struct <code>Foo</code> behave as an integral type.</p>
 <script src="https://gist.github.com/nomad-software/d290b376d2e08462a6493d5e2557dff2.js"></script>
 <p>Notice that all the operators in the above example just work? Here’s another slightly more complicated example using an inner string array.</p>

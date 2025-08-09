@@ -4,11 +4,11 @@ title: Hidden treasure in the D standard library
 description: I've been using D for a number of years and I am constantly surprised by the hidden treasure I find in the standard library. This article highlights a few of these hidden treasures which I hope you'll enjoy learning about and will be useful for your future D projects.
 ---
 
-![](/articles/images/hidden-treasure-in-the-d-standard-library-banner.jpg)
+![]($root-path$/articles/images/hidden-treasure-in-the-d-standard-library-banner.jpg)
 
 # Hidden treasure in the D standard library
 
-<time>Posted on 28th August 2014 by [Gary Willoughby](/pages/about.html)</time>
+<time>Posted on 28th August 2014 by [Gary Willoughby]($root-path$/pages/about.html)</time>
 
 I've been using [D](https://dlang.org/) for a number of years and I am constantly surprised by the hidden treasure I find in the standard library. I guess the reason for my surprise is that i've never exhaustively read the entire library documentation, I only skim it for what's needed at any given time. I've promised myself I _will_ read it thoroughly one day but until then i'll enjoy these little discoveries. This article highlights a few of these hidden treasures which I hope you'll enjoy learning about and will be useful for your future D projects.
 
@@ -88,7 +88,7 @@ Don't you agree this is much nicer than having to guess what boolean arguments m
 
 ### Proxy
 
-This is an extremely handy [mixin template](/articles/templates-in-d-explained.html) for injecting code into a class or struct to make it behave like another type. Doing this manually is quite time consuming and involves a lot of [operator overloading](https://en.wikipedia.org/wiki/Operator_overloading), whereas `Proxy` is a simple one liner that enables lots of automatic functionality.
+This is an extremely handy [mixin template]($root-path$/articles/templates-in-d-explained.html) for injecting code into a class or struct to make it behave like another type. Doing this manually is quite time consuming and involves a lot of [operator overloading](https://en.wikipedia.org/wiki/Operator_overloading), whereas `Proxy` is a simple one liner that enables lots of automatic functionality.
 
 Here's an example where I make the struct `Foo` behave as an integral type.
 
