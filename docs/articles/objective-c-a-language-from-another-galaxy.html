@@ -9,9 +9,9 @@
 		<meta http-equiv="Expires" content="7" />
 
 		<link rel="shortcut icon" href="/favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="/css/site.css">
-		<link rel="stylesheet" type="text/css" href="/css/gist.css">
-		<link rel="stylesheet" type="text/css" href="/css/disqus.css">
+		<link rel="stylesheet" type="text/css" href="css/site.css">
+		<link rel="stylesheet" type="text/css" href="css/gist.css">
+		<link rel="stylesheet" type="text/css" href="css/disqus.css">
 
 		<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-111284073-1" defer></script>
 		<script type="text/javascript" defer>
@@ -64,7 +64,7 @@
 <p>The Objective-C model of object-oriented programming is based on message passing to object instances. In Objective-C one does not call a method; one sends a message. This is unlike the Simula-style programming model used by C++. The difference between these two concepts is in how the code referenced by the method or message name is executed. In a Simula-style language, the method name is in most cases bound to a section of code in the target class by the compiler. In Smalltalk and Objective-C, the target of a message is resolved at runtime, with the receiving object itself interpreting the message. A method is identified by a selector which is a NULL-terminated string representing its name and which is resolved to a C method pointer implementing it. A consequence of this is that the message passing system has no type checking. The object to which the message is directed is not guaranteed to respond to a message, and if it does not, it simply raises an exception. <sup>1</sup></p>
 </blockquote>
 <h2 id="do-or-do-not.-there-is-no-try">Do or do not. There is no try</h2>
-<p>Calling a method of an object pointed to by the pointer ‘*object’ would require the following code in C++:</p>
+<p>Calling a method of an object pointed to by the pointer ’*object’ would require the following code in C++:</p>
 <script src="https://gist.github.com/nomad-software/f97408e81fe20de541aecb194e5f415d.js"></script>
 <p>In Objective-C, this is expressed as a message using square brackets:</p>
 <script src="https://gist.github.com/nomad-software/154e9b7680433791882eb0633efb8781.js"></script>

@@ -13,12 +13,16 @@ do
 
 	if [[ ${SHORT} =~ ^(index|pages/errors/404)$ ]]
 	then
-		pandoc --standalone \
+		pandoc \
+			--wrap=none \
+			--standalone \
 			--template="templates/default.html" \
 			--output="./docs/${SHORT}.html" \
 			${LONG};
 	else
-		pandoc --standalone \
+		pandoc \
+			--wrap=none \
+			--standalone \
 			--template="templates/default.html" \
 			--output="./docs/${SHORT}.html" \
 			--variable=disqus-url:${URL} \

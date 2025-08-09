@@ -12,7 +12,7 @@ description: After the success of the last article detailing hidden treasures in
 
 After the success of the last article detailing [hidden treasures in the D standard library](/articles/hidden-treasure-in-the-d-standard-library.html), I thought I would write another highlighting why the [D programming language](https://dlang.org/) coupled with its great standard library is surprisingly useful. The library itself is a vast beast and has been written by some exceptional programmers, so occasionally you stumble across some truly useful and well designed nuggets of code. This article shows a few more of these hidden treasures and provides examples of where they could be useful when used in your projects.
 
-The following code examples make good use of D’s uniform function call syntax and template metaprogramming capabilities. Don’t be put off by this as very simple explanations for these can be found [here](/articles/templates-in-d-explained.html) and [here](/articles/alternative-function-syntax-in-d.html).
+The following code examples make good use of D's uniform function call syntax and template metaprogramming capabilities. Don't be put off by this as very simple explanations for these can be found [here](/articles/templates-in-d-explained.html) and [here](/articles/alternative-function-syntax-in-d.html).
 
 ## std.algorithm
 
@@ -20,13 +20,13 @@ This package is huge and implements generic algorithms oriented towards the proc
 
 ### predSwitch
 
-This function returns one of a defined collection of expressions based on the value of a switch expression. While this sounds quite complicated, here’s a simple example implementing the standard [fizzbuzz](https://en.wikipedia.org/wiki/Fizz_buzz) program.
+This function returns one of a defined collection of expressions based on the value of a switch expression. While this sounds quite complicated, here's a simple example implementing the standard [fizzbuzz](https://en.wikipedia.org/wiki/Fizz_buzz) program.
 
 <script src="https://gist.github.com/nomad-software/5cf58ca213f0a112228c441163ab8ff7.js"></script>
 
 The `predSwitch` function takes one template parameter, which defines a [predicate](https://en.wikipedia.org/wiki/Predicate_(mathematical_logic)). This predicate is used to choose which expression to return from the function. The first function parameter is a switch expression, which will replace the `a` in the predicate. (This is shown in the above example as the `input` variable using [UFCS](https://en.wikipedia.org/wiki/Predicate_(mathematical_logic))). The next parameters are [variadic](https://en.wikipedia.org/wiki/Variadic_function) and define pairs of test expressions and return expressions. In the above code `15` will replace the `b` in the predicate, while its pair `"fizzbuzz"` defines the return expression if the predicate evaluates to true depending on the value of `input`. Many pairs can be defined and the last parameter is the default return expression if there are no matches.
 
-At first glance it looks like it’s just a reimplementation of an [if](https://en.wikipedia.org/wiki/Conditional_(computer_programming)#If.E2.80.93then.28.E2.80.93else.29) or [switch](https://en.wikipedia.org/wiki/Switch_statement) statement until you realise the function parameters can actually be expressions and all variadic arguments are evaluated [lazily](https://en.wikipedia.org/wiki/Lazy_evaluation). This helps write cleaner code where before it would be littered with conditional statements. [View Documentation](https://dlang.org/phobos/std_algorithm_comparison.html#.predSwitch).
+At first glance it looks like it's just a reimplementation of an [if](https://en.wikipedia.org/wiki/Conditional_(computer_programming)#If.E2.80.93then.28.E2.80.93else.29) or [switch](https://en.wikipedia.org/wiki/Switch_statement) statement until you realise the function parameters can actually be expressions and all variadic arguments are evaluated [lazily](https://en.wikipedia.org/wiki/Lazy_evaluation). This helps write cleaner code where before it would be littered with conditional statements. [View Documentation](https://dlang.org/phobos/std_algorithm_comparison.html#.predSwitch).
 
 ## std.bitmanip
 
@@ -38,11 +38,11 @@ This template is used for the creation of [struct](https://en.wikipedia.org/wiki
 
 <script src="https://gist.github.com/nomad-software/eb9242e2b642d82ac4e386e0d91b7f4f.js"></script>
 
-Here `foo` is only two bytes in size but contains many fields, all utilising the same [short](https://en.wikipedia.org/wiki/Integer_(computer_science)) for storage and providing access to a subset of bits. Defining structs like this can be very useful to define programmer friendly ‘views’ into binary data. [View Documentation](https://dlang.org/phobos/std_bitmanip.html#.bitfields).
+Here `foo` is only two bytes in size but contains many fields, all utilising the same [short](https://en.wikipedia.org/wiki/Integer_(computer_science)) for storage and providing access to a subset of bits. Defining structs like this can be very useful to define programmer friendly 'views' into binary data. [View Documentation](https://dlang.org/phobos/std_bitmanip.html#.bitfields).
 
 ## std.conv
 
-This module implements functions for conversion between values and types. At first glance, there doesn’t seem to be a lot in here but what is here is very comprehensive.
+This module implements functions for conversion between values and types. At first glance, there doesn't seem to be a lot in here but what is here is very comprehensive.
 
 ### castFrom
 
@@ -58,7 +58,7 @@ Now if the type of `foo` changes for whatever reason you get a helpful [compile 
 
 ## std.functional
 
-This module implements functions that manipulate other functions. I guess this is where D implements library functions to accommodate some aspects of functional programming. It’s a bit thin on the ground in there but what _is_ there seems to be very useful.
+This module implements functions that manipulate other functions. I guess this is where D implements library functions to accommodate some aspects of functional programming. It's a bit thin on the ground in there but what _is_ there seems to be very useful.
 
 ### pipe
 
@@ -86,17 +86,17 @@ This module defines the notion of a [range](http://ddili.org/ders/d.en/ranges.ht
 
 ### generate
 
-This is a function that when passed a callable argument will create an infinite [InputRange](https://dlang.org/phobos/std_range_primitives.html#isInputRange) whose `front` method returns the value from successive calls to the argument. This is especially useful when using a function with global side effects i.e. random functions, or to create ranges expressed as a single delegate, rather than defining the entire `front`, `popFront`, `empty` interface manually. Here’s an example.
+This is a function that when passed a callable argument will create an infinite [InputRange](https://dlang.org/phobos/std_range_primitives.html#isInputRange) whose `front` method returns the value from successive calls to the argument. This is especially useful when using a function with global side effects i.e. random functions, or to create ranges expressed as a single delegate, rather than defining the entire `front`, `popFront`, `empty` interface manually. Here's an example.
 
 <script src="https://gist.github.com/nomad-software/bb96126cf5b8b95de2e539800ac1806c.js"></script>
 
 The above code generates a range from the `randNum` function and prints three elements from it. The returned range can be considered [lazy](https://en.wikipedia.org/wiki/Lazy_evaluation) because the values are only generated as they are needed. In the above case they are only generated when we call `take(3)`. During generation, `front` is called on the range which in turn then calls `randNum`. The returned range can also be considered [infinite](https://dlang.org/phobos/std_range_primitives.html#isInfinite), because it could continue to keep generating values forever.
 
-There is however a problem with this range. Ranges should always return the same value for successive calls to `front`, this one doesn’t because it calls `randNum` each time. To achieve the desired behaviour we can leverage another function from a different package `std.algorithm.iteration.cache`. This function can be chained onto the returned range to cache the value of `front` without needing to call it again. `cache` [eagerly evaluates](https://en.wikipedia.org/wiki/Eager_evaluation) `front` on each range construction or call to `popFront`, to store the result in a cache. The result is then directly returned when `front` is called, rather than re-evaluated. Here is an amended example.
+There is however a problem with this range. Ranges should always return the same value for successive calls to `front`, this one doesn't because it calls `randNum` each time. To achieve the desired behaviour we can leverage another function from a different package `std.algorithm.iteration.cache`. This function can be chained onto the returned range to cache the value of `front` without needing to call it again. `cache` [eagerly evaluates](https://en.wikipedia.org/wiki/Eager_evaluation) `front` on each range construction or call to `popFront`, to store the result in a cache. The result is then directly returned when `front` is called, rather than re-evaluated. Here is an amended example.
 
 <script src="https://gist.github.com/nomad-software/f7bea2754f2b9ad4556454dfc33d2de5.js"></script>
 
-Now successive calls to the range’s `front` method always return the same cached value, which also means it’s now semantically correct and more performant. [View Documentation](https://dlang.org/phobos/std_range.html#.generate).
+Now successive calls to the range's `front` method always return the same cached value, which also means it's now semantically correct and more performant. [View Documentation](https://dlang.org/phobos/std_range.html#.generate).
 
 ## std.typecons
 
@@ -104,7 +104,7 @@ This module implements a variety of type constructors, i.e. templates that allow
 
 ### Unique
 
-This struct enables you to encapsulate unique ownership of a particular resource. Once used, the resource is deleted at the end of the current scope unless it’s transferred. A transfer can be explicit, by calling the release method, or implicit, when returning the struct from a function. The following code shows an example of how to use it.
+This struct enables you to encapsulate unique ownership of a particular resource. Once used, the resource is deleted at the end of the current scope unless it's transferred. A transfer can be explicit, by calling the release method, or implicit, when returning the struct from a function. The following code shows an example of how to use it.
 
 <script src="https://gist.github.com/nomad-software/77600d79289120bbb5036c44a2cbcebd.js"></script>
 

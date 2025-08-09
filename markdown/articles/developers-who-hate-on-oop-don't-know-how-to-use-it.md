@@ -22,7 +22,7 @@ It's a paradoxical scenario in which developers will never gain the experience o
 
 When complaining about inheritance, the following quote is usually wheeled out to much fanfare and regurgitated ad nauseam.
 
-> The problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle. - Joe Armstrong (Author of Erlang)
+> The problem with object-oriented languages is they've got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle. - Joe Armstrong (Author of Erlang)
 
 This is obviously alluding to receiving imagined bloat when extending a class you have no control over. I say "no control over" because If you did have control of it you could refactor, redesign and simplify it to avoid any bloat.
 

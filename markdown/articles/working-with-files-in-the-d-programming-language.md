@@ -10,9 +10,9 @@ description: Hopefully this article will change that and show the simplicity and
 
 <time>Posted on 28th September 2015 by [Gary Willoughby](/pages/about.html)</time>
 
-The inspiration for this article was one written a few weeks ago entitled [Working with Files in Go](https://www.devdungeon.com/content/working-files-go). In that article the author details numerous ways of interacting with files highlighting the capabilities of [Go](https://golang.org/). I thought I would write a companion piece, this time detailing how to interact with files using the [D programming language](https://dlang.org/). Interacting with files is a fundamental task of any programming language and while such tasks are commonplace, it’s not entirely obvious how to achieve certain file related tasks using D. Hopefully this article will change that and show the simplicity and power of the D language when working with files.
+The inspiration for this article was one written a few weeks ago entitled [Working with Files in Go](https://www.devdungeon.com/content/working-files-go). In that article the author details numerous ways of interacting with files highlighting the capabilities of [Go](https://golang.org/). I thought I would write a companion piece, this time detailing how to interact with files using the [D programming language](https://dlang.org/). Interacting with files is a fundamental task of any programming language and while such tasks are commonplace, it's not entirely obvious how to achieve certain file related tasks using D. Hopefully this article will change that and show the simplicity and power of the D language when working with files.
 
-Some of following code examples make good use of D’s uniform function call syntax (UFCS). Don’t be put off by this, a very simple explanation can be found [here](/articles/alternative-function-syntax-in-d.html).
+Some of following code examples make good use of D's uniform function call syntax (UFCS). Don't be put off by this, a very simple explanation can be found [here](/articles/alternative-function-syntax-in-d.html).
 
 ## Reading and writing
 
@@ -28,7 +28,7 @@ If an exception is thrown, there has been an error accessing the file and the `e
 
 ### Seek positions in a file
 
-Sometimes it’s necessary to move to a particular place in a file before you start reading or writing. The following example shows how to move to an offset from different starting points.
+Sometimes it's necessary to move to a particular place in a file before you start reading or writing. The following example shows how to move to an offset from different starting points.
 
 <script src="https://gist.github.com/nomad-software/6bc07e5b0337fe6bf1265f17b05c3027.js"></script>
 
@@ -54,7 +54,7 @@ This is writing an array of bytes to the file but it could just as easily be a s
 
 ### Writing strings to a file
 
-When dealing with files there’s always a lot of reading and writing of strings. This example shows the different methods available for writing a string to a file.
+When dealing with files there's always a lot of reading and writing of strings. This example shows the different methods available for writing a string to a file.
 
 <script src="https://gist.github.com/nomad-software/b7f53835e6903dec58faf3007feb8452.js"></script>
 
@@ -64,7 +64,7 @@ These methods can be used to provide a bit more convenience depending on differe
 
 ### Use an output buffer before writing
 
-As an optimisation technique, sometimes it’s necessary to write to a buffer in memory before writing it to disk to save time on [disk IO](https://en.wikipedia.org/wiki/Input/output). This example shows one of many ways of creating and writing such a buffer.
+As an optimisation technique, sometimes it's necessary to write to a buffer in memory before writing it to disk to save time on [disk IO](https://en.wikipedia.org/wiki/Input/output). This example shows one of many ways of creating and writing such a buffer.
 
 <script src="https://gist.github.com/nomad-software/657cf2dfc43b0354072733e1ff1de105.js"></script>
 
@@ -88,7 +88,7 @@ Sometimes is nice to just read data from a file and let the library take care of
 
 <script src="https://gist.github.com/nomad-software/af181ab8d66957b622c77ad845d3c4c0.js"></script>
 
-The returned data is typed as a [void](https://en.wikipedia.org/wiki/Void_type) array. This can be cast to a more useful type and in the above example it’s [cast](https://en.wikipedia.org/wiki/Type_conversion) to an array of bytes.
+The returned data is typed as a [void](https://en.wikipedia.org/wiki/Void_type) array. This can be cast to a more useful type and in the above example it's [cast](https://en.wikipedia.org/wiki/Type_conversion) to an array of bytes.
 
 [Documentation](https://dlang.org/phobos/std_file.html#.read)
 
@@ -142,7 +142,7 @@ This example shows how to read an entire text file into a string.
 
 <script src="https://gist.github.com/nomad-software/f1a4cb8fd017e963c3ff3a8d03ae77e3.js"></script>
 
-This reads and validates a text file. No character width conversion is performed. If the width of the characters in the file don’t match the specified string type the file will fail validation.
+This reads and validates a text file. No character width conversion is performed. If the width of the characters in the file don't match the specified string type the file will fail validation.
 
 [Documentation](https://dlang.org/phobos/std_file.html#.readText)
 
@@ -150,7 +150,7 @@ This reads and validates a text file. No character width conversion is performed
 
 ### Create an empty file
 
-This creates a new file (if one doesn’t exist) when initialising a `File` struct. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.
+This creates a new file (if one doesn't exist) when initialising a `File` struct. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.
 
 <script src="https://gist.github.com/nomad-software/49343c39a8ecb37af30e29b941e12bbb.js"></script>
 
@@ -190,7 +190,7 @@ This simply deletes a file.
 
 ### Get information about a file
 
-This gets information for a particular file, similar to what you’d get from [stat](https://en.wikipedia.org/wiki/Stat_(system_call)) on a [Posix](https://en.wikipedia.org/wiki/POSIX) system. The following code shows only cross-platform information, more is available for individual operating systems by decoding the `attributes` member.
+This gets information for a particular file, similar to what you'd get from [stat](https://en.wikipedia.org/wiki/Stat_(system_call)) on a [Posix](https://en.wikipedia.org/wiki/POSIX) system. The following code shows only cross-platform information, more is available for individual operating systems by decoding the `attributes` member.
 
 <script src="https://gist.github.com/nomad-software/748957f1cf59757d46c066054ca0a633.js"></script>
 
@@ -198,7 +198,7 @@ This gets information for a particular file, similar to what you’d get from [s
 
 ### Truncate an existing file
 
-This truncates an existing file to a maximum of 100 bytes. If the existing file’s size is less, no truncation takes place.
+This truncates an existing file to a maximum of 100 bytes. If the existing file's size is less, no truncation takes place.
 
 <script src="https://gist.github.com/nomad-software/e620b076ad276f48ae8078187fcdf38a.js"></script>
 
@@ -266,7 +266,7 @@ The `chown` system call functions in exactly the same way as the chown shell com
 
 ### Create hard links and symbolic links
 
-Sometimes it’s necessary to create [hard links](https://en.wikipedia.org/wiki/Hard_link) or [symbolic links](https://en.wikipedia.org/wiki/Symbolic_link) on a Posix system. The following example first shows you how to create a hard link.
+Sometimes it's necessary to create [hard links](https://en.wikipedia.org/wiki/Hard_link) or [symbolic links](https://en.wikipedia.org/wiki/Symbolic_link) on a Posix system. The following example first shows you how to create a hard link.
 
 <script src="https://gist.github.com/nomad-software/ba6f70fb41ddc3dd9df2f63b67cdca51.js"></script>
 
