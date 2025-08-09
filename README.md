@@ -20,4 +20,4 @@ This blog is where i can rant and rave about all the different aspects of softwa
 You can use any web server to view the site, just make sure the 'docs' folder is the root directory. If you have [Docker](https://www.docker.com/) and [Docker compose](https://docs.docker.com/compose/) installed you can easily serve the site by spinning up an [Nginx](https://www.nginx.com) container.
 
 1. In the repository directory execute `docker-compose up`
-2. Visit `localhost:8080` in your browser to view
+2. Visit `localhost:80` in your browser to view
