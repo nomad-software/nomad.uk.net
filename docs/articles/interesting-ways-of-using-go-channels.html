@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+					<title>nomad software | Interesting ways of using Go channels</title>
+		
+		<meta name="author" content="Gary Willoughby">
+		<meta name="description" content="I’ve created this post to document slides accompanying a talk on Go channels given by John Graham-Cumming during GopherCon 2014. The presentation was entitled ‘A Channel Compendium’ and is available to view on youtub.com.">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Expires" content="7" />
+
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/css/gist.css">
+		<link rel="stylesheet" type="text/css" href="/css/disqus.css">
+
+		<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-111284073-1" defer></script>
+		<script type="text/javascript" defer>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'UA-111284073-1');
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="content">
+				<table>
+					<tr>
+						<td class="logo">
+							<a href="/"><h1>nomad<span class="highlight">software</span></h1></a>
+						</td>
+						<td class="links">
+							<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+							<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+							<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="nav-bar">
+								<ul>
+									<li><a href="/"><img src="/images/header/home.png" /></a></li>
+									<li><a href="/pages/about.html">About</a></li>
+									<li><a href="/pages/archive.html">Archive</a></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</header>
+
+		<div class="body">
+			<div class="content">
+				<p><img src="/articles/images/interesting-ways-of-using-go-channels-banner.jpg" /></p>
+<h1 id="interesting-ways-of-using-go-channels">Interesting ways of using Go channels</h1>
+<p><time>Posted on 21st January 2016 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
+<p>I’ve created this post to document <a href="https://www.slideshare.net/cloudflare/a-channel-compendium">slides</a> accompanying a talk on <a href="https://golang.org/">Go</a> channels given by <a href="https://en.wikipedia.org/wiki/John_Graham-Cumming">John Graham-Cumming</a> during <a href="https://www.gophercon.com/">GopherCon 2014</a>. The presentation was entitled ‘A Channel Compendium‘ and is available below.</p>
+<p>During the talk, he presents interesting ways of using Go channels and makes you aware of the possibilities and advantages of <a href="https://en.wikipedia.org/wiki/Concurrent_computing">concurrent programming</a>. For me personally, this opened my eyes to several new ways of structuring programs and novel techniques for synchronising work done across <a href="https://en.wikipedia.org/wiki/Parallel_computing">multiple processor cores</a>.</p>
+<iframe class="youtube" src="https://www.youtube.com/embed/SmoM1InWXr0" frameborder="0" allowfullscreen>
+</iframe>
+<p>The following examples demonstrate various techniques how to use channels in Go. The code has been intentionally simplified to express these rather than being production level. For example, all error handling has been omitted.</p>
+<h2 id="signalling">Signalling</h2>
+<h3 id="wait-for-an-event">Wait for an event</h3>
+<p>In this example, a goroutine is started, does some work (in this case waiting for five seconds) then closes the channel. Unbuffered channels always halt the current goroutine until communication can take place. Closing the channel signals to the goroutine that it can continue because there is no more data to be received. Closed channels never halt execution of the goroutine.</p>
+<script src="https://gist.github.com/nomad-software/aa3f5d242f6afbf3f0eed390b7dab0c0.js"></script>
+<h3 id="coordinate-multiple-goroutines">Coordinate multiple goroutines</h3>
+<p>In this example, a hundred goroutines are started, waiting for communication of data on the <code>start</code> channel (or for it to be closed). In this case, once closed, all goroutines start.</p>
+<script src="https://gist.github.com/nomad-software/9714bef93f932b028f2bd6ec0c7be138.js"></script>
+<h3 id="coordinated-termination-of-workers">Coordinated termination of workers</h3>
+<p>In this example, a hundred goroutines are started, waiting for communication of data on the <code>die</code> channel (or for it to be closed). In this case, once closed all goroutines end.</p>
+<script src="https://gist.github.com/nomad-software/b2c2e936f22f8f353bc09a42c7f82398.js"></script>
+<h3 id="verify-termination-of-workers">Verify termination of workers</h3>
+<p>In this example, a goroutine is started, waiting for communication of data on the <code>die</code> channel (or for it to be closed). In this case, once closed, the goroutine performs termination tasks, then signals to the main goroutine (via the same <code>die</code> channel) that it’s finished.</p>
+<script src="https://gist.github.com/nomad-software/36ca3d628f524c07256d33512799c321.js"></script>
+<h2 id="hide-state">Hide state</h2>
+<h3 id="unique-id-service">Unique ID service</h3>
+<p>In this example, a goroutine is started to generate unique hexadecimal id’s. Each id is sent via the <code>id</code> channel and the goroutine halts until the channel is read. Each time the channel is read, the goroutine is free to increment the value and send another.</p>
+<script src="https://gist.github.com/nomad-software/219b2931e5fc825bca02646043542048.js"></script>
+<h3 id="memory-recycler">Memory recycler</h3>
+<p>In this example, a goroutine is started to recycle memory buffers. The <code>give</code> channel receives old memory buffers and stores them in a list. While the <code>get</code> channel dispenses these buffers for use. If no buffers are available in the list, a new one is created.</p>
+<script src="https://gist.github.com/nomad-software/b29afb25a376c6fbedb40bafad954f4d.js"></script>
+<h3 id="capped-memory-recycler">Capped memory recycler</h3>
+<p>In this example, a single buffered channel is used as a store for memory buffers. The channel is set to buffer five entries at any given time. This means the channel will not halt the current goroutine if there is capacity in the channel to accept another entry.</p>
+<p>The select statements provide non-blocking access to this channel in the case that it would be full. The first select creates a new buffer if it’s unable to get a buffer from the store. The second select defaults to nothing if it’s unable to place one on the store, which invokes the garbage collector to deallocate the given buffer.</p>
+<script src="https://gist.github.com/nomad-software/c6cb83b41a0222e5c995302cd6a60626.js"></script>
+<h2 id="nil-channels">Nil channels</h2>
+<h3 id="disable-receiving-case-statements">Disable receiving case statements</h3>
+<p>In this example, a goroutine is started and using <code>select</code> tries to receive on two channels. If a channel is closed, it is set to <code>nil</code>. Because <code>nil</code> channels always block, this has the effect of disabling the associated <code>case</code> statement. If both channels are set to <code>nil</code>, the goroutine exits because it cannot receive anything else.</p>
+<script src="https://gist.github.com/nomad-software/8f34e50f561ce54d3a46443880618f55.js"></script>
+<h3 id="disable-sending-case-statements">Disable sending case statements</h3>
+<p>In this example, a goroutine is started to generate random numbers and send them on the <code>c</code> channel. If a message is sent on the <code>d</code> channel, the <code>c</code> channel is set to <code>nil</code>, disabling the associated case statement. Once disabled, the goroutine can no longer send random numbers.</p>
+<script src="https://gist.github.com/nomad-software/a97f5ba70a1c93ce9f34b3c9f0b3111f.js"></script>
+<h2 id="timers">Timers</h2>
+<h3 id="timeout">Timeout</h3>
+<p>In this example, a goroutine is started to do some work. A <code>timeout</code> channel is created to make sure a <code>case</code> is executed if the <code>select</code> is halting for too long. In this case, the goroutine is terminated after thirty seconds of being idle. The timeout is assigned on every iteration of the <code>select</code> to make sure that if work is done, the timeout is reset.</p>
+<script src="https://gist.github.com/nomad-software/0ff7b3bd50a91d366b9949c1cf84648d.js"></script>
+<h3 id="heartbeat">Heartbeat</h3>
+<p>In this example, a goroutine is started to do some work. A <code>heartbeat</code> channel is created to make sure a <code>case</code> statement is executed at regular intervals. The <code>heartbeat</code> channel is not reset on each iteration to make sure it always executes on time.</p>
+<script src="https://gist.github.com/nomad-software/eae38fe99db4976f1b2d47abe7042329.js"></script>
+<h2 id="examples">Examples</h2>
+<h3 id="network-multiplexer">Network multiplexer</h3>
+<p>This example demonstrates a simple network multiplexer. Within the main goroutine, a channel is created to handle transferring messages and a network connection is established. A hundred goroutines are then spawned to generate strings (to act as our messages) and sent along this channel. Each message is read from the channel during a continuous loop and sent to the network connection.</p>
+<p>This example doesn’t run (because we are trying to connect to an example domain) but it expresses how easy it is to have many asynchronous processes sending messages to a single network connection.</p>
+<script src="https://gist.github.com/nomad-software/b2b1faf4383d5c0fe86e4aa0cf0ae5a0.js"></script>
+<h3 id="first-response">First response</h3>
+<p>In this example, an array of web URL’s are iterated upon and passed individually to separate goroutines. Each goroutine executes asynchronously and queries the passed URL. Each query response is passed into the <code>first</code> channel, which (of course) ensures the first query to respond is the first passed into the channel. We can then read this response from the channel and act accordingly.</p>
+<script src="https://gist.github.com/nomad-software/1cd5e1448c91037bae786b017217b780.js"></script>
+<h3 id="passing-a-channel">Passing a channel</h3>
+<p>In this example, the <code>w</code> channel is created to transfer a unit of work to a goroutine. This unit of work is received and a request is made to the contained URL. As part of this work, a <code>resp</code> channel is also passed. Once the request is performed, the response is sent back along the response channel. This allows this goroutine to process work and send a response back on different channels configured for each unit of work.</p>
+<script src="https://gist.github.com/nomad-software/43874dbd7c3024afca5d0c732816f83e.js"></script>
+<h3 id="http-load-balancer">HTTP load balancer</h3>
+<p>In this example, a load balancer has been created building upon previous examples. It handles reading URL’s from stdin and starting goroutines to perform a request for each. Each request is passed through a load balancer to filter these jobs into a finite number of workers. These workers process the requests and ultimately return a response to a single channel.</p>
+<p>Using a load balancer such as this can take a huge number of requests, balance them across resources available and process them in an orderly manner.</p>
+<script src="https://gist.github.com/nomad-software/d5da97074ae4788da362b095c5f45a1d.js"></script>
+<h2 id="conclusion">Conclusion</h2>
+<p>Go is a language that in my opinion <a href="/articles/why-gos-design-is-a-disservice-to-intelligent-programmers.html">does have it’s problems</a> but it’s a language I’m willing to learn and use. For me, this presentation of ideas opened my mind to new concepts and really gets me interested in starting a new project which takes advantage of the fantastic concurrency support in Go. It also reinforces the need to read and understand the standard library that ships with languages such as Go to truly understand the ethos and design decisions of the language.</p>
+<hr />
+															<div id="disqus_thread" class="disqus"></div>
+						<script type="text/javascript" defer>
+							var disqus_config = function() {
+								this.page.url        = "http://nomad.uk.net/articles/interesting-ways-of-using-go-channels.html";
+								this.page.identifier = "7e7c0b4c5638208898ddc04cb4517583";
+							};
+
+							(function() {
+								var d = document;
+								var s = d.createElement('script');
+								s.src = 'https://nomad-software.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+							})();
+						</script>
+												</div>
+		</div>
+
+		<footer>
+			<div class="content">
+				<table>
+					<tr>
+						<td>
+							<img src="/images/footer/portrait.jpg" class="thumb" />
+						</td>
+						<td>
+							<p class="author">
+								<strong>Author: Gary Willoughby</strong><br>
+								Software engineer and published author with over twenty years experience of software design and development.
+							</p>
+
+							<div class="links">
+								<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+								<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+								<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+							</div>
+
+							<p class="copyright">
+								Content copyright &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Gary Willoughby All Rights Reserved.
+								All source code is public domain and provided "as is", so use at your own risk.
+								All content previously appeared at <a href="http://nomad.so/" target="_blank">www.nomad.so</a> and carefully migrated here because the somalis wanted their domain back! 😞
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</footer>
+	</body>
+</html>

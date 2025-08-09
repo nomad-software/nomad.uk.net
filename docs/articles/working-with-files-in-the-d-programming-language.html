@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+					<title>nomad software | Working with files in the D programming language</title>
+		
+		<meta name="author" content="Gary Willoughby">
+		<meta name="description" content="Hopefully this article will change that and show the simplicity and power of the D language when working with files.">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Expires" content="7" />
+
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/css/gist.css">
+		<link rel="stylesheet" type="text/css" href="/css/disqus.css">
+
+		<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-111284073-1" defer></script>
+		<script type="text/javascript" defer>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'UA-111284073-1');
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="content">
+				<table>
+					<tr>
+						<td class="logo">
+							<a href="/"><h1>nomad<span class="highlight">software</span></h1></a>
+						</td>
+						<td class="links">
+							<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+							<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+							<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="nav-bar">
+								<ul>
+									<li><a href="/"><img src="/images/header/home.png" /></a></li>
+									<li><a href="/pages/about.html">About</a></li>
+									<li><a href="/pages/archive.html">Archive</a></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</header>
+
+		<div class="body">
+			<div class="content">
+				<p><img src="/articles/images/working-with-files-in-the-d-programming-language-banner.jpg" /></p>
+<h1 id="working-with-files-in-the-d-programming-language">Working with files in the D programming language</h1>
+<p><time>Posted on 28th September 2015 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
+<p>The inspiration for this article was one written a few weeks ago entitled <a href="https://www.devdungeon.com/content/working-files-go">Working with Files in Go</a>. In that article the author details numerous ways of interacting with files highlighting the capabilities of <a href="https://golang.org/">Go</a>. I thought I would write a companion piece, this time detailing how to interact with files using the <a href="https://dlang.org/">D programming language</a>. Interacting with files is a fundamental task of any programming language and while such tasks are commonplace, it’s not entirely obvious how to achieve certain file related tasks using D. Hopefully this article will change that and show the simplicity and power of the D language when working with files.</p>
+<p>Some of following code examples make good use of D’s uniform function call syntax (UFCS). Don’t be put off by this, a very simple explanation can be found <a href="/articles/alternative-function-syntax-in-d.html">here</a>.</p>
+<h2 id="reading-and-writing">Reading and writing</h2>
+<h3 id="open-and-close-files">Open and close files</h3>
+<p>The following code show how to open and close a file in a safe way. Generally D does not attempt to provide thin wrappers over equivalent functions from the <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> standard library, but manipulating such file handles directly is unsafe and error-prone in many ways. The <code>File</code> type ensures safe manipulation, automatic file closing, and a lot of convenience. The underlying handle is maintained in a <a href="https://en.wikipedia.org/wiki/Reference_counting">reference-counted</a> manner, such that as soon as the last <code>File</code> variable goes out of scope, the underlying handle is automatically closed.</p>
+<script src="https://gist.github.com/nomad-software/33365afda104c3ff4d50c20341c73773.js"></script>
+<p>If an exception is thrown, there has been an error accessing the file and the <code>errno</code> property of the exception can be examined to find out what went wrong. Because the <code>File</code> type is a wrapper over a C function, the error number returned will be equal to the constants defined in <code>core.stdc.errno</code>. This is the most common way of accessing files and handling any errors that occur. Extended information can be gleaned from a file using the <code>std.file.getAttributes</code> function which returns an unsigned integer. This integer contains several <a href="https://en.wikipedia.org/wiki/Bit_field">bit flags</a> that are set in an operating system specific manner. More information about these flags can be found <a href="https://dlang.org/phobos/std_file.html#.getAttributes">here</a>.</p>
+<p><a href="https://dlang.org/phobos/std_stdio.html#.File">Documentation</a></p>
+<h3 id="seek-positions-in-a-file">Seek positions in a file</h3>
+<p>Sometimes it’s necessary to move to a particular place in a file before you start reading or writing. The following example shows how to move to an offset from different starting points.</p>
+<script src="https://gist.github.com/nomad-software/6bc07e5b0337fe6bf1265f17b05c3027.js"></script>
+<p><a href="https://dlang.org/phobos/std_stdio.html#.File.seek">Documentation</a></p>
+<h3 id="write-bytes-to-a-file">Write bytes to a file</h3>
+<p>This example shows how to write bytes to a file.</p>
+<script src="https://gist.github.com/nomad-software/8cb50779909ac7092aea11464944bbea.js"></script>
+<p><a href="https://dlang.org/phobos/std_stdio.html#.File.rawWrite">Documentation</a></p>
+<h3 id="quick-write-to-a-file">Quick write to a file</h3>
+<p>Sometimes is nice to just dump a buffer of data to a file and let the library take care of opening and closing it. This example shows you how.</p>
+<script src="https://gist.github.com/nomad-software/a095607b75391956909dd0fc8b031876.js"></script>
+<p>This is writing an array of bytes to the file but it could just as easily be a string.</p>
+<p><a href="https://dlang.org/phobos/std_file.html#.write">Documentation</a></p>
+<h3 id="writing-strings-to-a-file">Writing strings to a file</h3>
+<p>When dealing with files there’s always a lot of reading and writing of strings. This example shows the different methods available for writing a string to a file.</p>
+<script src="https://gist.github.com/nomad-software/b7f53835e6903dec58faf3007feb8452.js"></script>
+<p>These methods can be used to provide a bit more convenience depending on different scenarios.</p>
+<p><a href="https://dlang.org/phobos/std_stdio.html#.File.write">Documentation</a></p>
+<h3 id="use-an-output-buffer-before-writing">Use an output buffer before writing</h3>
+<p>As an optimisation technique, sometimes it’s necessary to write to a buffer in memory before writing it to disk to save time on <a href="https://en.wikipedia.org/wiki/Input/output">disk IO</a>. This example shows one of many ways of creating and writing such a buffer.</p>
+<script src="https://gist.github.com/nomad-software/657cf2dfc43b0354072733e1ff1de105.js"></script>
+<p>Using a buffer this way enables data to be written to memory very quickly before being dumped to disk. This saves time from making many small writes and decreases the wear on a drive.</p>
+<p><a href="https://dlang.org/phobos/std_outbuffer.html">Documentation</a></p>
+<h3 id="read-bytes-from-a-file">Read bytes from a file</h3>
+<p>This example shows how to read bytes from a file.</p>
+<script src="https://gist.github.com/nomad-software/be7dce7a437df53057eff78ee59d9e26.js"></script>
+<p>When reading bytes like this you have to provide a buffer which receives the read data. This example uses a <a href="https://dlang.org/spec/arrays.html#dynamic-arrays">dynamic array</a> for such a buffer and preallocates 1024 bytes before reading. The <code>rawRead</code> method fills the buffer with data and returns a <a href="https://dlang.org/d-array-article.html">slice</a> of that buffer. The buffer length is the maximum number of bytes that will be read.</p>
+<p><a href="https://dlang.org/phobos/std_stdio.html#.File.rawRead">Documentation</a></p>
+<h3 id="quick-read-from-a-file">Quick read from a file</h3>
+<p>Sometimes is nice to just read data from a file and let the library take care of opening and closing it. This example shows you how.</p>
+<script src="https://gist.github.com/nomad-software/af181ab8d66957b622c77ad845d3c4c0.js"></script>
+<p>The returned data is typed as a <a href="https://en.wikipedia.org/wiki/Void_type">void</a> array. This can be cast to a more useful type and in the above example it’s <a href="https://en.wikipedia.org/wiki/Type_conversion">cast</a> to an array of bytes.</p>
+<p><a href="https://dlang.org/phobos/std_file.html#.read">Documentation</a></p>
+<h3 id="read-n-bytes-from-a-file">Read <em>n</em> bytes from a file</h3>
+<p>This example uses the <code>read</code> function again but this time uses the second parameter to define a limit of bytes to read. If the file is smaller than the defined limit, only the data in the file will be returned.</p>
+<script src="https://gist.github.com/nomad-software/16f932512ff84c5894160bc07a89e5c6.js"></script>
+<p>As before, the data returned can be cast to different array types.</p>
+<p><a href="https://dlang.org/phobos/std_file.html#.read">Documentation</a></p>
+<h3 id="read-a-file-in-chunks">Read a file in chunks</h3>
+<p>This example reads a file in 1024 byte chunks.</p>
+<script src="https://gist.github.com/nomad-software/e1b7d6bcca32971375782a197ce510fb.js"></script>
+<p>The <code>byChunk</code> method returns an <a href="https://dlang.org/phobos/std_range.html">input range</a> of bytes which reads from the file handle a chunk at a time. In this case, each call will return a maximum of 1024 bytes. The buffer is reused for every call so if you need the data to persist between calls, copies must be made.</p>
+<p><a href="https://dlang.org/phobos/std_stdio.html#.File.byChunk">Documentation</a></p>
+<h3 id="read-strings-from-a-file">Read strings from a file</h3>
+<p>These examples show how to read strings from a file.</p>
+<script src="https://gist.github.com/nomad-software/09e72ff00a9b459322bcefa6363e4c58.js"></script>
+<p>While the above example is convenient for reading strings from a file there is a downside and that is <code>readln</code> allocates a new buffer for every line read. Because of this potential performance issue there is an <a href="https://en.wikipedia.org/wiki/Function_overloading">overloaded method</a> which takes a buffer as a parameter, like this.</p>
+<script src="https://gist.github.com/nomad-software/45bdac475dff4f3c567d96c10194d887.js"></script>
+<p>This buffer can then be reused for each string read (which increases performance) but on the downside you have to take copies if you need the data to persist between calls. D leaves you to make the decision which is preferred.</p>
+<p><a href="https://dlang.org/phobos/std_stdio.html#.File.readln">Documentation</a></p>
+<h3 id="read-file-as-a-range-of-strings">Read file as a range of strings</h3>
+<p>Reading a file as a range allows you to use many generic algorithms defined in <a href="https://dlang.org/phobos/index.html">Phobos</a>. This example shows how.</p>
+<script src="https://gist.github.com/nomad-software/96eb6246e5479bdf67eee0399f0d504d.js"></script>
+<p>The <code>byLine</code> method returns an input range which reads from the file handle one line at a time. Internally a buffer is reused for every line so if you need this data to persist between calls, copies must be made. There is a convenience method called <code>byLineCopy</code> which does this automatically.</p>
+<p><a href="https://dlang.org/phobos/std_stdio.html#.File.byLine">Documentation</a></p>
+<h3 id="quick-read-whole-file-as-string">Quick read whole file as string</h3>
+<p>This example shows how to read an entire text file into a string.</p>
+<script src="https://gist.github.com/nomad-software/f1a4cb8fd017e963c3ff3a8d03ae77e3.js"></script>
+<p>This reads and validates a text file. No character width conversion is performed. If the width of the characters in the file don’t match the specified string type the file will fail validation.</p>
+<p><a href="https://dlang.org/phobos/std_file.html#.readText">Documentation</a></p>
+<h2 id="basic-operations">Basic operations</h2>
+<h3 id="create-an-empty-file">Create an empty file</h3>
+<p>This creates a new file (if one doesn’t exist) when initialising a <code>File</code> struct. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.</p>
+<script src="https://gist.github.com/nomad-software/49343c39a8ecb37af30e29b941e12bbb.js"></script>
+<p><a href="https://dlang.org/phobos/std_stdio.html#.File">Documentation</a></p>
+<h3 id="check-if-a-file-exists">Check if a file exists</h3>
+<p>This simply checks if a file exists.</p>
+<script src="https://gist.github.com/nomad-software/4d815f8332057ce42ca16272b1baa249.js"></script>
+<p><a href="https://dlang.org/phobos/std_file.html#.exists">Documentation</a></p>
+<h3 id="rename-and-move-file">Rename and move file</h3>
+<p>This renames and/or moves a file. If the destination file exists, it is overwritten.</p>
+<script src="https://gist.github.com/nomad-software/b5e88c138a9fe982b571628bdea3904e.js"></script>
+<p><a href="https://dlang.org/phobos/std_file.html#.rename">Documentation</a></p>
+<h3 id="copy-a-file">Copy a file</h3>
+<p>This copies a file. If the destination file exists, it is overwritten.</p>
+<script src="https://gist.github.com/nomad-software/3d36e1687614c9a3ff8f1579ced7218c.js"></script>
+<p><a href="https://dlang.org/phobos/std_file.html#.copy">Documentation</a></p>
+<h3 id="delete-a-file">Delete a file</h3>
+<p>This simply deletes a file.</p>
+<script src="https://gist.github.com/nomad-software/4e2c13b000cdf276af06590888292efe.js"></script>
+<p><a href="https://dlang.org/phobos/std_file.html#.remove">Documentation</a></p>
+<h3 id="get-information-about-a-file">Get information about a file</h3>
+<p>This gets information for a particular file, similar to what you’d get from <a href="https://en.wikipedia.org/wiki/Stat_(system_call)">stat</a> on a <a href="https://en.wikipedia.org/wiki/POSIX">Posix</a> system. The following code shows only cross-platform information, more is available for individual operating systems by decoding the <code>attributes</code> member.</p>
+<script src="https://gist.github.com/nomad-software/748957f1cf59757d46c066054ca0a633.js"></script>
+<p><a href="https://dlang.org/phobos/std_file.html#.DirEntry">Documentation</a></p>
+<h3 id="truncate-an-existing-file">Truncate an existing file</h3>
+<p>This truncates an existing file to a maximum of 100 bytes. If the existing file’s size is less, no truncation takes place.</p>
+<script src="https://gist.github.com/nomad-software/e620b076ad276f48ae8078187fcdf38a.js"></script>
+<p><a href="https://dlang.org/phobos/std_file.html#.write">Documentation</a></p>
+<h2 id="archiving">Archiving</h2>
+<h3 id="create-a-zip-archive">Create a Zip archive</h3>
+<p>Building upon later examples, the following shows how to create a zip archive.</p>
+<script src="https://gist.github.com/nomad-software/4056fa562d79ab54b681cba3ec40b4cc.js"></script>
+<p><a href="https://dlang.org/phobos/std_zip.html#.ZipArchive">Documentation</a></p>
+<h3 id="read-a-zip-archive">Read a Zip archive</h3>
+<p>This example shows how to read a zip archive.</p>
+<script src="https://gist.github.com/nomad-software/52ada72b67e3437b4764fb4e5ed0e884.js"></script>
+<p><a href="https://dlang.org/phobos/std_zip.html#.ZipArchive">Documentation</a></p>
+<h2 id="compression">Compression</h2>
+<h3 id="write-compressed-data-to-a-file">Write compressed data to a file</h3>
+<p>This example shows how to compress data before writing to a file.</p>
+<script src="https://gist.github.com/nomad-software/216b4306fc06cca0ffc23637f790c9c9.js"></script>
+<p>In the above example a string is used but any data can be compressed. Internally the <code>std.zlib</code> module uses the <a href="http://www.zlib.net/">zlib</a> C library.</p>
+<p><a href="https://dlang.org/phobos/std_zlib.html#.compress">Documentation</a></p>
+<h3 id="read-compressed-data-from-a-file">Read compressed data from a file</h3>
+<p>This shows how to read compressed data from a file.</p>
+<script src="https://gist.github.com/nomad-software/5c908cae4314e02bfebe7852b583fec3.js"></script>
+<p><a href="https://dlang.org/phobos/std_zlib.html#.uncompress">Documentation</a></p>
+<h2 id="posix-operations">Posix operations</h2>
+<h3 id="change-file-access-rights">Change file access rights</h3>
+<p>This changes file access rights on a <a href="https://en.wikipedia.org/wiki/POSIX">Posix</a> system such as <a href="https://en.wikipedia.org/wiki/Linux">Linux</a> or <a href="https://en.wikipedia.org/wiki/Macintosh_operating_systems">Mac OS</a>. There is no cross-platform <a href="https://dlang.org/phobos/index.html">Phobos</a> solution for this task so we can only use a Posix specific <a href="https://en.wikipedia.org/wiki/System_call">system call</a>.</p>
+<script src="https://gist.github.com/nomad-software/43accf5342006b317af628d4a42a1d6e.js"></script>
+<p>The <code>chmod</code> system call functions in exactly the same way as the chmod <a href="https://en.wikipedia.org/wiki/Unix_shell">shell</a> command. A file name is specified along with its new <a href="https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation">access rights</a> (expressed as an <a href="https://en.wikipedia.org/wiki/Octal">octal</a> number). When modifying a file in this way, you also need permission to actually perform the operation. This can be accomplished by owning the file or by being a <a href="https://en.wikipedia.org/wiki/Superuser">super user</a>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Chmod">Documentation</a></p>
+<h3 id="change-file-ownership">Change file ownership</h3>
+<p>This changes the ownership of a file on a Posix system. Once a file is owned, file access rights can be changed without being a super user.</p>
+<script src="https://gist.github.com/nomad-software/abc8f6d9fbb7c0e6ca0e9b7c033b28ae.js"></script>
+<p>The <code>chown</code> system call functions in exactly the same way as the chown shell command. A file name is specified along with its new owner and group. Your program will need super user permissions to change the owner.</p>
+<p><a href="https://en.wikipedia.org/wiki/Chown">Documentation</a></p>
+<h3 id="create-hard-links-and-symbolic-links">Create hard links and symbolic links</h3>
+<p>Sometimes it’s necessary to create <a href="https://en.wikipedia.org/wiki/Hard_link">hard links</a> or <a href="https://en.wikipedia.org/wiki/Symbolic_link">symbolic links</a> on a Posix system. The following example first shows you how to create a hard link.</p>
+<script src="https://gist.github.com/nomad-software/ba6f70fb41ddc3dd9df2f63b67cdca51.js"></script>
+<p>To create a symbolic link, replace line 9 with the following line.</p>
+<script src="https://gist.github.com/nomad-software/bb8ec0ff9c3bd7643ea0c0eb55316ba9.js"></script>
+<h2 id="conclusion">Conclusion</h2>
+<p>There is rarely one canonical way of interacting with files and developers like to perform different file related tasks in their own particular way. Hopefully this article demonstrates the power and convenience of D and highlights convenient functions in the standard library for use when working with files.</p>
+<hr />
+															<div id="disqus_thread" class="disqus"></div>
+						<script type="text/javascript" defer>
+							var disqus_config = function() {
+								this.page.url        = "http://nomad.uk.net/articles/working-with-files-in-the-d-programming-language.html";
+								this.page.identifier = "49454dcd5dd8c94fad02d37eb3151bf7";
+							};
+
+							(function() {
+								var d = document;
+								var s = d.createElement('script');
+								s.src = 'https://nomad-software.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+							})();
+						</script>
+												</div>
+		</div>
+
+		<footer>
+			<div class="content">
+				<table>
+					<tr>
+						<td>
+							<img src="/images/footer/portrait.jpg" class="thumb" />
+						</td>
+						<td>
+							<p class="author">
+								<strong>Author: Gary Willoughby</strong><br>
+								Software engineer and published author with over twenty years experience of software design and development.
+							</p>
+
+							<div class="links">
+								<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+								<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+								<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+							</div>
+
+							<p class="copyright">
+								Content copyright &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Gary Willoughby All Rights Reserved.
+								All source code is public domain and provided "as is", so use at your own risk.
+								All content previously appeared at <a href="http://nomad.so/" target="_blank">www.nomad.so</a> and carefully migrated here because the somalis wanted their domain back! 😞
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+					<title>nomad software | Developers who hate on OOP don’t know how to use it</title>
+		
+		<meta name="author" content="Gary Willoughby">
+		<meta name="description" content="Object-oriented programming seems to be receiving a lot of hate recently, usually from inexperienced developers who have just learned functional programming.">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Expires" content="7" />
+
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/css/gist.css">
+		<link rel="stylesheet" type="text/css" href="/css/disqus.css">
+
+		<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-111284073-1" defer></script>
+		<script type="text/javascript" defer>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'UA-111284073-1');
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="content">
+				<table>
+					<tr>
+						<td class="logo">
+							<a href="/"><h1>nomad<span class="highlight">software</span></h1></a>
+						</td>
+						<td class="links">
+							<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+							<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+							<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="nav-bar">
+								<ul>
+									<li><a href="/"><img src="/images/header/home.png" /></a></li>
+									<li><a href="/pages/about.html">About</a></li>
+									<li><a href="/pages/archive.html">Archive</a></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</header>
+
+		<div class="body">
+			<div class="content">
+				<p><img src="/articles/images/developers-who-hate-on-oop-don&#39;t-know-how-to-use-it.jpg" /></p>
+<h1 id="developers-who-hate-on-oop-dont-know-how-to-use-it">Developers who hate on OOP don’t know how to use it</h1>
+<p><time>Posted on 28th July 2019 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
+<p><a href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Programming</a> seems to be receiving a lot of hate recently, usually from inexperienced developers who have just “learned” <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a> and then want to hate on anything that doesn’t support <a href="https://en.wikipedia.org/wiki/Pure_function">functional purity</a>. Unfortunately, this crowd always seems to fit the same mold. They are usually web developers, fairly young, seemingly intelligent but extremely impatient and easily swayed by new technology (e.g. JavaScript developers fit this mold precisely) but the most important trait that sets them apart from developers who embrace OOP, is not persevering long enough to actually learn how to use it.</p>
+<h2 id="so-whats-the-problem">So what’s the problem?</h2>
+<p>As far as I can tell, the biggest reason developers hate on OOP is over the misapplication of <a href="https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)">inheritance</a> (resulting in <a href="https://en.wikipedia.org/wiki/Code_bloat">bloated code</a>) or <a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)">encapsulation</a> isn’t working out (diffusing responsibilities of objects). The irony here is that if they had exposure to better code they wouldn’t have such a negative view. Inheritance and encapsulation are extremely important when modeling problems using OOP and when used correctly can result in beautiful, easy to maintain code.</p>
+<p>It’s a paradoxical scenario in which developers will never gain the experience or guidance to write good object-oriented code because they’ll never have the experience of working with a well-written source to learn from. This is especially true of web development. Web development is notorious for creating terribly structured code, usually because of time pressures and the natural lazy predisposition afforded by immediate results in a browser.</p>
+<h3 id="inheritance">Inheritance</h3>
+<p>When complaining about inheritance, the following quote is usually wheeled out to much fanfare and regurgitated ad nauseam.</p>
+<blockquote>
+<p>The problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle. - Joe Armstrong (Author of Erlang)</p>
+</blockquote>
+<p>This is obviously alluding to receiving imagined bloat when extending a class you have no control over. I say “no control over” because If you did have control of it you could refactor, redesign and simplify it to avoid any bloat.</p>
+<p>Huge sprawling inheritance hierarchies are bad, everyone knows that when trying to write maintainable object-oriented code. To suggest that <em>all</em> code is bad in this regard (as the above quote does) is being disingenuous. Just because you can do something in code, doesn’t mean you always should. Learning to apply any programming language correctly and effectively takes time.</p>
+<h4 id="perceived-fragility">Perceived fragility</h4>
+<p>Another inheritance criticism I hear from the OOP hating crowd is that when extending a class, your new one could break if the base class were to change in future. Well duh! Changing any public API of any codebase always has the potential of breakage. Even if the base class implementation changes you will have to verify that everything still works as expected. And guess what, there’s a solution for that, it’s called <a href="https://en.wikipedia.org/wiki/Unit_testing">unit testing</a>.</p>
+<h3 id="encapsulation">Encapsulation</h3>
+<p>When developers complain about encapsulation being a problem of OOP it’s usually because they have no idea how to correctly perform it. Encapsulation is all about the responsibility of a particular object. i.e. What data and behavior is assigned to that object and what access is allowed if any.</p>
+<p>It’s not a difficult concept to grasp, in fact, it’s surprisingly simple <em>but</em> takes years to master even after being taught well. Encapsulation is something most inexperienced developers fail at when writing object-oriented code. Not because of lack of effort but because of a lack of any upfront design, a lack of thought and consideration of where code should go and an impatient impulse to just get writing code. As is usually the case in web development. Good encapsulation is only realized through exercising rigor when assigning responsibilities to objects.</p>
+<h3 id="weaponizing-functional-programming">Weaponizing functional programming</h3>
+<p>Whenever OOP is attacked, these developers tend to stand in their ivory towers, holding functional programming aloft as some mighty hammer with which to smite all unbelievers. Smug in their superior knowledge of the secret sauce everyone else should be using, chanting mantras such as:</p>
+<blockquote>
+<p>Functional programming is clearly superior to OOP, everyone should use it! - New FP User</p>
+</blockquote>
+<p>Unfortunately while practicing this fundamentalism they never allow for the fact that some of us lowly object-oriented developers also know functional programming and have simply decided to not use it. Functional programming is not superior to OOP, it’s just different. OOP and functional programming are useful in <a href="https://stackoverflow.com/a/2079678/13227">very different situations</a>. Saying one is better than the other is clearly not understanding either and guess what, <a href="https://en.wikipedia.org/wiki/D_(programming_language)#Programming_paradigms">in some languages, you can use both</a>.</p>
+<h2 id="oop-handles-complexity-well">OOP handles complexity well</h2>
+<p>Object-oriented programming isn’t a silver bullet and no one ever said it was. The main reason of using it is to handle the complexity of programming. There is also the more-or-less mapping of real-world objects to their virtual counterparts which makes reasoning about problems and code easier. Of course, some people will argue this (as those above do) but it <em>is</em> there for the most part.</p>
+<p>If you have used OOP well and the program still turns out more complicated than if it was written in a <a href="https://en.wikipedia.org/wiki/Procedural_programming">procedural style</a> then you may as well use procedural code. (Hoping you don’t need to extend it later.)</p>
+<p>If OOP is <em>causing</em> complexity in your program it’s either the wrong tool for the job or you are using it poorly. If your program is bigger than a command-line tool and you are experiencing these problems, it’s the latter.</p>
+<h2 id="learn-and-practice-oop-before-hating-on-it">Learn and practice OOP before hating on it</h2>
+<p>For me and other experienced developers to take your criticisms of OOP seriously you are going to have to show us where things have gone wrong. If you do this, I can almost guarantee it’s because of bad practice and not understanding the fundamentals. OOP is very easy to pick up but hard to master. You can read a book on it in an afternoon and understand core principles. However, it takes years of programming and experience for the penny to drop and to have a clear understanding.</p>
+<p>There’s also the issue of discipline to actually do it. When I talk to other developers about OOP, almost all will fully understand the textbook definitions and most will understand the practical application. They just don’t do it! You can ask a developer what does encapsulation mean and they will answer well but when you look at their code they just haven’t applied it. This is a massive hurdle to get over for inexperienced developers. For me personally, I would say it took about ten years to truly understand encapsulation and have the discipline to always do it correctly.</p>
+<p>If you’re going to hate on OOP you better be using it correctly or you’re going to look like a fool.</p>
+<hr />
+															<div id="disqus_thread" class="disqus"></div>
+						<script type="text/javascript" defer>
+							var disqus_config = function() {
+								this.page.url        = "http://nomad.uk.net/articles/developers-who-hate-on-oop-don't-know-how-to-use-it.html";
+								this.page.identifier = "374f3a08232021ed69d2774ce7463a2a";
+							};
+
+							(function() {
+								var d = document;
+								var s = d.createElement('script');
+								s.src = 'https://nomad-software.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+							})();
+						</script>
+												</div>
+		</div>
+
+		<footer>
+			<div class="content">
+				<table>
+					<tr>
+						<td>
+							<img src="/images/footer/portrait.jpg" class="thumb" />
+						</td>
+						<td>
+							<p class="author">
+								<strong>Author: Gary Willoughby</strong><br>
+								Software engineer and published author with over twenty years experience of software design and development.
+							</p>
+
+							<div class="links">
+								<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+								<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+								<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+							</div>
+
+							<p class="copyright">
+								Content copyright &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Gary Willoughby All Rights Reserved.
+								All source code is public domain and provided "as is", so use at your own risk.
+								All content previously appeared at <a href="http://nomad.so/" target="_blank">www.nomad.so</a> and carefully migrated here because the somalis wanted their domain back! 😞
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</footer>
+	</body>
+</html>

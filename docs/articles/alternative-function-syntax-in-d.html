@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+					<title>nomad software | Alternative function syntax in D explained</title>
+		
+		<meta name="author" content="Gary Willoughby">
+		<meta name="description" content="An alternative syntax has not been included by accident but by design and as a result could potentially make code more complicated to understand and add more friction to first learning the language.">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Expires" content="7" />
+
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/css/gist.css">
+		<link rel="stylesheet" type="text/css" href="/css/disqus.css">
+
+		<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-111284073-1" defer></script>
+		<script type="text/javascript" defer>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'UA-111284073-1');
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="content">
+				<table>
+					<tr>
+						<td class="logo">
+							<a href="/"><h1>nomad<span class="highlight">software</span></h1></a>
+						</td>
+						<td class="links">
+							<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+							<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+							<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="nav-bar">
+								<ul>
+									<li><a href="/"><img src="/images/header/home.png" /></a></li>
+									<li><a href="/pages/about.html">About</a></li>
+									<li><a href="/pages/archive.html">Archive</a></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</header>
+
+		<div class="body">
+			<div class="content">
+				<p><img src="/articles/images/alternative-function-syntax-in-d-banner.jpg" /></p>
+<h1 id="alternative-function-syntax-in-d-explained">Alternative function syntax in D explained</h1>
+<p><time>Posted on 8th August 2013 by <a href="/pages/about.html">Gary Willoughby</a></time></p>
+<p>This is an extension article to <a href="/articles/templates-in-d-explained.html">Templates in D explained</a> where I introduce the alternative function syntax and how it complements template usage. This article will expand a little more on that syntax and make clear what is available in <a href="https://dlang.org/">D</a> and why.</p>
+<p>An alternative syntax has not been included by accident but by design and as a result can potentially make code more complicated to understand and add more friction to first learning the language. This particular trade off, I believe is worth it, enabling particular features when using different paradigms.</p>
+<h2 id="optional-parentheses">Optional parentheses</h2>
+<p>The first alternative syntax enables calling a function without using parens. This is possible with member functions as well as non member functions.</p>
+<h3 id="non-member-functions">Non member functions</h3>
+<p>The following demonstrates how functions defined without value parameters can be called without parens and return a value. Here <code>foo()</code> has no value parameters and can simply be called as <code>foo</code> which returns its value. This by itself seems a bit lazy and at first doesn’t seem very useful but combined with the dot notation syntax (discussed further down) it becomes very useful indeed.</p>
+<script src="https://gist.github.com/nomad-software/df1e94925b6d53720af2374eaad461fd.js"></script>
+<p>Non member functions can also be called as an assignment, passing the assigned value as the first function parameter.</p>
+<script src="https://gist.github.com/nomad-software/6c3d2998ea76a3298636c3e69c6640af.js"></script>
+<p>In the above example I pass the value <code>123</code> as an argument to the <code>foo</code> function during a simulated assignment. This is really weird and in my opinion not very useful for non member functions.</p>
+<h3 id="member-functions">Member functions</h3>
+<p>These behave in exactly the same way as non member functions and can be called without parens too. However, it makes far more sense here as this makes simulating object <a href="https://en.wikipedia.org/wiki/Property_(programming)">properties</a> very easy.</p>
+<script src="https://gist.github.com/nomad-software/ac593726cd73751708d686a1a729fa50.js"></script>
+<p>Above, the <a href="https://en.wikipedia.org/wiki/Function_overloading">overloading</a> of <code>bar</code> simulates a property quite nicely as both defined functions can be called without parens.</p>
+<p>This behavior is further enhanced by a compiler command line argument <code>-property</code> which only allows this alternative syntax on member functions marked with the <code>@property</code> attribute. There is <a href="http://forum.dlang.org/thread/uskutitmqgdfjeusrtfv@forum.dlang.org">quite a controversy surrounding this</a> so use with care.</p>
+<h3 id="template-parameters">Template parameters</h3>
+<p>Template parameters (and templates in general) are detailed in a previous post <a href="/articles/templates-in-d-explained.html">previous post</a> where it’s explained that the rules for their parens are very similar to functions. At the most basic, if there is only one template parameter then those parens can be omitted and in some cases the template parameter can be omitted too.</p>
+<p>For example these three calls instantiate this templated function in exactly the same way:</p>
+<script src="https://gist.github.com/nomad-software/7e57ce98947cf5568b4371ac53e728fb.js"></script>
+<p>When calling a templated function using the last option however, the type must be able to be inferred by the compiler at compile time. If that’s possible, the template will be instantiated successfully. If more than one template parameter is defined and specified in the call then parens must always be used.</p>
+<p><strong>Not explicitly passing template parameters is referred to as IFTI (Implicit Function Template Instantiation)</strong> i.e. template parameters can be omitted when they can be deduced from the function arguments.</p>
+<p>The same also applies for template parameters in classes, structures and interfaces.</p>
+<script src="https://gist.github.com/nomad-software/7a2c2e92c4f2621128e65a063bab447d.js"></script>
+<p>Here i’ve instantiated the <code>Stack</code> class using no parens whatsoever which looks extremely weird but mirrors what we’ve learned so far. First, there is only one template parameter so parens are not needed there. Second, there’s no constructor defined for this class so we don’t need parens there either. The constructor is a member function too so it also adheres to previous rules regarding parens usage with functions that have no parameters.</p>
+<h2 id="dot-notation-ufcs">Dot notation (UFCS)</h2>
+<p>Aside from optional parentheses there is another important alternative syntax when using non member functions. This syntax is relatively easy to understand but unless it’s been explained can cause huge confusion. Essentially any non member function can infer the first value parameter from the identifier prefixing the call appended via a dot.</p>
+<script src="https://gist.github.com/nomad-software/306fbfb52f7c88e234066236a689b896.js"></script>
+<p>Here the <code>foo</code> function defines an <code>int</code> as its first parameter. During the call we pass this argument using a literal (or alternatively a variable) prefixing the call appended via a dot e.g. <code>123.foo()</code>. Because the first parameter is now fulfilled using dot notation, the argument is no longer required to be passed in the call’s parens. Because the function no longer needs any arguments, the parens are optional as shown on by the last <code>assert</code>.</p>
+<p><strong>This dot notation syntax is commonly referred to as UFCS (Uniform Function Call Syntax)</strong> You can read more about the rationale behind it in an aptly named article called <a href="http://www.drdobbs.com/cpp/uniform-function-call-syntax/232700394">Uniform Function Call Syntax</a> by <a href="https://en.wikipedia.org/wiki/Walter_Bright">Walter Bright</a>.</p>
+<h2 id="common-usage">Common usage</h2>
+<p>These alternate syntaxes are there to make programming using D more expressive and concise and easing the rules on templates and functions can lead to some surprisingly elegant constructs.</p>
+<h3 id="properties">Properties</h3>
+<p>As shown above, the big win for optional parens are to allow properties to be created easily, eliminating the need for ubiquitous <a href="https://en.wikipedia.org/wiki/Mutator_method">getters and setters</a>. In <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">object oriented programming</a> this is a big win for simplicity.</p>
+<h3 id="chaining-calls">Chaining calls</h3>
+<p>Having optional parens on non member functions coupled with dot notation allows chaining many together leading to more simple and concise code.</p>
+<script src="https://gist.github.com/nomad-software/e46bfe73e572461912e9ce18be94c65a.js"></script>
+<p>Here i’ve chained templates and functions together to create the array <code>x</code>, each passed an argument via dot notation and all missing their parens. This style lends itself very well to <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programming</a>.</p>
+<h3 id="extension-methods">Extension methods</h3>
+<p>One of the most useful applications of the dot notation syntax is to create <a href="https://en.wikipedia.org/wiki/Extension_method">extension methods</a> for existing types. This allows a library of functions to be imported and reused while seeming to belong to the types on which they are used.</p>
+<script src="https://gist.github.com/nomad-software/a6e31fab79941b029ff1c79eb84cb3cd.js"></script>
+<p>Although here the <code>increment()</code> function is defined separately (and could quite easily be imported from a module) its use through dot notation makes it appear to be a native property or method of <code>x</code>. This alternative syntax can be a great way to create flexible libraries. In fact this pattern is used extensively in <a href="https://dlang.org/phobos/index.html">Phobos</a>, the standard library included with all D compilers.</p>
+<blockquote>
+<p>A huge reason for them is to head off the temptation to write ‘kitchen sink’ classes that are filled with every conceivable method. The desired approach is to have the class implement the bare minimum of functionality, and add other functionality with extension methods (that do not have access to the class’ private state). – Walter Bright</p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<p>Hopefully this article will ease confusion over these alternative syntaxes and help newcomers learn this great language. Once these simple rules are learned reading most D code becomes a breeze and further enhances your toolset.</p>
+<hr />
+															<div id="disqus_thread" class="disqus"></div>
+						<script type="text/javascript" defer>
+							var disqus_config = function() {
+								this.page.url        = "http://nomad.uk.net/articles/alternative-function-syntax-in-d.html";
+								this.page.identifier = "85ce95f5ae8c3c82cb9c701b14779bfa";
+							};
+
+							(function() {
+								var d = document;
+								var s = d.createElement('script');
+								s.src = 'https://nomad-software.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+							})();
+						</script>
+												</div>
+		</div>
+
+		<footer>
+			<div class="content">
+				<table>
+					<tr>
+						<td>
+							<img src="/images/footer/portrait.jpg" class="thumb" />
+						</td>
+						<td>
+							<p class="author">
+								<strong>Author: Gary Willoughby</strong><br>
+								Software engineer and published author with over twenty years experience of software design and development.
+							</p>
+
+							<div class="links">
+								<a title="Twitter" href="https://twitter.com/nomaddeveloper" target="_blank"><img src="/images/header/twitter.png" alt="Twitter"></a>
+								<a title="Linkedin" href="http://uk.linkedin.com/pub/gary-willoughby/63/489/33b" target="_blank"><img src="/images/header/linkedin.png" alt="Linkedin"></a>
+								<a title="Github" href="https://github.com/nomad-software" target="_blank"><img src="/images/header/github.png" alt="Github"></a>
+							</div>
+
+							<p class="copyright">
+								Content copyright &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Gary Willoughby All Rights Reserved.
+								All source code is public domain and provided "as is", so use at your own risk.
+								All content previously appeared at <a href="http://nomad.so/" target="_blank">www.nomad.so</a> and carefully migrated here because the somalis wanted their domain back! 😞
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</footer>
+	</body>
+</html>
