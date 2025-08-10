@@ -10,7 +10,7 @@ description: The above quote comes from a post made by a programmer called Jamie
 
 <time>Posted on 3rd March 2010 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
-**EDIT:** This is now an old post and my opinion of Linux has changed a great deal over the years. While I agree this viewpoint had some merit a few years ago, the enormous effort by the open source community to make Linux great has generally succeeded. So for the record, this article no longer represents my views on Linux and should be viewed in a historical context.
+<aside>This is now an old post and my opinion of Linux has changed a great deal over the years. While I agree this viewpoint had some merit ten or fifteen years ago, the enormous effort by the open source community to make Linux great has generally succeeded. So for the record, this article no longer represents my views on Linux and should be viewed in a historical context. I love Linux and I use it daily for all my computing tasks.</aside>
 
 ---
 

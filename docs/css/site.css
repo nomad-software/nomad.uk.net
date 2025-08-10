@@ -112,6 +112,15 @@ p {
 	margin: 0 0 1.4em 0;
 }
 
+aside {
+	border: #e1e1e1 1px solid;
+	padding: 22px 15px 1.4em 95px;
+	background: #eaeae5 url("/nomad.uk.net/images/body/content/alert.png") 17px 22px no-repeat;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+	border-radius: 4px;
+	margin: 24px 0 1.4em 0;
+}
+
 ul, ol {
 	margin: 0 0 1.8em 0;
 }
@@ -126,7 +135,7 @@ blockquote {
 	padding: 22px 15px 6px 95px;
 	margin: 24px 0 30px;
 	color: #7f7e7e;
-	background: #eaeae5 url("/nomad.uk.net/images/body/content/blockquote.png") 15px center no-repeat;
+	background: #eaeae5 url("/nomad.uk.net/images/body/content/blockquote.png") 17px 22px no-repeat;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
 	border-radius: 4px;
 	margin: 0 0 1.6em 0;

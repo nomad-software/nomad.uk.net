@@ -10,7 +10,7 @@ description: Go is shaping up to be a popular language for doing serious large s
 
 <time>Posted on 25th March 2015 by [Gary Willoughby](/nomad.uk.net/pages/about.html)</time>
 
-**EDIT:** This is now an old post and my opinion of Go has changed a great deal over the years. This article has been used to cause harm on the reputation of Go and its community which is not warranted. Over the years i've come to appreciate the simplicity of Go and the ethos behind its creation. Today, I'm employed as a Go engineer and I enjoy using it tremendously. In fact, I'd go further and say it's one of the finest languages I've ever used. With all honesty, my opinion was wrong when I wrote this article and the quotes by Rob Pike were obviously a reaction to the complexity of other bloated languages.
+<aside>This is now an old post and my opinion of Go has changed a great deal over the years. This article has been used to cause harm on the reputation of Go and its community which is not warranted. Over the years i've come to appreciate the simplicity of Go and the ethos behind its creation. Today, I'm employed as a Go engineer and I enjoy using it tremendously. In fact, I'd go further and say it's one of the finest languages I've ever used. With all honesty, my opinion was wrong when I wrote this article and the quotes by Rob Pike were obviously a reaction to the complexity of other bloated languages.</aside>
 
 ---
 
