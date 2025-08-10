@@ -14,7 +14,7 @@ Hi, my name is Gary Willoughby, I live in the UK and I’m a software engineer.
 
 I indulge in the craft of software development as a creative endeavor and I love the challenge posed by problems all software developers face. I’m also someone who likes to do things properly, so where possible I always adhere to best practices and good coding standards. I read a great deal of books on software development and continue to hone my craft, hopefully improving year on year as I learn to be more professional and robust in my approaches to software problems.
 
-A few years ago I wrote a book titled [PureBasic – A Beginner’s Guide To Computer Programming](/nomad.uk.net/downloads/PureBasic%20-%20A%20Beginners%20Guide.pdf) which uses the PureBasic language as a platform to teach beginners how to program computers and how to create their own applications and games. I was quite shocked by its popularity and after a lot of community persuasion decided to release it under the Creative Commons Attribution-Noncommercial-Share Alike License.
+A few years ago I wrote a book titled [PureBasic – A Beginner’s Guide To Computer Programming](/nomad.uk.net/downloads/PureBasic%20-%20A%20Beginners%20Guide.pdf) which uses the [PureBasic language](https://www.purebasic.com/) as a platform to teach beginners how to program computers and how to create their own applications and games. I was quite shocked by its popularity and after a lot of community persuasion decided to release it under the Creative Commons Attribution-Noncommercial-Share Alike License.
 
 ## Why write a blog?
 
